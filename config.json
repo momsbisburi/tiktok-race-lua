@@ -1,0 +1,85 @@
+{
+  "info": "your_tiktok_api_token_here",
+  "websocket": {
+    "url": "ws://localhost:21213",
+    "reconnectDelay": 5000,
+    "maxReconnectAttempts": 10
+  },
+  "race": {
+    "maxPlayers": 100,
+    "countdownTime": 11,
+    "defaultCar": "hermes",
+    "spawnLocation": {
+      "x": 1722.0,
+      "y": 3239.0,
+      "z": 40.7287,
+      "heading": 286.7277
+    },
+    "cameraPosition": {
+      "x": 1768.0,
+      "y": 3266.0,
+      "z": 60.0
+    },
+    "cameraLookAt": {
+      "x": 1621.0,
+      "y": 3228.0,
+      "z": 40.41968
+    },
+    "spectatorPosition": {
+      "x": 1717.06,
+      "y": 3287.031,
+      "z": 41.16869
+    }
+  },
+  "cars": {
+    "default": "hermes",
+    "gift": "vigilante",
+    "vip": "zentorno",
+    "special": {
+      "rose": "adder",
+      "diamond": "entityxf",
+      "rocket": "vigilante"
+    }
+  },
+  "boost": {
+    "like": 10,
+    "gift": 15,
+    "share": 20,
+    "follow": 25
+  },
+  "events": [
+    {
+      "name": "like",
+      "enabled": true,
+      "joinDuringQueue": true,
+      "boostDuringRace": true,
+      "boostAmount": 10
+    },
+    {
+      "name": "gift",
+      "enabled": true,
+      "joinDuringQueue": true,
+      "boostDuringRace": true,
+      "boostAmount": 15,
+      "specialCar": true
+    },
+    {
+      "name": "share",
+      "enabled": true,
+      "joinDuringQueue": false,
+      "boostDuringRace": true,
+      "boostAmount": 20
+    },
+    {
+      "name": "follow",
+      "enabled": true,
+      "joinDuringQueue": false,
+      "boostDuringRace": true,
+      "boostAmount": 25
+    }
+  ],
+  "api": {
+    "leaderboardUrl": "https://keepmy.live/api/v1/lb/win",
+    "enabled": true
+  }
+}
