@@ -696,7 +696,7 @@ function killAllRacers()
     playerPositions = {}
 end
 
-function startDriving()
+function startDrivingWithoutAI()
     print("^2[TikTok Race]^7 Starting race with " .. playerNumber .. " players - AI driving enabled")
     
     for i = 1, playerNumber do
