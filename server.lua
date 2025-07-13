@@ -118,7 +118,7 @@ local eventHandlers = {
         if gameState == 3 then
             -- QUEUE: Join using ORIGINAL DefaultCar (Vigero)
             if handleUser(uniqueId, nickname, data.userId) then
-                TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar) -- "vigero" like C#
+                TriggerClientEvent('tiktok_race:playerJoin', -1, uniqueId, config.defaultCar) -- "vigero" like C#
                 print("^2[TTR]^7 ✅ " .. nickname .. " joined via LIKE with " .. config.defaultCar .. "!")
             end
             
@@ -144,7 +144,7 @@ local eventHandlers = {
     
     if string_lower(comment):find("!join") and gameState == 3 then
         if handleUser(uniqueId, nickname, data.userId) then
-            TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar) -- "vigero" like C#
+            TriggerClientEvent('tiktok_race:playerJoin', -1, uniqueId, config.defaultCar) -- "vigero" like C#
             print("^2[TTR]^7 ✅ " .. nickname .. " joined via !join with " .. config.defaultCar .. "!")
         end
     end
@@ -198,14 +198,14 @@ end,
                 if gameState == 3 then
                     -- QUEUE STATE: VIP join with original car selection
                     if handleUser(uniqueId, nickname, data.userId) then
-                        TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, carModel)
+                        TriggerClientEvent('tiktok_race:playerJoin', -1, uniqueId, carModel)
                         print("^2[TTR]^7 ✅ " .. nickname .. " joined as " .. carTier .. " with " .. carModel .. "!")
                         
                         -- Announce VIP join
                         TriggerClientEvent('chat:addMessage', -1, {
                             color = {255, 215, 0},
                             multiline = false,
-                            args = {"[VIP ENTRY]", nickname .. " joined as " .. carTier .. " with " .. carModel .. "!"}
+                            args = {"[VIP ENTRY]", uniqueId .. " joined as " .. carTier .. " with " .. carModel .. "!"}
                         })
                     else
                         print("^1[TTR]^7 " .. nickname .. " couldn't join (duplicate or full)")
@@ -239,7 +239,7 @@ end,
                         TriggerClientEvent('chat:addMessage', -1, {
                             color = {255, 69, 0},
                             multiline = false,
-                            args = {"[" .. boostText .. "]", nickname .. " got +" .. boostAmount .. " speed from " .. giftName .. "!"}
+                            args = {"[" .. boostText .. "]", uniqueId .. " got +" .. boostAmount .. " speed from " .. giftName .. "!"}
                         })
                     else
                         print("^1[TTR]^7 " .. nickname .. " not in race - cannot boost")
