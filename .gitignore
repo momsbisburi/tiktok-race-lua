@@ -8,3 +8,4 @@ events/events_processed.json
 events/events_queue.json
 events/events_processed.json
 events/bridge_stats.json
+*.json

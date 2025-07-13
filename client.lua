@@ -1111,49 +1111,65 @@ function boostPlayer(playerId, speed, nitro)
         return
     end
     
-    -- Update stored speed
-    local oldSpeed = playerSpeeds[playerId] or 0
-    playerSpeeds[playerId] = oldSpeed + speed
-    local newSpeed = playerSpeeds[playerId]
+    -- CRITICAL: Accumulate speed like C# (this.players_speed[id] += speed)
+    playerAccumulatedSpeeds[playerId] = (playerAccumulatedSpeeds[playerId] or 0) + speed
+    local totalSpeed = baseDrivingSpeed + playerAccumulatedSpeeds[playerId]
     
-    print("^2[TikTok Race]^7 🚀 SPEED BOOST player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed)
+    -- Update stored speed for compatibility
+    playerSpeeds[playerId] = totalSpeed
     
-    -- Immediately apply new speed limits
-    local gameSpeed = newSpeed * 0.44704 -- Convert to m/s
-    SetEntityMaxSpeed(vehicle, gameSpeed)
-    SetDriveTaskMaxCruiseSpeed(ped, gameSpeed)
+    print("^2[TikTok Race]^7 🚀 SMOOTH BOOST player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ")")
+    print("^2[TikTok Race]^7    Base: " .. baseDrivingSpeed .. " + Accumulated: " .. playerAccumulatedSpeeds[playerId] .. " = Total: " .. totalSpeed)
     
-    -- Give immediate forward push (like C# BoostPlayer function)
-    local forwardVector = GetEntityForwardVector(vehicle)
-    local boostForce = speed * 0.5 -- Immediate boost force
-    ApplyForceToEntity(vehicle, 1,
-        forwardVector.x * boostForce,
-        forwardVector.y * boostForce,
-        0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
+    -- OPTION 1: Pure AI Driving (Most Smooth - Recommended)
+    updatePlayerDrivingTask(playerId, totalSpeed, nitro)
     
-    -- Handle nitro with stronger force
-    if nitro then
-        print("^2[TikTok Race]^7 💨 NITRO!")
-        SetVehicleOnGroundProperly(vehicle)
-        
-        -- Stronger nitro force
-        ApplyForceToEntity(vehicle, 1,
-            forwardVector.x * speed * 1.0,
-            forwardVector.y * speed * 1.0,
-            0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
-    end
+    -- OPTION 2: Alternative - Hybrid approach (if AI driving isn't smooth enough)
+    -- updatePlayerSpeedHybrid(playerId, totalSpeed, nitro)
+end
+
+
+function updatePlayerDrivingTask(playerId, newSpeed, nitro)
+    local ped = players[playerId]
+    local vehicle = vehicles[playerId]
     
-    -- Update driving task with new speed
+    -- Convert speed to game units (like C# conversion)
+    local gameSpeed = newSpeed * 0.44704 -- mph to m/s conversion
+    
+    -- Update AI driving task with new speed (matches C# TASK_VEHICLE_DRIVE_TO_COORD_LONGRANGE)
     TaskVehicleDriveToCoord(ped, vehicle,
         racePoint.x, racePoint.y, racePoint.z,
-        gameSpeed,
-        0,
+        gameSpeed,  -- This is the key - let AI handle acceleration smoothly
+        0,          -- Use default AI behavior flags
         GetEntityModel(vehicle),
-        262196,
-        15.0,
-        -1.0
+        786603,     -- AI driving mode (matches C# 262196 but converted)
+        15.0,       -- StoppingRange
+        -1.0        -- StraightLineDistance
     )
+    
+    -- Set ped's max driving speed (like C# ped.MaxDrivingSpeed)
+    SetDriveTaskMaxCruiseSpeed(ped, gameSpeed)
+    
+    -- Only apply nitro force if specified (light touch)
+    if nitro then
+        print("^2[TikTok Race]^7 💨 SMOOTH NITRO!")
+        CreateThread(function()
+            -- Apply gentle forward force over time instead of instant burst
+            for i = 1, 20 do -- 2 seconds of gentle force
+                if DoesEntityExist(vehicle) then
+                    local forwardVector = GetEntityForwardVector(vehicle)
+                    local gentleForce = 2.0 -- Much lighter than before
+                    ApplyForceToEntity(vehicle, 1,
+                        forwardVector.x * gentleForce,
+                        forwardVector.y * gentleForce,
+                        0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
+                end
+                Wait(100) -- Spread force over time
+            end
+        end)
+    end
 end
+
 function getNameId(searchName)
     searchName = string.lower(searchName)
     for i = 1, playerNumber do
