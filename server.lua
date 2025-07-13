@@ -19,7 +19,13 @@ local playerCount = 0
 -- Configuration
 local config = {
     maxPlayers = 100,
-    defaultCar = "hermes"
+    defaultCar = "hermes",
+        boost = {
+        like = 5,      -- CHANGE: Each like gives +5 speed (was 10)
+        gift = 10,     -- CHANGE: Base gift gives +10 speed (was 15)
+        share = 15,    -- CHANGE: Each share gives +15 speed (was 20)
+        follow = 20    -- CHANGE: Each follow gives +20 speed (was 25)
+    }
 }
 
 -- Performance optimization

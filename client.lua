@@ -394,7 +394,7 @@ function handleCountdown()
             FreezeEntityPosition(PlayerPedId(), false)
             
             -- Start the cars driving (but don't use AI mode)
-            startDrivingWithoutAI()
+            startDriving()
             
         elseif seconds < 1 then
             if soundPlayId ~= soundPlayIdS then
@@ -696,8 +696,10 @@ function killAllRacers()
     playerPositions = {}
 end
 
-function startDrivingWithoutAI()
-    print("^2[TikTok Race]^7 Starting race with " .. playerNumber .. " players - AI driving enabled")
+
+-- REPLACE the original startDriving function
+function startDriving()
+    print("^2[TikTok Race]^7 Starting race with " .. playerNumber .. " players")
     
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
@@ -706,45 +708,33 @@ function startDrivingWithoutAI()
             
             print("^3[TikTok Race]^7 Setting up AI for player " .. i .. ": " .. (playerNames[i] or "Unknown"))
             
-            -- Set initial speed to 0 (cars won't move until boosted)
-            playerSpeeds[i] = 0
+            -- FOR TESTING: Give cars a default speed so they move immediately
+            playerSpeeds[i] = 15  -- Default testing speed (change to 0 for production)
             
             -- Configure AI driving abilities
-            SetDriverAbility(ped, 1.0)  -- Maximum driving skill
-            SetDriverAggressiveness(ped, 0.3)  -- Low aggression for safer driving
+            SetDriverAbility(ped, 1.0)  -- Max driving skill
+            SetDriverAggressiveness(ped, 0.4)  -- Moderate aggression
             
-            -- Start with AI driving task but at 0 speed (stationary)
-            -- Using TASK_VEHICLE_DRIVE_TO_COORD with proper AI flags
+            -- Make sure vehicle is ready
+            SetVehicleEngineOn(vehicle, true, true, false)
+            SetVehicleOnGroundProperly(vehicle)
+            
+            -- Start AI driving at testing speed
             TaskVehicleDriveToCoord(ped, vehicle, 
                 racePoint.x, racePoint.y, racePoint.z,  -- Destination
-                0.0,  -- Speed (0 = stationary until boosted)
-                1,    -- AI flags: 1 = normal driving
-                GetEntityModel(vehicle),  -- Vehicle model
-                786603,  -- Driving style: 786603 = avoid traffic, obey lights, avoid vehicles
-                2.0,  -- Target radius
-                -1.0  -- Straight line distance
+                playerSpeeds[i],  -- Testing speed (15)
+                0,    -- No special flags
+                GetEntityModel(vehicle),
+                262144 + 4 + 8,  -- NORMAL + AVOID_TRAFFIC + AVOID_VEHICLES
+                15.0,  -- Target radius
+                -1.0   -- Straight line distance
             )
             
-            print("^2[TikTok Race]^7 Player " .. i .. " ready with AI driving (speed: 0, waiting for boosts)")
+            print("^2[TikTok Race]^7 Player " .. i .. " starting with testing speed: " .. playerSpeeds[i])
         end
     end
     
-    -- Make sure all vehicles are ready
-    for i = 1, playerNumber do
-        if DoesEntityExist(vehicles[i]) then
-            SetVehicleEngineOn(vehicles[i], true, true, false)
-            -- Ensure vehicle can be controlled by AI
-            SetVehicleNeedsToBeHotwired(vehicles[i], false)
-            SetVehicleHasBeenOwnedByPlayer(vehicles[i], false)
-        end
-    end
-    
-    print("^2[TikTok Race]^7 🏁 All cars ready! Viewers need to send likes/gifts to make cars move!")
-end
--- REPLACE the original startDriving function
-function startDriving()
-    -- This is called by the old AI system - redirect to our new function
-    startDrivingWithoutAI()
+    print("^2[TikTok Race]^7 🏁 All cars driving at testing speed! Boosts will make them faster!")
 end
 
 function renderNames()
@@ -835,7 +825,7 @@ function checkRaceFinish()
     end
 end
 
-function boostPlayer(playerId, speed)
+function boostPlayer(playerId, speed, nitro)
     if not players[playerId] or not DoesEntityExist(players[playerId]) then
         print("^1[TikTok Race]^7 Cannot boost - Player " .. playerId .. " doesn't exist")
         return
@@ -849,23 +839,70 @@ function boostPlayer(playerId, speed)
         return
     end
     
-    -- Update speed - significant boost
-    local oldSpeed = playerSpeeds[playerId] or 5
-    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80) -- Cap at 80
+    -- PERMANENT SPEED INCREASE - speed never decreases!
+    local oldSpeed = playerSpeeds[playerId] or 0
+    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80) -- Add to permanent speed, cap at 80
     local newSpeed = playerSpeeds[playerId]
     
-    print("^2[TikTok Race]^7 🚀 BOOSTING player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed)
+    print("^2[TikTok Race]^7 🚀 PERMANENT SPEED BOOST player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed .. " (PERMANENT)")
     
-    -- Clear current task and start new one with higher speed
-    ClearPedTasks(ped)
-    Wait(50)
+    -- Update AI driving with new PERMANENT speed
+    -- This becomes the car's new cruising speed until the race ends
+    TaskVehicleDriveToCoord(ped, vehicle,
+        racePoint.x, racePoint.y, racePoint.z,
+        newSpeed,  -- New permanent driving speed
+        0,         -- No special flags
+        GetEntityModel(vehicle),
+        262144 + 4 + 8,  -- NORMAL + AVOID_TRAFFIC + AVOID_VEHICLES
+        15.0,      -- Target radius
+        -1.0       -- Straight line distance
+    )
     
-    -- Start driving with new speed
-    TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
-        newSpeed, 0, GetEntityModel(vehicle), 786603, 15.0, -1.0)
+    -- Update AI behavior based on permanent speed
+    if newSpeed > 40 then
+        SetDriverAggressiveness(ped, 0.9)  -- Very aggressive for fast cars
+        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives aggressively (high speed)")
+    elseif newSpeed > 20 then
+        SetDriverAggressiveness(ped, 0.6)  -- Medium aggression
+        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives moderately (medium speed)")
+    elseif newSpeed > 5 then
+        SetDriverAggressiveness(ped, 0.3)  -- Careful driving for slow cars
+        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives carefully (low speed)")
+    else
+        SetDriverAggressiveness(ped, 0.1)  -- Very careful for very slow cars
+        print("^3[TikTok Race]^7 Player " .. playerId .. " crawling forward (very low speed)")
+    end
+    
+    -- ONLY apply nitro force for actual nitro gifts
+    if nitro then
+        print("^2[TikTok Race]^7 💨 NITRO EXPLOSION for player " .. playerId .. "!")
         
-    -- Visual feedback
-    SetVehicleForwardSpeed(vehicle, newSpeed * 0.3) -- Give immediate speed boost
+        -- Apply explosive nitro force (temporary visual effect)
+        local forwardVector = GetEntityForwardVector(vehicle)
+        local nitroForce = speed * 4.0  -- Strong explosive push
+        
+        ApplyForceToEntity(vehicle, 1, 
+            forwardVector.x * nitroForce, 
+            forwardVector.y * nitroForce, 
+            0.0,  -- No vertical force
+            0.0, 0.0, 0.0,  -- No rotation
+            0,    -- Bone index
+            false, true, true, false, true
+        )
+        
+        -- Temporary speed burst for visual effect
+        SetVehicleForwardSpeed(vehicle, newSpeed * 1.2)
+    else
+        -- Normal boost - just permanent speed increase, no forces
+        print("^2[TikTok Race]^7 ⚡ Normal speed increase (permanent)")
+    end
+    
+    -- Show current status
+    if newSpeed == 0 then
+        print("^1[TikTok Race]^7 Player " .. playerId .. " is still stationary")
+    else
+        print("^2[TikTok Race]^7 Player " .. playerId .. " now permanently drives at speed " .. newSpeed)
+    end
 end
 
 function getNameId(searchName)
