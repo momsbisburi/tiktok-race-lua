@@ -1,6 +1,6 @@
 {
-  "timestamp": 1752400763355,
-  "count": 417,
+  "timestamp": 1752400775377,
+  "count": 429,
   "events": [
     {
       "id": "1752399346743_ar5a2cwug",
@@ -6728,6 +6728,192 @@
       },
       "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
       "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400002233_s57o8peg6",
+      "timestamp": 1752400002233,
+      "event": "like",
+      "user": {
+        "nickname": "DITZZ",
+        "uniqueId": "radit9186",
+        "userId": "7283112963962110981"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"DITZZ\" \"radit9186\" 15",
+      "summary": "❤️ DITZZ liked (15)"
+    },
+    {
+      "id": "1752400002235_j640w6yui",
+      "timestamp": 1752400002235,
+      "event": "chat",
+      "user": {
+        "nickname": "arcelio_assegaf",
+        "uniqueId": "arcelio_assegaf",
+        "userId": "6881618821695161346"
+      },
+      "data": {
+        "comment": "Follow ges"
+      },
+      "command": "",
+      "summary": "💬 arcelio_assegaf: Follow ges"
+    },
+    {
+      "id": "1752400003032_3prjljvgv",
+      "timestamp": 1752400003032,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400003886_sxt040ylc",
+      "timestamp": 1752400003886,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
+    },
+    {
+      "id": "1752400005484_j0dj18nsr",
+      "timestamp": 1752400005484,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
+    },
+    {
+      "id": "1752400006286_u93b2vex8",
+      "timestamp": 1752400006286,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
+    },
+    {
+      "id": "1752400007084_eisz1i89m",
+      "timestamp": 1752400007084,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400007904_b3abg42ld",
+      "timestamp": 1752400007904,
+      "event": "gift",
+      "user": {
+        "nickname": "arcelio_assegaf",
+        "uniqueId": "arcelio_assegaf",
+        "userId": "6881618821695161346"
+      },
+      "data": {
+        "giftName": "Rose",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
+      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
+    },
+    {
+      "id": "1752400007907_usfbt2n87",
+      "timestamp": 1752400007907,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
+    },
+    {
+      "id": "1752400008685_uj053sv17",
+      "timestamp": 1752400008685,
+      "event": "gift",
+      "user": {
+        "nickname": "arcelio_assegaf",
+        "uniqueId": "arcelio_assegaf",
+        "userId": "6881618821695161346"
+      },
+      "data": {
+        "giftName": "Rose",
+        "diamondCount": 1,
+        "repeatCount": 2,
+        "totalValue": 2
+      },
+      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 2 \"arcelio_assegaf\"",
+      "summary": "🎁 arcelio_assegaf sent Rose x2 (2 diamonds)"
+    },
+    {
+      "id": "1752400009535_eevgj5j1k",
+      "timestamp": 1752400009535,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
+    },
+    {
+      "id": "1752400010337_h5zfa1npd",
+      "timestamp": 1752400010337,
+      "event": "like",
+      "user": {
+        "nickname": "primogem dan mora",
+        "uniqueId": "fansbbglxy",
+        "userId": "6918271589684757505"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
+      "summary": "❤️ primogem dan mora liked (15)"
     }
   ]
 }
