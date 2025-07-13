@@ -1,1426 +1,7 @@
 {
-  "timestamp": 1752408648934,
+  "timestamp": 1752408774606,
   "count": 1000,
   "events": [
-    {
-      "id": "1752407444015_jm8g2hlvl",
-      "timestamp": 1752407444015,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 8
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 8",
-      "summary": "❤️ akbar jr liked (8)"
-    },
-    {
-      "id": "1752407445627_iricbm11w",
-      "timestamp": 1752407445627,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407447216_ak6eyznof",
-      "timestamp": 1752407447216,
-      "event": "like",
-      "user": {
-        "nickname": "Selasa wage",
-        "uniqueId": "bengbenggembeng",
-        "userId": "6965684273614341122"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Selasa wage\" \"bengbenggembeng\" 15",
-      "summary": "❤️ Selasa wage liked (15)"
-    },
-    {
-      "id": "1752407448017_xyyu3h1je",
-      "timestamp": 1752407448017,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407448018_xo2jl2fen",
-      "timestamp": 1752407448018,
-      "event": "follow",
-      "user": {
-        "nickname": "sweet heart",
-        "uniqueId": "sweet.heart9433",
-        "userId": "6982120917002667009"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"sweet heart\" \"sweet.heart9433\" follow",
-      "summary": "👥 sweet heart followed"
-    },
-    {
-      "id": "1752407448819_nlz16a4am",
-      "timestamp": 1752407448819,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407448821_6ezoq4d4r",
-      "timestamp": 1752407448821,
-      "event": "gift",
-      "user": {
-        "nickname": "kudamerah",
-        "uniqueId": "babanyadipta",
-        "userId": "7282064566364013574"
-      },
-      "data": {
-        "giftName": "GG",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"kudamerah\" \"GG\" 1 1 \"babanyadipta\"",
-      "summary": "🎁 kudamerah sent GG x1 (1 diamonds)"
-    },
-    {
-      "id": "1752407450420_uvvhx8ejq",
-      "timestamp": 1752407450420,
-      "event": "like",
-      "user": {
-        "nickname": "Selasa wage",
-        "uniqueId": "bengbenggembeng",
-        "userId": "6965684273614341122"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Selasa wage\" \"bengbenggembeng\" 15",
-      "summary": "❤️ Selasa wage liked (15)"
-    },
-    {
-      "id": "1752407451221_w9g5qkexv",
-      "timestamp": 1752407451221,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407452020_okzhx6l37",
-      "timestamp": 1752407452020,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407452824_caue525ex",
-      "timestamp": 1752407452824,
-      "event": "gift",
-      "user": {
-        "nickname": "kudamerah",
-        "uniqueId": "babanyadipta",
-        "userId": "7282064566364013574"
-      },
-      "data": {
-        "giftName": "GG",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"kudamerah\" \"GG\" 1 1 \"babanyadipta\"",
-      "summary": "🎁 kudamerah sent GG x1 (1 diamonds)"
-    },
-    {
-      "id": "1752407453625_mobhb06nt",
-      "timestamp": 1752407453625,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407454420_2vdea15vy",
-      "timestamp": 1752407454420,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 8
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 8",
-      "summary": "❤️ kikii liked (8)"
-    },
-    {
-      "id": "1752407455221_grzr0x0dd",
-      "timestamp": 1752407455221,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 1",
-      "summary": "❤️ kikii liked (1)"
-    },
-    {
-      "id": "1752407456024_z9vrxz7gj",
-      "timestamp": 1752407456024,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407457619_lvbxok2bt",
-      "timestamp": 1752407457619,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 6
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 6",
-      "summary": "❤️ ILZAM liked (6)"
-    },
-    {
-      "id": "1752407458428_nxotwy7fv",
-      "timestamp": 1752407458428,
-      "event": "like",
-      "user": {
-        "nickname": "MAS IZID",
-        "uniqueId": "masizd8",
-        "userId": "7419619875046294534"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"MAS IZID\" \"masizd8\" 15",
-      "summary": "❤️ MAS IZID liked (15)"
-    },
-    {
-      "id": "1752407459230_trk13mzcz",
-      "timestamp": 1752407459230,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407460027_xdnrm7p7t",
-      "timestamp": 1752407460027,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 5
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 5",
-      "summary": "❤️ kikii liked (5)"
-    },
-    {
-      "id": "1752407461634_74fm8v4ay",
-      "timestamp": 1752407461634,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 15",
-      "summary": "❤️ ILZAM liked (15)"
-    },
-    {
-      "id": "1752407461636_kan1gjhz5",
-      "timestamp": 1752407461636,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407463226_fvg6v9i42",
-      "timestamp": 1752407463226,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407464029_n7tw7m28y",
-      "timestamp": 1752407464029,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 7
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 7",
-      "summary": "❤️ ILZAM liked (7)"
-    },
-    {
-      "id": "1752407464826_l812nmt1u",
-      "timestamp": 1752407464826,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407466431_q5xwkjqvl",
-      "timestamp": 1752407466431,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 5
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 5",
-      "summary": "❤️ Jeglek liked (5)"
-    },
-    {
-      "id": "1752407467239_lpnfwk1z9",
-      "timestamp": 1752407467239,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407468832_3iv3hgz4u",
-      "timestamp": 1752407468832,
-      "event": "like",
-      "user": {
-        "nickname": "sweet heart",
-        "uniqueId": "sweet.heart9433",
-        "userId": "6982120917002667009"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"sweet heart\" \"sweet.heart9433\" 15",
-      "summary": "❤️ sweet heart liked (15)"
-    },
-    {
-      "id": "1752407469629_xh0qp50vt",
-      "timestamp": 1752407469629,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407471234_glhenqo66",
-      "timestamp": 1752407471234,
-      "event": "chat",
-      "user": {
-        "nickname": "AL Kaisar",
-        "uniqueId": "tidur.abadi",
-        "userId": "7100333223721731098"
-      },
-      "data": {
-        "comment": "kurang kuat ketua..."
-      },
-      "command": "",
-      "summary": "💬 AL Kaisar: kurang kuat ketua..."
-    },
-    {
-      "id": "1752407472032_2yqk4qv1e",
-      "timestamp": 1752407472032,
-      "event": "like",
-      "user": {
-        "nickname": "kudamerah",
-        "uniqueId": "babanyadipta",
-        "userId": "7282064566364013574"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kudamerah\" \"babanyadipta\" 15",
-      "summary": "❤️ kudamerah liked (15)"
-    },
-    {
-      "id": "1752407472835_hviza7z6r",
-      "timestamp": 1752407472835,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 6
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 6",
-      "summary": "❤️ ILZAM liked (6)"
-    },
-    {
-      "id": "1752407473635_ty10qf22w",
-      "timestamp": 1752407473635,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407474441_boqzez733",
-      "timestamp": 1752407474441,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407475239_bva7jd11t",
-      "timestamp": 1752407475239,
-      "event": "like",
-      "user": {
-        "nickname": "sweet heart",
-        "uniqueId": "sweet.heart9433",
-        "userId": "6982120917002667009"
-      },
-      "data": {
-        "likeCount": 7
-      },
-      "command": "ttr_test_like \"sweet heart\" \"sweet.heart9433\" 7",
-      "summary": "❤️ sweet heart liked (7)"
-    },
-    {
-      "id": "1752407476040_o3v9it1h2",
-      "timestamp": 1752407476040,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407478436_s04jumrt3",
-      "timestamp": 1752407478436,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407479239_o2c8ic7yj",
-      "timestamp": 1752407479239,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407480051_s59hhbqk9",
-      "timestamp": 1752407480051,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407481636_8v51wplvc",
-      "timestamp": 1752407481636,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407481639_udrxu96nj",
-      "timestamp": 1752407481639,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407483262_jpc452rf8",
-      "timestamp": 1752407483262,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407484042_b4dth1qhv",
-      "timestamp": 1752407484042,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 2
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 2",
-      "summary": "❤️ kikii liked (2)"
-    },
-    {
-      "id": "1752407484840_ahcgvvdm2",
-      "timestamp": 1752407484840,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407486451_bz64pt53s",
-      "timestamp": 1752407486451,
-      "event": "follow",
-      "user": {
-        "nickname": "AFGAN",
-        "uniqueId": "nur_aileee",
-        "userId": "7214597057389675522"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"AFGAN\" \"nur_aileee\" follow",
-      "summary": "👥 AFGAN followed"
-    },
-    {
-      "id": "1752407486452_hc2ip6qq0",
-      "timestamp": 1752407486452,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 1",
-      "summary": "❤️ kikii liked (1)"
-    },
-    {
-      "id": "1752407487240_u3fao0gbb",
-      "timestamp": 1752407487240,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407488846_ri814gh5g",
-      "timestamp": 1752407488846,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407488847_2gamv8mqo",
-      "timestamp": 1752407488847,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 2
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 2",
-      "summary": "❤️ akbar jr liked (2)"
-    },
-    {
-      "id": "1752407490441_dzk47dmr2",
-      "timestamp": 1752407490441,
-      "event": "like",
-      "user": {
-        "nickname": "Irawan Ladore",
-        "uniqueId": "irawan.ladore",
-        "userId": "7040963294123148290"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Irawan Ladore\" \"irawan.ladore\" 15",
-      "summary": "❤️ Irawan Ladore liked (15)"
-    },
-    {
-      "id": "1752407491246_efcvkqg6b",
-      "timestamp": 1752407491246,
-      "event": "like",
-      "user": {
-        "nickname": "Irawan Ladore",
-        "uniqueId": "irawan.ladore",
-        "userId": "7040963294123148290"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"Irawan Ladore\" \"irawan.ladore\" 1",
-      "summary": "❤️ Irawan Ladore liked (1)"
-    },
-    {
-      "id": "1752407491247_qpi6ei3wo",
-      "timestamp": 1752407491247,
-      "event": "follow",
-      "user": {
-        "nickname": "Denoris",
-        "uniqueId": "deno_riz",
-        "userId": "6906789509929714690"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"Denoris\" \"deno_riz\" follow",
-      "summary": "👥 Denoris followed"
-    },
-    {
-      "id": "1752407492043_3v5cjphcd",
-      "timestamp": 1752407492043,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407494441_9cbvegllq",
-      "timestamp": 1752407494441,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 15",
-      "summary": "❤️ Jeglek liked (15)"
-    },
-    {
-      "id": "1752407496041_fb19azw3u",
-      "timestamp": 1752407496041,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407497647_j8inlq9rl",
-      "timestamp": 1752407497647,
-      "event": "like",
-      "user": {
-        "nickname": "zike",
-        "uniqueId": "pratamanabhan",
-        "userId": "7315197324551799813"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"zike\" \"pratamanabhan\" 1",
-      "summary": "❤️ zike liked (1)"
-    },
-    {
-      "id": "1752407497649_et12gdq8f",
-      "timestamp": 1752407497649,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407499242_zra19yny4",
-      "timestamp": 1752407499242,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407500850_u2gvq78l8",
-      "timestamp": 1752407500850,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407502453_kd41yhg5v",
-      "timestamp": 1752407502453,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 13
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 13",
-      "summary": "❤️ kikii liked (13)"
-    },
-    {
-      "id": "1752407503245_p7xfjclh4",
-      "timestamp": 1752407503245,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407504051_rfoc37yzl",
-      "timestamp": 1752407504051,
-      "event": "like",
-      "user": {
-        "nickname": "Jeglek",
-        "uniqueId": "nabilrohmn",
-        "userId": "6877762349903414273"
-      },
-      "data": {
-        "likeCount": 10
-      },
-      "command": "ttr_test_like \"Jeglek\" \"nabilrohmn\" 10",
-      "summary": "❤️ Jeglek liked (10)"
-    },
-    {
-      "id": "1752407505648_ybn19u5g7",
-      "timestamp": 1752407505648,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407506454_46cresdx0",
-      "timestamp": 1752407506454,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407507249_qepkcecei",
-      "timestamp": 1752407507249,
-      "event": "like",
-      "user": {
-        "nickname": "cemong",
-        "uniqueId": "bali_ajaaa",
-        "userId": "7299008014085276678"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"cemong\" \"bali_ajaaa\" 15",
-      "summary": "❤️ cemong liked (15)"
-    },
-    {
-      "id": "1752407508049_kavgzcjgn",
-      "timestamp": 1752407508049,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407509652_9oael9w3u",
-      "timestamp": 1752407509652,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 15",
-      "summary": "❤️ ILZAM liked (15)"
-    },
-    {
-      "id": "1752407509653_5j7hz8ocw",
-      "timestamp": 1752407509653,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407511251_lyjjcwnmo",
-      "timestamp": 1752407511251,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407512056_rk07qjq4p",
-      "timestamp": 1752407512056,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407512853_wu6c5uyrh",
-      "timestamp": 1752407512853,
-      "event": "like",
-      "user": {
-        "nickname": "cemong",
-        "uniqueId": "bali_ajaaa",
-        "userId": "7299008014085276678"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"cemong\" \"bali_ajaaa\" 15",
-      "summary": "❤️ cemong liked (15)"
-    },
-    {
-      "id": "1752407513651_2uw71vjf8",
-      "timestamp": 1752407513651,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407515252_08gsru1v8",
-      "timestamp": 1752407515252,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407516858_k2y4h38h7",
-      "timestamp": 1752407516858,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407517657_wxjttyszd",
-      "timestamp": 1752407517657,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407517659_mrw17kfm5",
-      "timestamp": 1752407517659,
-      "event": "gift",
-      "user": {
-        "nickname": "Cicak terbang",
-        "uniqueId": "kulukulu711",
-        "userId": "6968846133024408578"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"Cicak terbang\" \"Rose\" 1 1 \"kulukulu711\"",
-      "summary": "🎁 Cicak terbang sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752407518464_trnc6eh7t",
-      "timestamp": 1752407518464,
-      "event": "gift",
-      "user": {
-        "nickname": "Cicak terbang",
-        "uniqueId": "kulukulu711",
-        "userId": "6968846133024408578"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"Cicak terbang\" \"Rose\" 1 3 \"kulukulu711\"",
-      "summary": "🎁 Cicak terbang sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752407518465_0g6q5dl4t",
-      "timestamp": 1752407518465,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 15",
-      "summary": "❤️ ILZAM liked (15)"
-    },
-    {
-      "id": "1752407519256_exl9cuycw",
-      "timestamp": 1752407519256,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407520055_jeryzzf4f",
-      "timestamp": 1752407520055,
-      "event": "like",
-      "user": {
-        "nickname": "kikii",
-        "uniqueId": "xyzzkikiiii",
-        "userId": "6882197166233289730"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"kikii\" \"xyzzkikiiii\" 15",
-      "summary": "❤️ kikii liked (15)"
-    },
-    {
-      "id": "1752407521660_0a8vydi8e",
-      "timestamp": 1752407521660,
-      "event": "gift",
-      "user": {
-        "nickname": "Cicak terbang",
-        "uniqueId": "kulukulu711",
-        "userId": "6968846133024408578"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"Cicak terbang\" \"Rose\" 1 3 \"kulukulu711\"",
-      "summary": "🎁 Cicak terbang sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752407521661_l5jq77blo",
-      "timestamp": 1752407521661,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407523253_wkdh6lup0",
-      "timestamp": 1752407523253,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407524855_0t0oib4x8",
-      "timestamp": 1752407524855,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 14
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 14",
-      "summary": "❤️ S liked (14)"
-    },
-    {
-      "id": "1752407526465_elotipq8x",
-      "timestamp": 1752407526465,
-      "event": "like",
-      "user": {
-        "nickname": "ILZAM",
-        "uniqueId": "ilzamanakbaik",
-        "userId": "6978866341441291266"
-      },
-      "data": {
-        "likeCount": 4
-      },
-      "command": "ttr_test_like \"ILZAM\" \"ilzamanakbaik\" 4",
-      "summary": "❤️ ILZAM liked (4)"
-    },
-    {
-      "id": "1752407527254_topwbdoat",
-      "timestamp": 1752407527254,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
-    {
-      "id": "1752407528855_990nruu3c",
-      "timestamp": 1752407528855,
-      "event": "like",
-      "user": {
-        "nickname": "VEGOOS",
-        "uniqueId": "tegartegar14380",
-        "userId": "7116902134252504065"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"VEGOOS\" \"tegartegar14380\" 15",
-      "summary": "❤️ VEGOOS liked (15)"
-    },
-    {
-      "id": "1752407529659_yau42knps",
-      "timestamp": 1752407529659,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407530465_1ebqpk27x",
-      "timestamp": 1752407530465,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 13
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 13",
-      "summary": "❤️ Aksan liked (13)"
-    },
-    {
-      "id": "1752407531258_zm83gxi6v",
-      "timestamp": 1752407531258,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 15",
-      "summary": "❤️ S liked (15)"
-    },
-    {
-      "id": "1752407532855_xmdbgc0cy",
-      "timestamp": 1752407532855,
-      "event": "chat",
-      "user": {
-        "nickname": "AL Kaisar",
-        "uniqueId": "tidur.abadi",
-        "userId": "7100333223721731098"
-      },
-      "data": {
-        "comment": "kuat dimnanya ketua..?"
-      },
-      "command": "",
-      "summary": "💬 AL Kaisar: kuat dimnanya ketua..?"
-    },
-    {
-      "id": "1752407532855_s09hko8mo",
-      "timestamp": 1752407532855,
-      "event": "like",
-      "user": {
-        "nickname": "akbar jr",
-        "uniqueId": "akbar.jr4223",
-        "userId": "7363866281277588486"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"akbar jr\" \"akbar.jr4223\" 15",
-      "summary": "❤️ akbar jr liked (15)"
-    },
-    {
-      "id": "1752407532856_712rckwe3",
-      "timestamp": 1752407532856,
-      "event": "like",
-      "user": {
-        "nickname": "S",
-        "uniqueId": "malzajahhh",
-        "userId": "7480743558829196306"
-      },
-      "data": {
-        "likeCount": 9
-      },
-      "command": "ttr_test_like \"S\" \"malzajahhh\" 9",
-      "summary": "❤️ S liked (9)"
-    },
-    {
-      "id": "1752407535260_14si84i5e",
-      "timestamp": 1752407535260,
-      "event": "like",
-      "user": {
-        "nickname": "VEGOOS",
-        "uniqueId": "tegartegar14380",
-        "userId": "7116902134252504065"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"VEGOOS\" \"tegartegar14380\" 15",
-      "summary": "❤️ VEGOOS liked (15)"
-    },
-    {
-      "id": "1752407536859_b31idtpsa",
-      "timestamp": 1752407536859,
-      "event": "like",
-      "user": {
-        "nickname": "Aksan",
-        "uniqueId": "akhsan.ramadhan7",
-        "userId": "7385148705005618182"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Aksan\" \"akhsan.ramadhan7\" 15",
-      "summary": "❤️ Aksan liked (15)"
-    },
     {
       "id": "1752407538466_qt5w78yow",
       "timestamp": 1752407538466,
@@ -15348,6 +13929,1436 @@
       },
       "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
       "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408651228_e8rodr8g8",
+      "timestamp": 1752408651228,
+      "event": "like",
+      "user": {
+        "nickname": "",
+        "uniqueId": "alfiandzaki1",
+        "userId": "7241167960931714050"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"\" \"alfiandzaki1\" 15",
+      "summary": "❤️  liked (15)"
+    },
+    {
+      "id": "1752408651229_eh0acfjfc",
+      "timestamp": 1752408651229,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "@AL Kaisar和 tadi nantangin ketua"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: @AL Kaisar和 tadi nantangin ketua"
+    },
+    {
+      "id": "1752408652828_6uasgoaaj",
+      "timestamp": 1752408652828,
+      "event": "like",
+      "user": {
+        "nickname": "Nal",
+        "uniqueId": "hanzz20002",
+        "userId": "6540947095876304898"
+      },
+      "data": {
+        "likeCount": 6
+      },
+      "command": "ttr_test_like \"Nal\" \"hanzz20002\" 6",
+      "summary": "❤️ Nal liked (6)"
+    },
+    {
+      "id": "1752408655228_1rbe80ddi",
+      "timestamp": 1752408655228,
+      "event": "like",
+      "user": {
+        "nickname": "",
+        "uniqueId": "alfiandzaki1",
+        "userId": "7241167960931714050"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"\" \"alfiandzaki1\" 15",
+      "summary": "❤️  liked (15)"
+    },
+    {
+      "id": "1752408658425_vh2dm2cz5",
+      "timestamp": 1752408658425,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408660028_zkefmvw2e",
+      "timestamp": 1752408660028,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408661631_o0vsxkffv",
+      "timestamp": 1752408661631,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408661632_tf9enoild",
+      "timestamp": 1752408661632,
+      "event": "chat",
+      "user": {
+        "nickname": "AL Kaisar",
+        "uniqueId": "tidur.abadi",
+        "userId": "7100333223721731098"
+      },
+      "data": {
+        "comment": "@Chodet Castrol OMG... ngerii"
+      },
+      "command": "",
+      "summary": "💬 AL Kaisar: @Chodet Castrol OMG... ngerii"
+    },
+    {
+      "id": "1752408664029_s0u974quy",
+      "timestamp": 1752408664029,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408664824_4vbyxh0ab",
+      "timestamp": 1752408664824,
+      "event": "like",
+      "user": {
+        "nickname": "",
+        "uniqueId": "alfiandzaki1",
+        "userId": "7241167960931714050"
+      },
+      "data": {
+        "likeCount": 12
+      },
+      "command": "ttr_test_like \"\" \"alfiandzaki1\" 12",
+      "summary": "❤️  liked (12)"
+    },
+    {
+      "id": "1752408667233_okhic5n7z",
+      "timestamp": 1752408667233,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408669638_w657z43ba",
+      "timestamp": 1752408669638,
+      "event": "chat",
+      "user": {
+        "nickname": "Nal",
+        "uniqueId": "hanzz20002",
+        "userId": "6540947095876304898"
+      },
+      "data": {
+        "comment": "hahahha"
+      },
+      "command": "",
+      "summary": "💬 Nal: hahahha"
+    },
+    {
+      "id": "1752408670434_vfb4zem3x",
+      "timestamp": 1752408670434,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408671233_of147zjem",
+      "timestamp": 1752408671233,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 1",
+      "summary": "❤️ bas liked (1)"
+    },
+    {
+      "id": "1752408672040_kecolnqf7",
+      "timestamp": 1752408672040,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 6
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 6",
+      "summary": "❤️ Chodet Castrol liked (6)"
+    },
+    {
+      "id": "1752408676843_xeskir9hc",
+      "timestamp": 1752408676843,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "kalah itu"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: kalah itu"
+    },
+    {
+      "id": "1752408689648_0nd11j4ua",
+      "timestamp": 1752408689648,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 9
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 9",
+      "summary": "❤️ mboh liked (9)"
+    },
+    {
+      "id": "1752408692848_y9jx52fge",
+      "timestamp": 1752408692848,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408692850_r2uxf7vdq",
+      "timestamp": 1752408692850,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "kalah itu"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: kalah itu"
+    },
+    {
+      "id": "1752408692851_3c5wobuv7",
+      "timestamp": 1752408692851,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408695245_sx7z04r88",
+      "timestamp": 1752408695245,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408696045_ojxuyzt2t",
+      "timestamp": 1752408696045,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408698450_27gznfy43",
+      "timestamp": 1752408698450,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408699247_p2pabjvsz",
+      "timestamp": 1752408699247,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408700847_smlmy8xdk",
+      "timestamp": 1752408700847,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408702445_s6hzgmcyn",
+      "timestamp": 1752408702445,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408703247_ztdopz2iy",
+      "timestamp": 1752408703247,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408703247_ralvwaqzq",
+      "timestamp": 1752408703247,
+      "event": "chat",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "comment": "🤣"
+      },
+      "command": "",
+      "summary": "💬 XHUON TO L: 🤣"
+    },
+    {
+      "id": "1752408704861_ksp2bsfv5",
+      "timestamp": 1752408704861,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408706454_tauk7c9ro",
+      "timestamp": 1752408706454,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408707251_lk225m39g",
+      "timestamp": 1752408707251,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408708051_url3i73wc",
+      "timestamp": 1752408708051,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408709652_4hday81h0",
+      "timestamp": 1752408709652,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408710452_alfzog3vx",
+      "timestamp": 1752408710452,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408711257_9zd9ihag8",
+      "timestamp": 1752408711257,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408713654_9evilt7g8",
+      "timestamp": 1752408713654,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408715256_340pygcay",
+      "timestamp": 1752408715256,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408716857_spu9baaoj",
+      "timestamp": 1752408716857,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408718456_iy5mll5w1",
+      "timestamp": 1752408718456,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408720866_amyue96h9",
+      "timestamp": 1752408720866,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "@AL Kaisar和 tadi ketua bilang suruh panggil ketua Al kaisar"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: @AL Kaisar和 tadi ketua bilang suruh panggil ketua Al kaisar"
+    },
+    {
+      "id": "1752408720866_c11zq847r",
+      "timestamp": 1752408720866,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408720868_zrgohw9l1",
+      "timestamp": 1752408720868,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408723267_7lj05a9uk",
+      "timestamp": 1752408723267,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408724067_993p0gyh0",
+      "timestamp": 1752408724067,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408725663_013oi6de9",
+      "timestamp": 1752408725663,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 2
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 2",
+      "summary": "❤️ mboh liked (2)"
+    },
+    {
+      "id": "1752408728069_bwy07te4s",
+      "timestamp": 1752408728069,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408728070_k5pbcp4jo",
+      "timestamp": 1752408728070,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408729664_iet243b1g",
+      "timestamp": 1752408729664,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "skotjam dulu"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: skotjam dulu"
+    },
+    {
+      "id": "1752408729664_oi9150ga9",
+      "timestamp": 1752408729664,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408730467_ngmjx7u9j",
+      "timestamp": 1752408730467,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 1 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x1 (1 diamonds)"
+    },
+    {
+      "id": "1752408731271_ou7rn79ff",
+      "timestamp": 1752408731271,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 2,
+        "totalValue": 2
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 2 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x2 (2 diamonds)"
+    },
+    {
+      "id": "1752408731271_rxnmrclwd",
+      "timestamp": 1752408731271,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408731272_sr5bg7vgh",
+      "timestamp": 1752408731272,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 3 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x3 (3 diamonds)"
+    },
+    {
+      "id": "1752408732073_4cd0rvbea",
+      "timestamp": 1752408732073,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408733669_qirc31uqm",
+      "timestamp": 1752408733669,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 6
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 6",
+      "summary": "❤️ mboh liked (6)"
+    },
+    {
+      "id": "1752408733669_x5g85pde3",
+      "timestamp": 1752408733669,
+      "event": "follow",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {},
+      "command": "ttr_test_boost \"mboh\" \"chellrealmadrid\" follow",
+      "summary": "👥 mboh followed"
+    },
+    {
+      "id": "1752408733670_h67ghi912",
+      "timestamp": 1752408733670,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408735277_664jflvvp",
+      "timestamp": 1752408735277,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 3 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x3 (3 diamonds)"
+    },
+    {
+      "id": "1752408735279_qx6oo7q8h",
+      "timestamp": 1752408735279,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408736878_ebuif19gb",
+      "timestamp": 1752408736878,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408739277_dd0otniq9",
+      "timestamp": 1752408739277,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408740875_5ndz9yaib",
+      "timestamp": 1752408740875,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 15",
+      "summary": "❤️ Chodet Castrol liked (15)"
+    },
+    {
+      "id": "1752408740875_qao8309ss",
+      "timestamp": 1752408740875,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408742475_x7ta1x83o",
+      "timestamp": 1752408742475,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408744879_ui3hmp5f3",
+      "timestamp": 1752408744879,
+      "event": "follow",
+      "user": {
+        "nickname": "Ndraa",
+        "uniqueId": "efendraa",
+        "userId": "6841492082025923586"
+      },
+      "data": {},
+      "command": "ttr_test_boost \"Ndraa\" \"efendraa\" follow",
+      "summary": "👥 Ndraa followed"
+    },
+    {
+      "id": "1752408744880_ybk6sz80a",
+      "timestamp": 1752408744880,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408745674_lmnbb9h1a",
+      "timestamp": 1752408745674,
+      "event": "like",
+      "user": {
+        "nickname": "Raffasyah Narendra",
+        "uniqueId": "raffasyah_narendra",
+        "userId": "6785872708603167745"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Raffasyah Narendra\" \"raffasyah_narendra\" 15",
+      "summary": "❤️ Raffasyah Narendra liked (15)"
+    },
+    {
+      "id": "1752408745674_6a7gayfxm",
+      "timestamp": 1752408745674,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408748075_wzre24571",
+      "timestamp": 1752408748075,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408749679_6yac1m655",
+      "timestamp": 1752408749679,
+      "event": "like",
+      "user": {
+        "nickname": "Raffasyah Narendra",
+        "uniqueId": "raffasyah_narendra",
+        "userId": "6785872708603167745"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Raffasyah Narendra\" \"raffasyah_narendra\" 15",
+      "summary": "❤️ Raffasyah Narendra liked (15)"
+    },
+    {
+      "id": "1752408750474_klvrorodc",
+      "timestamp": 1752408750474,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 15",
+      "summary": "❤️ rachma0701 liked (15)"
+    },
+    {
+      "id": "1752408751292_7cuzo8ddl",
+      "timestamp": 1752408751292,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408752076_ytzlgd63i",
+      "timestamp": 1752408752076,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "tadi bilang kalau plants kalah ketua skotjum"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: tadi bilang kalau plants kalah ketua skotjum"
+    },
+    {
+      "id": "1752408752880_go2ch2d13",
+      "timestamp": 1752408752880,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408753675_2cjg36oy3",
+      "timestamp": 1752408753675,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 3
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 3",
+      "summary": "❤️ Chodet Castrol liked (3)"
+    },
+    {
+      "id": "1752408755275_746dxekwc",
+      "timestamp": 1752408755275,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408756879_9f0yfutmf",
+      "timestamp": 1752408756879,
+      "event": "like",
+      "user": {
+        "nickname": "rachma0701",
+        "uniqueId": "rachma0701",
+        "userId": "7146956833905755138"
+      },
+      "data": {
+        "likeCount": 11
+      },
+      "command": "ttr_test_like \"rachma0701\" \"rachma0701\" 11",
+      "summary": "❤️ rachma0701 liked (11)"
+    },
+    {
+      "id": "1752408757685_m7lszpn1b",
+      "timestamp": 1752408757685,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 5,
+        "totalValue": 5
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 5 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x5 (5 diamonds)"
+    },
+    {
+      "id": "1752408757686_m2idt873u",
+      "timestamp": 1752408757686,
+      "event": "gift",
+      "user": {
+        "nickname": "XHUON TO L",
+        "uniqueId": "kuontol18",
+        "userId": "7397764345612125189"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 5,
+        "totalValue": 5
+      },
+      "command": "ttr_test_gift_enhanced \"XHUON TO L\" \"TikTok\" 1 5 \"kuontol18\"",
+      "summary": "🎁 XHUON TO L sent TikTok x5 (5 diamonds)"
+    },
+    {
+      "id": "1752408757687_p354ot79j",
+      "timestamp": 1752408757687,
+      "event": "chat",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "comment": "kerja ko"
+      },
+      "command": "",
+      "summary": "💬 Chodet Castrol: kerja ko"
+    },
+    {
+      "id": "1752408757688_pd61bo622",
+      "timestamp": 1752408757688,
+      "event": "like",
+      "user": {
+        "nickname": "Raffasyah Narendra",
+        "uniqueId": "raffasyah_narendra",
+        "userId": "6785872708603167745"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Raffasyah Narendra\" \"raffasyah_narendra\" 15",
+      "summary": "❤️ Raffasyah Narendra liked (15)"
+    },
+    {
+      "id": "1752408760079_2tidztxg2",
+      "timestamp": 1752408760079,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408761682_02jyuyiig",
+      "timestamp": 1752408761682,
+      "event": "gift",
+      "user": {
+        "nickname": "Ags Story",
+        "uniqueId": "ags_story93",
+        "userId": "6929039897538872322"
+      },
+      "data": {
+        "giftName": "Journey Pass",
+        "diamondCount": 10,
+        "repeatCount": 1,
+        "totalValue": 10
+      },
+      "command": "ttr_test_gift_enhanced \"Ags Story\" \"Journey Pass\" 10 1 \"ags_story93\"",
+      "summary": "🎁 Ags Story sent Journey Pass x1 (10 diamonds)"
+    },
+    {
+      "id": "1752408761683_kcoyauxu3",
+      "timestamp": 1752408761683,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408763278_l0vz63p0m",
+      "timestamp": 1752408763278,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408764885_prbhtt7ih",
+      "timestamp": 1752408764885,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408765690_p62kqrauf",
+      "timestamp": 1752408765690,
+      "event": "gift",
+      "user": {
+        "nickname": "Ags Story",
+        "uniqueId": "ags_story93",
+        "userId": "6929039897538872322"
+      },
+      "data": {
+        "giftName": "Journey Pass",
+        "diamondCount": 10,
+        "repeatCount": 1,
+        "totalValue": 10
+      },
+      "command": "ttr_test_gift_enhanced \"Ags Story\" \"Journey Pass\" 10 1 \"ags_story93\"",
+      "summary": "🎁 Ags Story sent Journey Pass x1 (10 diamonds)"
+    },
+    {
+      "id": "1752408766488_xnh78gaiz",
+      "timestamp": 1752408766488,
+      "event": "like",
+      "user": {
+        "nickname": "Raffasyah Narendra",
+        "uniqueId": "raffasyah_narendra",
+        "userId": "6785872708603167745"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Raffasyah Narendra\" \"raffasyah_narendra\" 15",
+      "summary": "❤️ Raffasyah Narendra liked (15)"
+    },
+    {
+      "id": "1752408768090_xb5v6t4m0",
+      "timestamp": 1752408768090,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408768886_fzk0zv27z",
+      "timestamp": 1752408768886,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408771286_1wtg3tywi",
+      "timestamp": 1752408771286,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408772892_dbf97pt9p",
+      "timestamp": 1752408772892,
+      "event": "like",
+      "user": {
+        "nickname": "bas",
+        "uniqueId": "fggkgizvj",
+        "userId": "7439933577631941687"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"bas\" \"fggkgizvj\" 15",
+      "summary": "❤️ bas liked (15)"
+    },
+    {
+      "id": "1752408773692_jvb1yi4e2",
+      "timestamp": 1752408773692,
+      "event": "like",
+      "user": {
+        "nickname": "mboh",
+        "uniqueId": "chellrealmadrid",
+        "userId": "7503880405482767377"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"mboh\" \"chellrealmadrid\" 15",
+      "summary": "❤️ mboh liked (15)"
+    },
+    {
+      "id": "1752408774489_99p3hlcrh",
+      "timestamp": 1752408774489,
+      "event": "like",
+      "user": {
+        "nickname": "Chodet Castrol",
+        "uniqueId": "dilanflog",
+        "userId": "6876204412143977473"
+      },
+      "data": {
+        "likeCount": 8
+      },
+      "command": "ttr_test_like \"Chodet Castrol\" \"dilanflog\" 8",
+      "summary": "❤️ Chodet Castrol liked (8)"
     }
   ]
 }
