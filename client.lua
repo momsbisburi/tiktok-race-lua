@@ -69,11 +69,21 @@ local websocketConnected = false
 local soundPlayId = 0
 local soundPlayIdS = 1
 
+local baseDrivingSpeed = 25 -- Like C# ped.MaxDrivingSpeed = 50f (converted to FiveM units)
+local playerAccumulatedSpeeds = {}
+
 -- Version
 local version = "v0.6 FiveM"
 
 -- Screen resolution helpers
 local screenW, screenH = GetActiveScreenResolution()
+
+function initializePlayerSpeeds()
+    for i = 1, playerNumber do
+        playerSpeeds[i] = baseDrivingSpeed -- Base speed like C#
+        playerAccumulatedSpeeds[i] = 0 -- No accumulated boosts initially
+    end
+end
 
 -- UI Helper Functions
 function GetUIPosition(x, y, anchorX, anchorY)
@@ -720,153 +730,41 @@ function buttonControlH()
     end
 end
 
+local isSpawning = false
+
 function createPlayer(name, carModel)
+   if isSpawning then
+        print("^3[TikTok Race]^7 Spawn in progress, queuing: " .. name)
+        -- Wait a bit and try again
+        SetTimeout(200, function()
+            createPlayer(name, carModel)
+        end)
+        return
+    end
+    
     if playerNumber >= maxPlayers or gameState ~= GAME_STATES.QUEUE then
         print("^1[TikTok Race]^7 Cannot create player - wrong state or full")
-        return false
+        return
     end
+    
+    -- Lock spawning
+    isSpawning = true
     
     carModel = carModel or GetHashKey("hermes") -- Default car
     if type(carModel) == "string" then
         carModel = GetHashKey(carModel)
     end
     
-    -- Increment playerNumber FIRST (before any calculations)
-    playerNumber = playerNumber + 1
-    local currentPlayerIndex = playerNumber
+    print("^3[TikTok Race]^7 Creating player " .. (playerNumber + 1) .. ": " .. name)
     
-    print("^3[TikTok Race]^7 Creating player " .. currentPlayerIndex .. ": " .. name)
-    print("^3[TikTok Race]^7 Using spawn vars - X: " .. playersX .. ", Y: " .. playersY .. ", Row: " .. playersRowNumber)
+    -- CALCULATE spawn position BEFORE any async operations
+    local currentSpawnX = playersX
+    local currentSpawnY = playersY
+    local spawnPos = vector3(1722.0 + currentSpawnX, 3239.0 + currentSpawnY, 40.7287)
     
-    -- Calculate spawn position using C# logic: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
-    local spawnPos = vector3(1722.0 + playersX, 3239.0 + playersY, 40.7287)
+    print("^3[TikTok Race]^7 Spawn position: " .. spawnPos.x .. ", " .. spawnPos.y .. " (X=" .. currentSpawnX .. ", Y=" .. currentSpawnY .. ")")
     
-    print("^3[TikTok Race]^7 Spawning at: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
-    
-    -- Clear area more aggressively to prevent overlapping
-    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, false, false, false, false, false)
-    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, 1)
-    ClearAreaOfObjects(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, 0)
-    
-    -- Wait a moment for area to clear
-    Wait(100)
-    
-    -- Request and wait for vehicle model
-    RequestModel(carModel)
-    local timeout = 0
-    while not HasModelLoaded(carModel) and timeout < 5000 do
-        Wait(10)
-        timeout = timeout + 10
-    end
-    
-    if not HasModelLoaded(carModel) then
-        print("^1[TikTok Race]^7 Failed to load vehicle model for " .. name)
-        playerNumber = playerNumber - 1 -- Revert player count
-        return false
-    end
-    
-    -- Create vehicle with better parameters
-    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
-    
-    -- Wait for vehicle to fully spawn
-    timeout = 0
-    while not DoesEntityExist(vehicle) and timeout < 3000 do
-        Wait(10)
-        timeout = timeout + 10
-    end
-    
-    if not DoesEntityExist(vehicle) then
-        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
-        playerNumber = playerNumber - 1 -- Revert player count
-        SetModelAsNoLongerNeeded(carModel)
-        return false
-    end
-    
-    -- Ensure vehicle is properly placed
-    SetEntityCoords(vehicle, spawnPos.x, spawnPos.y, spawnPos.z, false, false, false, true)
-    SetEntityHeading(vehicle, 286.7277)
-    PlaceObjectOnGroundProperly(vehicle)
-    
-    -- Set vehicle properties immediately
-    SetEntityInvincible(vehicle, true)
-    SetVehicleEngineOn(vehicle, true, true, false)
-    SetVehicleDoorsLocked(vehicle, 2) -- Lock doors to prevent NPCs from entering
-    SetEntityAsMissionEntity(vehicle, true, true) -- Make it a mission entity
-    
-    -- Request and wait for ped model
-    local pedModel = GetHashKey("a_m_m_skater_01")
-    RequestModel(pedModel)
-    timeout = 0
-    while not HasModelLoaded(pedModel) and timeout < 5000 do
-        Wait(10)
-        timeout = timeout + 10
-    end
-    
-    if not HasModelLoaded(pedModel) then
-        print("^1[TikTok Race]^7 Failed to load ped model for " .. name)
-        DeleteEntity(vehicle)
-        playerNumber = playerNumber - 1 -- Revert player count
-        SetModelAsNoLongerNeeded(carModel)
-        return false
-    end
-    
-    -- Create ped near the vehicle (not inside it yet)
-    local pedSpawnPos = vector3(spawnPos.x + 2.0, spawnPos.y, spawnPos.z)
-    local ped = CreatePed(4, pedModel, pedSpawnPos.x, pedSpawnPos.y, pedSpawnPos.z, 0.0, true, false)
-    
-    -- Wait for ped to fully spawn
-    timeout = 0
-    while not DoesEntityExist(ped) and timeout < 3000 do
-        Wait(10)
-        timeout = timeout + 10
-    end
-    
-    if not DoesEntityExist(ped) then
-        print("^1[TikTok Race]^7 Failed to create ped for " .. name)
-        DeleteEntity(vehicle)
-        playerNumber = playerNumber - 1 -- Revert player count
-        SetModelAsNoLongerNeeded(carModel)
-        SetModelAsNoLongerNeeded(pedModel)
-        return false
-    end
-    
-    -- Set ped properties
-    SetEntityInvincible(ped, true)
-    SetPedCanBeDraggedOut(ped, false)
-    SetPedCanBeKnockedOffVehicle(ped, 1)
-    SetEntityAsMissionEntity(ped, true, true)
-    SetBlockingOfNonTemporaryEvents(ped, true)
-    
-    -- Store references using the current player index
-    players[currentPlayerIndex] = ped
-    vehicles[currentPlayerIndex] = vehicle
-    playerNames[currentPlayerIndex] = name
-    playerSpeeds[currentPlayerIndex] = 0
-    
-    -- Wait a moment before putting ped in vehicle
-    Wait(200)
-    
-    -- Put ped into vehicle (driver seat) with task warp for reliability
-    TaskWarpPedIntoVehicle(ped, vehicle, -1)
-    
-    -- Wait to ensure ped is in vehicle
-    timeout = 0
-    while not IsPedInVehicle(ped, vehicle, false) and timeout < 3000 do
-        Wait(10)
-        timeout = timeout + 10
-        -- Retry if needed
-        if timeout % 500 == 0 then
-            TaskWarpPedIntoVehicle(ped, vehicle, -1)
-        end
-    end
-    
-    -- Add blip to vehicle
-    local blip = AddBlipForEntity(vehicle)
-    SetBlipSprite(blip, 56)
-    SetBlipColour(blip, 3)
-    SetBlipScale(blip, 0.8)
-    
-    -- Update spawn position for NEXT player (using C# logic - AFTER storing current player)
+    -- UPDATE spawn position variables IMMEDIATELY for next player
     if playersRowNumber >= 7 then
         playersRowCount = playersRowCount + 1
         playersY = -4.4 * playersRowCount
@@ -878,17 +776,82 @@ function createPlayer(name, carModel)
     end
     playersRowNumber = playersRowNumber + 1
     
-    print("^2[TikTok Race]^7 ✅ Successfully created player " .. currentPlayerIndex .. ": " .. name)
-    print("^2[TikTok Race]^7 Vehicle: " .. (DoesEntityExist(vehicle) and "EXISTS" or "MISSING"))
-    print("^2[TikTok Race]^7 Ped: " .. (DoesEntityExist(ped) and "EXISTS" or "MISSING"))
-    print("^2[TikTok Race]^7 Ped in vehicle: " .. (IsPedInVehicle(ped, vehicle, false) and "YES" or "NO"))
-    print("^3[TikTok Race]^7 Next spawn will be at X: " .. playersX .. ", Y: " .. playersY)
+    print("^3[TikTok Race]^7 Next spawn prepared: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
     
-    -- Clean up models
+    -- Clear area to prevent overlapping
+    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, false, false, false, false, false)
+    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, 1)
+    
+    -- Create vehicle
+    RequestModel(carModel)
+    while not HasModelLoaded(carModel) do
+        Wait(1)
+    end
+    
+    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
+    
+    if not DoesEntityExist(vehicle) then
+        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
+        isSpawning = false -- Unlock spawning
+        return
+    end
+    
+    -- Create ped
+    local pedModel = GetHashKey("a_m_m_skater_01")
+    RequestModel(pedModel)
+    while not HasModelLoaded(pedModel) do
+        Wait(1)
+    end
+    
+    local ped = CreatePed(4, pedModel, 1732.0, 3204.0, 43.0, 0.0, true, false)
+    
+    if not DoesEntityExist(ped) then
+        print("^1[TikTok Race]^7 Failed to create ped for " .. name)
+        DeleteEntity(vehicle)
+        isSpawning = false -- Unlock spawning
+        return
+    end
+    
+    -- Add blip to vehicle
+    local blip = AddBlipForEntity(vehicle)
+    SetBlipSprite(blip, 56)
+    SetBlipColour(blip, 3)
+    
+    -- Set vehicle properties
+    SetVehicleAsNoLongerNeeded(vehicle)
+    SetEntityInvincible(vehicle, true)
+    SetVehicleEngineOn(vehicle, true, true, false)
+    
+    -- Set ped properties
+    SetEntityInvincible(ped, true)
+    SetPedCanBeDraggedOut(ped, false)
+    SetPedCanBeKnockedOffVehicle(ped, 1)
+    SetPedCanBeShotInVehicle(ped, false)
+    SetPedStayInVehicleWhenJacked(ped, true)
+    ClearPedTasks(ped)
+    TaskStandStill(ped, -1)
+    SetPedKeepTask(ped, true)
+    
+    -- Store in arrays - INCREMENT playerNumber FIRST
+    playerNumber = playerNumber + 1
+    players[playerNumber] = ped
+    vehicles[playerNumber] = vehicle
+    playerNames[playerNumber] = name
+    playerSpeeds[playerNumber] = 0
+    
+    -- Put ped into vehicle
+    SetPedIntoVehicle(ped, vehicle, -1)
+    
+    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name .. " at position " .. spawnPos.x .. ", " .. spawnPos.y)
+    
     SetModelAsNoLongerNeeded(carModel)
     SetModelAsNoLongerNeeded(pedModel)
     
-    return true
+    -- Small delay before unlocking to ensure everything is settled
+    SetTimeout(150, function()
+        isSpawning = false -- Unlock spawning
+        print("^3[TikTok Race]^7 Spawn completed for " .. name .. ", ready for next player")
+    end)
 end
 
 function killAllRacers()
