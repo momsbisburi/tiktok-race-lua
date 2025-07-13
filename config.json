@@ -8,7 +8,7 @@
   "race": {
     "maxPlayers": 100,
     "countdownTime": 11,
-    "defaultCar": "hermes",
+    "defaultCar": "vigero",
     "spawnLocation": {
       "x": 1722.0,
       "y": 3239.0,
@@ -32,7 +32,7 @@
     }
   },
   "cars": {
-    "default": "hermes",
+    "default": "vigero",
     "gift": "vigilante",
     "vip": "zentorno",
     "special": {

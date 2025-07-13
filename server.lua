@@ -19,12 +19,24 @@ local playerCount = 0
 -- Configuration
 local config = {
     maxPlayers = 100,
-    defaultCar = "hermes",
-        boost = {
-        like = 5,      -- CHANGE: Each like gives +5 speed (was 10)
-        gift = 10,     -- CHANGE: Base gift gives +10 speed (was 15)
-        share = 15,    -- CHANGE: Each share gives +15 speed (was 20)
-        follow = 20    -- CHANGE: Each follow gives +20 speed (was 25)
+    
+    -- ORIGINAL CARS FROM C# CODE
+    defaultCar = "vigero",        -- C#: WSC.DefaultCar = VehicleHash.Vigero
+    paidCar = "adder",           -- C#: WSC.Paid = VehicleHash.Adder  
+    vvipCar = "adder",           -- C#: WSC.VVIPCar = VehicleHash.Adder
+    
+    -- Car mappings from original config.json
+    giftCar = "vigilante",       -- For high-value gifts
+    vipCar = "zentorno",         -- For VIP level
+    roseCar = "adder",           -- For rose gifts
+    diamondCar = "entityxf",     -- For diamond gifts
+    rocketCar = "vigilante",     -- For rocket/special gifts
+    
+    boost = {
+        like = 1,
+        gift = 1, 
+        share = 0,
+        follow = 20
     }
 }
 
@@ -104,10 +116,10 @@ local eventHandlers = {
         print("^3[TTR]^7 ❤️ " .. nickname .. " (" .. likeCount .. ") State:" .. gameState)
         
         if gameState == 3 then
-            -- QUEUE: Join using proper handleUser function
+            -- QUEUE: Join using ORIGINAL DefaultCar (Vigero)
             if handleUser(uniqueId, nickname, data.userId) then
-                TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar)
-                print("^2[TTR]^7 ✅ " .. nickname .. " joined via LIKE!")
+                TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar) -- "vigero" like C#
+                print("^2[TTR]^7 ✅ " .. nickname .. " joined via LIKE with " .. config.defaultCar .. "!")
             end
             
         elseif gameState == 6 then
@@ -123,124 +135,120 @@ local eventHandlers = {
         end
     end,
     
-    ["chat"] = function(data)
-        local nickname = data.nickname or "Unknown"
-        local uniqueId = data.uniqueId or data.userId or nickname
-        local comment = data.comment or ""
-        
-        print("^3[TTR]^7 💬 " .. nickname .. ": " .. comment)
-        
-        if string_lower(comment):find("!join") and gameState == 3 then
-            if handleUser(uniqueId, nickname, data.userId) then
-                TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar)
-                print("^2[TTR]^7 ✅ " .. nickname .. " joined via !join!")
-            end
-        end
-    end,
-    
-   ["gift"] = function(data)
+   ["chat"] = function(data)
     local nickname = data.nickname or "Unknown"
     local uniqueId = data.uniqueId or data.userId or nickname
-    local giftName = data.giftName or "Gift"
-    local diamondCount = data.diamondCount or 1
-    local repeatCount = data.repeatCount or 1
+    local comment = data.comment or ""
     
-    -- Calculate total gift value
-    local totalValue = diamondCount * repeatCount
+    print("^3[TTR]^7 💬 " .. nickname .. ": " .. comment)
     
-    print("^3[TTR]^7 🎁 " .. nickname .. " sent " .. giftName .. " x" .. repeatCount .. " (" .. totalValue .. " total diamonds)")
-    
-    -- VIP CAR SELECTION - Always give special cars for gifts
-    local carModel = "hermes" -- fallback
-    local carTier = "Basic"
-    
-    if totalValue >= 1000 then
-        carModel = "vigilante"     -- Ultra VIP: Rocket car
-        carTier = "ULTRA VIP"
-    elseif totalValue >= 500 then
-        carModel = "adder"         -- Super VIP: Bugatti
-        carTier = "SUPER VIP"
-    elseif totalValue >= 100 then
-        carModel = "zentorno"      -- High VIP: Lamborghini
-        carTier = "HIGH VIP"
-    elseif totalValue >= 50 then
-        carModel = "entityxf"      -- Mid VIP: Koenigsegg
-        carTier = "MID VIP"
-    elseif totalValue >= 10 then
-        carModel = "buffalo"       -- Low VIP: Muscle car
-        carTier = "VIP"
-    else
-        carModel = "sultan"        -- Entry VIP: Better than default
-        carTier = "ENTRY VIP"
-    end
-    
-    if gameState == 3 then
-        -- QUEUE STATE: VIP join with special car
+    if string_lower(comment):find("!join") and gameState == 3 then
         if handleUser(uniqueId, nickname, data.userId) then
-            TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, carModel)
-            print("^2[TTR]^7 ✅ " .. nickname .. " joined as " .. carTier .. " with " .. carModel .. "!")
-            
-            -- Announce VIP join to all players
-            TriggerClientEvent('chat:addMessage', -1, {
-                color = {255, 215, 0}, -- Gold color
-                multiline = false,
-                args = {"[VIP ENTRY]", nickname .. " joined as " .. carTier .. " with a " .. giftName .. "!"}
-            })
-        else
-            print("^1[TTR]^7 " .. nickname .. " couldn't join (duplicate or full)")
+            TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, config.defaultCar) -- "vigero" like C#
+            print("^2[TTR]^7 ✅ " .. nickname .. " joined via !join with " .. config.defaultCar .. "!")
         end
-        
-    elseif gameState == 6 then
-        -- RACE STATE: Value-based speed boost
-        local playerId = getUserId(uniqueId)
-        if playerId ~= -1 then
-            -- BOOST CALCULATION based on gift value
-            local baseBoost = 10
-            local boostAmount = baseBoost
-            
-            if totalValue >= 1000 then
-                boostAmount = 100      -- Ultra boost
-            elseif totalValue >= 500 then
-                boostAmount = 75       -- Super boost
-            elseif totalValue >= 100 then
-                boostAmount = 50       -- High boost
-            elseif totalValue >= 50 then
-                boostAmount = 35       -- Mid boost
-            elseif totalValue >= 10 then
-                boostAmount = 25       -- Regular boost
-            else
-                boostAmount = 15       -- Small boost
-            end
-            
-            TriggerClientEvent('tiktok_race:boostPlayer', -1, playerId, boostAmount)
-            print("^2[TTR]^7 🚀 " .. nickname .. " (Player #" .. playerId .. ") BOOSTED +" .. boostAmount .. " for " .. giftName .. "!")
-            
-            -- Announce boost to all players
-            local boostText = ""
-            if boostAmount >= 75 then
-                boostText = "MEGA BOOST"
-            elseif boostAmount >= 50 then
-                boostText = "SUPER BOOST"
-            elseif boostAmount >= 25 then
-                boostText = "BIG BOOST"
-            else
-                boostText = "BOOST"
-            end
-            
-            TriggerClientEvent('chat:addMessage', -1, {
-                color = {255, 69, 0}, -- Red-orange color
-                multiline = false,
-                args = {"[" .. boostText .. "]", nickname .. " got +" .. boostAmount .. " speed from " .. giftName .. "!"}
-            })
-        else
-            print("^1[TTR]^7 " .. nickname .. " not in race - cannot boost")
-        end
-        
-    else
-        print("^1[TTR]^7 Gift from " .. nickname .. " received but wrong game state: " .. gameState)
     end
 end,
     
+   ["gift"] = function(data)
+                local nickname = data.nickname or "Unknown"
+                local uniqueId = data.uniqueId or data.userId or nickname
+                local giftName = data.giftName or "Gift"
+                local diamondCount = data.diamondCount or 1
+                local repeatCount = data.repeatCount or 1
+                
+                -- Calculate total gift value
+                local totalValue = diamondCount * repeatCount
+                
+                print("^3[TTR]^7 🎁 " .. nickname .. " sent " .. giftName .. " x" .. repeatCount .. " (" .. totalValue .. " total diamonds)")
+                
+                -- ORIGINAL C# CAR SELECTION LOGIC - FIXED
+                local carModel = config.defaultCar -- "vigero" fallback
+                local carTier = "Default"
+                
+                -- Check for specific gift IDs like C# code
+                local giftId = data.giftId or 0
+                
+                if giftId == 8913 then -- Specific gift mentioned in C# 
+                    carModel = config.vvipCar -- "adder"
+                    carTier = "VVIP SPECIAL"
+                elseif giftId == 5827 or giftId == 5879 then -- Other special gifts from C#
+                    carModel = config.rocketCar -- "vigilante" 
+                    carTier = "ROCKET SPECIAL"
+                elseif totalValue >= 1000 then
+                    carModel = config.giftCar -- "vigilante" 
+                    carTier = "ULTRA VIP"
+                elseif totalValue >= 500 then
+                    carModel = config.vvipCar -- "adder"
+                    carTier = "SUPER VIP"
+                elseif totalValue >= 100 then
+                    carModel = config.vipCar -- "zentorno"
+                    carTier = "HIGH VIP"
+                elseif totalValue >= 50 then
+                    carModel = config.diamondCar -- "entityxf"
+                    carTier = "MID VIP"
+                elseif totalValue >= 10 then
+                    carModel = config.roseCar -- "adder" 
+                    carTier = "VIP"
+                else
+                    carModel = config.paidCar -- "adder" for any gift (like C# Paid car)
+                    carTier = "GIFT VIP"
+                end
+                
+                if gameState == 3 then
+                    -- QUEUE STATE: VIP join with original car selection
+                    if handleUser(uniqueId, nickname, data.userId) then
+                        TriggerClientEvent('tiktok_race:playerJoin', -1, nickname, carModel)
+                        print("^2[TTR]^7 ✅ " .. nickname .. " joined as " .. carTier .. " with " .. carModel .. "!")
+                        
+                        -- Announce VIP join
+                        TriggerClientEvent('chat:addMessage', -1, {
+                            color = {255, 215, 0},
+                            multiline = false,
+                            args = {"[VIP ENTRY]", nickname .. " joined as " .. carTier .. " with " .. carModel .. "!"}
+                        })
+                    else
+                        print("^1[TTR]^7 " .. nickname .. " couldn't join (duplicate or full)")
+                    end
+                    
+                elseif gameState == 6 then
+                    -- RACE STATE: Same boost logic 
+                    local playerId = getUserId(uniqueId)
+                    if playerId ~= -1 then
+                        -- BOOST CALCULATION
+                        local baseBoost = 0
+                        local boostAmount = totalValue
+                        
+                       
+                        
+                        TriggerClientEvent('tiktok_race:boostPlayer', -1, playerId, boostAmount)
+                        print("^2[TTR]^7 🚀 " .. nickname .. " (Player #" .. playerId .. ") BOOSTED +" .. boostAmount .. " for " .. giftName .. "!")
+                        
+                        -- Announce boost
+                        local boostText = ""
+                        if boostAmount >= 75 then
+                            boostText = "MEGA BOOST"
+                        elseif boostAmount >= 50 then
+                            boostText = "SUPER BOOST"
+                        elseif boostAmount >= 25 then
+                            boostText = "BIG BOOST"
+                        else
+                            boostText = "BOOST"
+                        end
+                        
+                        TriggerClientEvent('chat:addMessage', -1, {
+                            color = {255, 69, 0},
+                            multiline = false,
+                            args = {"[" .. boostText .. "]", nickname .. " got +" .. boostAmount .. " speed from " .. giftName .. "!"}
+                        })
+                    else
+                        print("^1[TTR]^7 " .. nickname .. " not in race - cannot boost")
+                    end
+                    
+                else
+                    print("^1[TTR]^7 Gift from " .. nickname .. " received but wrong game state: " .. gameState)
+                end
+            end,
     ["share"] = function(data)
         local nickname = data.nickname or "Unknown"
         local uniqueId = data.uniqueId or data.userId or nickname

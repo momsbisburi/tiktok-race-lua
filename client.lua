@@ -187,7 +187,7 @@ function onTick()
     renderNames()
 
      if gameState == GAME_STATES.RACE then
-        checkStuckCars()
+       
         
         -- Ensure speed control keeps running
         if not speedUpdateThread then
@@ -198,6 +198,36 @@ function onTick()
     handleRacingCam()
     handleCountdown()
     checkRaceFinish()
+end
+
+function deletePopulation()
+    if pedsEnabled then
+        -- Clear area of unwanted peds and vehicles
+        ClearAreaOfPeds(1722.0, 3239.0, 40.7287, 500.0, 1)
+        ClearAreaOfVehicles(1722.0, 3239.0, 40.7287, 500.0, false, false, false, false, false)
+        
+        -- RACE MODE: Clear ALL vehicles on the map (except race cars)
+        if gameState == GAME_STATES.RACE then
+            local allVehicles = GetGamePool('CVehicle')
+            for i = 1, #allVehicles do
+                local vehicle = allVehicles[i]
+                local isRaceCar = false
+                
+                -- Check if this is one of our race cars
+                for j = 1, playerNumber do
+                    if vehicles[j] and vehicle == vehicles[j] then
+                        isRaceCar = true
+                        break
+                    end
+                end
+                
+                -- Delete if not a race car and not the player's vehicle
+                if not isRaceCar and vehicle ~= GetVehiclePedIsIn(PlayerPedId(), false) then
+                    DeleteEntity(vehicle)
+                end
+            end
+        end
+    end
 end
 
 -- Key handlers
@@ -283,60 +313,63 @@ RegisterCommand('tiktok_search_player', function()
 end)
 
 function drawRaceMenu()
+    -- HIDE MENU during queue, race, and winners states
+    if gameState == GAME_STATES.QUEUE and queueList then
+        drawQueueList()
+        return
+    elseif gameState == GAME_STATES.RACE then
+        -- Only show leaderboard during race, no menu
+        drawLeaderboard()
+        return
+    elseif gameState == GAME_STATES.WINNERS and winnersList then
+        drawWinnersList()
+        return
+    end
+    
     if raceMenu then
-        -- Main menu background (right side)
-        DrawBackground(0.75, 0.35, 0.23, 0.3, {0, 0, 0, 180})
+        -- FULL RIGHT SIDE MENU (like C# version)
+        DrawBackground(0.75, 0.15, 0.25, 0.7, {0, 0, 0, 180}) -- Full height background
+        
+        -- Menu title
+        DrawText2D("TikTok Race Menu", 0.76, 0.18, 0.7, {255, 165, 0, 255}, 4, false, true, true)
+        
+        local menuY = 0.25 -- Start position for menu items
+        local lineHeight = 0.04 -- Spacing between items
         
         if gameState == GAME_STATES.IDLE then
-            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
-            DrawRaceMenuItem("[H] - Setup race!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
+            DrawText2D("[H] - Setup race!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
             
         elseif gameState == GAME_STATES.SETUP_DONE then
-            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
             if racePoint.x == 0.0 and racePoint.y == 0.0 then
-                DrawRaceMenuItem("PLEASE SET WAYPOINT!", 0, 2, {64, 224, 208, 255}, 0.6, true, false, false, false)
+                DrawText2D("PLEASE SET WAYPOINT!", 0.76, menuY, 0.6, {64, 224, 208, 255}, 4, false, true, false)
+                menuY = menuY + lineHeight + 0.02
             end
-            DrawRaceMenuItem("[H] - Open Queue!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
+            DrawText2D("[H] - Open Queue!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
             
         elseif gameState == GAME_STATES.QUEUE then
-            if queueList then
-                drawQueueList()
-            else
-                DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
-                DrawRaceMenuItem("[H] - End Queue!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
-                DrawRaceMenuItem("[J] - Open Queue List!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
+            -- Only show if queue list is NOT open
+            if not queueList then
+                DrawText2D("[H] - End Queue!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
+                menuY = menuY + lineHeight + 0.02
+                DrawText2D("[J] - Open Queue List!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
             end
             
         elseif gameState == GAME_STATES.READY then
-            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
-            DrawRaceMenuItem("[H] - Start countdown!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
-            
-        elseif gameState == GAME_STATES.RACE then
-            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
-            DrawRaceMenuItem("Change camera (" .. (currentCamera + 1) .. "):", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
-            DrawRaceMenuItem("[<] - Previous player!", 0, 3, {255, 255, 255, 255}, 0.4, false, false, false, false)
-            DrawRaceMenuItem("[>] - Next player!", 0, 4, {255, 255, 255, 255}, 0.4, false, false, false, false)
-            DrawRaceMenuItem("[L] - Search player!", 0, 5, {255, 255, 255, 255}, 0.4, false, false, false, false)
-            
-            -- Draw leaderboard on the left
-            drawLeaderboard()
+            DrawText2D("[H] - Start countdown!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
             
         elseif gameState == GAME_STATES.WINNERS then
-            if winnersList then
-                drawWinnersList()
-            else
-                DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
-                DrawRaceMenuItem("[H] - Setup Race!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
-                DrawRaceMenuItem("[J] - Open Winners List!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
+            -- Only show if winners list is NOT open
+            if not winnersList then
+                DrawText2D("[H] - Setup Race!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
+                menuY = menuY + lineHeight + 0.02
+                DrawText2D("[J] - Open Winners List!", 0.76, menuY, 0.5, {255, 255, 255, 255}, 4, false, false, false)
             end
         end
     else
-        -- Minimized menu (top right corner)
-        DrawBackground(0.75, 0.02, 0.23, 0.05, {0, 0, 0, 180})
-        DrawText2D("[U] - Show Race Menu!", 0.765, 0.03, 0.4, {255, 255, 255, 255}, 4, false, true, false)
-        
-        if gameState == GAME_STATES.RACE then
-            drawLeaderboard()
+        -- MINIMIZED MENU (only when NOT in queue/race/winners states)
+        if gameState ~= GAME_STATES.QUEUE and gameState ~= GAME_STATES.RACE and gameState ~= GAME_STATES.WINNERS then
+            DrawBackground(0.75, 0.02, 0.25, 0.05, {0, 0, 0, 180})
+            DrawText2D("[U] - Show Race Menu!", 0.76, 0.03, 0.4, {255, 255, 255, 255}, 4, false, true, false)
         end
     end
 end
@@ -387,7 +420,7 @@ function drawQueueList()
 end
 
 function drawLeaderboard()
-    -- Leaderboard background (left side)
+    -- Leaderboard background (left side) - ALWAYS visible during race
     DrawBackground(0.02, 0.35, 0.25, 0.35, {0, 0, 0, 180})
     
     -- Header
@@ -484,86 +517,7 @@ function drawWinnersList()
     -- Next race info
     DrawText2D("Next race starting soon...", 0.5, 0.7, 0.4, {0, 255, 255, 255}, 4, true, false, false)
 end
-local stuckCarData = {}
-function checkStuckCars()
-    if gameState ~= GAME_STATES.RACE then
-        return
-    end
-    
-    for i = 1, playerNumber do
-        if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
-            local vehicle = vehicles[i]
-            local currentPos = GetEntityCoords(vehicle)
-            local currentSpeed = GetEntitySpeed(vehicle)
-            local targetSpeed = playerSpeeds[i] or 0
-            
-            -- Initialize tracking for this car
-            if not stuckCarData[i] then
-                stuckCarData[i] = {
-                    lastPos = currentPos,
-                    stuckTime = 0,
-                    lastCheck = GetGameTimer()
-                }
-            end
-            
-            local data = stuckCarData[i]
-            local timeSinceCheck = GetGameTimer() - data.lastCheck
-            
-            -- Check every 2 seconds
-            if timeSinceCheck > 2000 then
-                local distanceMoved = #(currentPos - data.lastPos)
-                
-                -- Car is stuck if it should be moving but hasn't moved much
-                if targetSpeed > 5 and distanceMoved < 2.0 and currentSpeed < 1.0 then
-                    data.stuckTime = data.stuckTime + timeSinceCheck
-                    print("^3[TikTok Race]^7 Car " .. i .. " might be stuck (moved " .. distanceMoved .. "m, stuck time: " .. (data.stuckTime/1000) .. "s)")
-                    
-                    -- If stuck for more than 8 seconds, help it
-                    if data.stuckTime > 8000 then
-                        unstuckCar(i, vehicle)
-                        data.stuckTime = 0
-                    end
-                else
-                    -- Car is moving fine, reset stuck time
-                    data.stuckTime = 0
-                end
-                
-                -- Update tracking data
-                data.lastPos = currentPos
-                data.lastCheck = GetGameTimer()
-            end
-        end
-    end
-end
 
-function unstuckCar(playerId, vehicle)
-    print("^2[TikTok Race]^7 🚛 Unsticking car " .. playerId .. "!")
-    
-    -- Method 1: Try to place car back on road
-    SetVehicleOnGroundProperly(vehicle)
-    
-    -- Method 2: Give it a strong forward push
-    local forwardVector = GetEntityForwardVector(vehicle)
-    ApplyForceToEntity(vehicle, 1, 
-        forwardVector.x * 50, 
-        forwardVector.y * 50, 
-        5.0,  -- Small upward force to get over obstacles
-        0.0, 0.0, 0.0, 0, false, true, true, false, true)
-    
-    -- Method 3: If still stuck, teleport slightly forward
-    Wait(1000)
-    local newSpeed = GetEntitySpeed(vehicle)
-    if newSpeed < 1.0 then
-        local currentPos = GetEntityCoords(vehicle)
-        local newPos = vector3(
-            currentPos.x + forwardVector.x * 5,
-            currentPos.y + forwardVector.y * 5,
-            currentPos.z + 1.0
-        )
-        SetEntityCoords(vehicle, newPos.x, newPos.y, newPos.z, false, false, false, true)
-        print("^2[TikTok Race]^7 🚁 Teleported stuck car " .. playerId .. " forward")
-    end
-end
 
 function handleCountdown()
     if countdown then
@@ -613,13 +567,7 @@ function handleCountdown()
     end
 end
 
-function deletePopulation()
-    if pedsEnabled then
-        -- Clear area of unwanted peds and vehicles
-        ClearAreaOfPeds(1722.0, 3239.0, 40.7287, 500.0, 1)
-        ClearAreaOfVehicles(1722.0, 3239.0, 40.7287, 500.0, false, false, false, false, false)
-    end
-end
+
 
 function debugInfo()
     if not websocketConnected then
@@ -964,45 +912,46 @@ end
 local speedUpdateThread = nil
 -- REPLACE the original startDriving function
 function startDriving()
-    print("^2[TikTok Race]^7 Starting race with manual speed control")
+    print("^2[TikTok Race]^7 Starting race with enhanced AI driving")
     
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
             local ped = players[i]
             local vehicle = vehicles[i]
             
-            print("^3[TikTok Race]^7 Setting up manual control for player " .. i .. ": " .. (playerNames[i] or "Unknown"))
+            print("^3[TikTok Race]^7 Setting up enhanced AI driving for player " .. i .. ": " .. (playerNames[i] or "Unknown"))
             
             -- Set initial speed
-            playerSpeeds[i] = 15  -- Starting speed
+            playerSpeeds[i] = 25  -- Higher starting speed
+            local gameSpeed = playerSpeeds[i] * 0.44704
             
-            -- Configure basic AI
+            -- Configure vehicle and ped
             SetDriverAbility(ped, 1.0)
-            SetDriverAggressiveness(ped, 0.5)
-            
-            -- Make sure vehicle is ready
+            SetDriverAggressiveness(ped, 0.8) -- More aggressive for better racing
             SetVehicleEngineOn(vehicle, true, true, false)
             SetVehicleOnGroundProperly(vehicle)
             
-            -- Set basic drive task (just to get AI steering, we'll control speed manually)
-            TaskVehicleDriveToCoord(ped, vehicle, 
+            -- Set speed limits
+            SetEntityMaxSpeed(vehicle, gameSpeed)
+            SetDriveTaskMaxCruiseSpeed(ped, gameSpeed)
+            
+            -- Start driving task
+            TaskVehicleDriveToCoord(ped, vehicle,
                 racePoint.x, racePoint.y, racePoint.z,
-                5.0,  -- Low speed for AI steering only
+                gameSpeed,
                 0,
                 GetEntityModel(vehicle),
-                262144,  -- Just normal driving for steering
+                262196,
                 15.0,
                 -1.0
             )
             
-            print("^2[TikTok Race]^7 Player " .. i .. " ready with manual speed control")
+            print("^2[TikTok Race]^7 Player " .. i .. " driving with speed limit: " .. gameSpeed)
         end
     end
     
-    -- Start the manual speed control thread
     startSpeedControlThread()
-    
-    print("^2[TikTok Race]^7 🏁 Manual speed control active!")
+    print("^2[TikTok Race]^7 🏁 Enhanced AI driving active!")
 end
 
 function startSpeedControlThread()
@@ -1014,48 +963,65 @@ function startSpeedControlThread()
         while gameState == GAME_STATES.RACE do
             for i = 1, playerNumber do
                 if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
+                    local ped = players[i]
                     local vehicle = vehicles[i]
                     local targetSpeed = playerSpeeds[i] or 0
                     
                     if targetSpeed > 0 then
-                        -- PHYSICS-SAFE: Only apply forward force, let game handle physics
-                        local forwardVector = GetEntityForwardVector(vehicle)
-                        local currentSpeed = GetEntitySpeed(vehicle)
-                        local targetGameSpeed = targetSpeed * 0.1
+                        -- Set maximum driving speed (this actually works)
+                        local gameSpeed = targetSpeed * 0.44704 -- Convert to m/s (like C# MaxDrivingSpeed)
+                        SetEntityMaxSpeed(vehicle, gameSpeed)
                         
-                        -- Only apply force if we're going slower than target
-                        if currentSpeed < targetGameSpeed then
-                            local speedDiff = targetGameSpeed - currentSpeed
-                            local forceAmount = speedDiff * 10.0  -- Gentle acceleration
-                            
-                            ApplyForceToEntity(vehicle, 1, 
-                                forwardVector.x * forceAmount, 
-                                forwardVector.y * forceAmount, 
-                                0.0,  -- No vertical force
-                                0.0, 0.0, 0.0, 0, false, true, true, false, true)
+                        -- Also set ped driving speed limit
+                        SetDriveTaskMaxCruiseSpeed(ped, gameSpeed)
+                        
+                        -- Ensure the driving task is still active
+                        if not IsPedInVehicle(ped, vehicle, false) then
+                            TaskWarpPedIntoVehicle(ped, vehicle, -1)
                         end
                         
-                        -- Keep vehicle upright and on ground
+                        -- Check if ped needs a new driving task
+                        local taskStatus = GetScriptTaskStatus(ped, GetHashKey("SCRIPT_TASK_VEHICLE_DRIVE_TO_COORD"))
+                        if taskStatus ~= 1 then -- 1 = running
+                            TaskVehicleDriveToCoord(ped, vehicle,
+                                racePoint.x, racePoint.y, racePoint.z,
+                                gameSpeed,
+                                0,
+                                GetEntityModel(vehicle),
+                                262196,
+                                15.0,
+                                -1.0
+                            )
+                        end
+                        
+                        -- Apply additional force if speed is very high (like C# ApplyForce)
+                        if targetSpeed > 50 then
+                            local currentSpeed = GetEntitySpeed(vehicle)
+                            if currentSpeed < gameSpeed * 0.7 then -- If going too slow
+                                local forwardVector = GetEntityForwardVector(vehicle)
+                                local forceMultiplier = (targetSpeed - 50) * 0.02
+                                ApplyForceToEntity(vehicle, 1,
+                                    forwardVector.x * forceMultiplier,
+                                    forwardVector.y * forceMultiplier,
+                                    0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
+                            end
+                        end
+                        
+                        -- Keep vehicle in good condition
+                        SetVehicleEngineOn(vehicle, true, true, false)
                         SetVehicleOnGroundProperly(vehicle)
-                        
-                        -- Fix rotation if vehicle is flipped
-                        local roll = GetEntityRoll(vehicle)
-                        if math.abs(roll) > 45 then
-                            SetEntityRotation(vehicle, 0.0, 0.0, GetEntityHeading(vehicle), 2, true)
-                            print("^3[TikTok Race]^7 Fixed flipped vehicle for player " .. i)
-                        end
                     end
                 end
             end
             
-            Wait(100)
+            Wait(500) -- Check every 500ms for responsiveness
         end
         
         speedUpdateThread = nil
         print("^3[TikTok Race]^7 Speed control thread stopped")
     end)
     
-    print("^2[TikTok Race]^7 ✅ Physics-safe speed control started")
+    print("^2[TikTok Race]^7 ✅ Enhanced speed control started")
 end
 
 function renderNames()
@@ -1182,41 +1148,49 @@ function boostPlayer(playerId, speed, nitro)
         return
     end
     
-    -- Update stored speed 
+    -- Update stored speed
     local oldSpeed = playerSpeeds[playerId] or 0
-    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80)
+    playerSpeeds[playerId] = oldSpeed + speed
     local newSpeed = playerSpeeds[playerId]
     
     print("^2[TikTok Race]^7 🚀 SPEED BOOST player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed)
     
-    -- SAFE: Only apply gentle forward force
-    if newSpeed > oldSpeed then
-        -- Make sure vehicle is upright first
-        SetVehicleOnGroundProperly(vehicle)
-        
-        local forwardVector = GetEntityForwardVector(vehicle)
-        local boostForce = (newSpeed - oldSpeed) * 0.1  -- Very gentle
-        
-        ApplyForceToEntity(vehicle, 1, 
-            forwardVector.x * boostForce, 
-            forwardVector.y * boostForce, 
-            0.0,  -- No vertical force
-            0.0, 0.0, 0.0, 0, false, true, true, false, true)
-    end
+    -- Immediately apply new speed limits
+    local gameSpeed = newSpeed * 0.44704 -- Convert to m/s
+    SetEntityMaxSpeed(vehicle, gameSpeed)
+    SetDriveTaskMaxCruiseSpeed(ped, gameSpeed)
     
-    -- FIXED: Gentler nitro
+    -- Give immediate forward push (like C# BoostPlayer function)
+    local forwardVector = GetEntityForwardVector(vehicle)
+    local boostForce = speed * 0.5 -- Immediate boost force
+    ApplyForceToEntity(vehicle, 1,
+        forwardVector.x * boostForce,
+        forwardVector.y * boostForce,
+        0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
+    
+    -- Handle nitro with stronger force
     if nitro then
         print("^2[TikTok Race]^7 💨 NITRO!")
         SetVehicleOnGroundProperly(vehicle)
         
-        local forwardVector = GetEntityForwardVector(vehicle)
-        ApplyForceToEntity(vehicle, 1, 
-            forwardVector.x * speed * 0.2, 
-            forwardVector.y * speed * 0.2, 
+        -- Stronger nitro force
+        ApplyForceToEntity(vehicle, 1,
+            forwardVector.x * speed * 1.0,
+            forwardVector.y * speed * 1.0,
             0.0, 0.0, 0.0, 0.0, 0, false, true, true, false, true)
     end
+    
+    -- Update driving task with new speed
+    TaskVehicleDriveToCoord(ped, vehicle,
+        racePoint.x, racePoint.y, racePoint.z,
+        gameSpeed,
+        0,
+        GetEntityModel(vehicle),
+        262196,
+        15.0,
+        -1.0
+    )
 end
-
 function getNameId(searchName)
     searchName = string.lower(searchName)
     for i = 1, playerNumber do
