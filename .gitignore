@@ -1,3 +1,6 @@
 events/bridge_stats.json
 events/events_processed.json
 events/events_queue.json
+events/bridge_stats.json
+events/events_processed.json
+*.json

@@ -1,5 +1,5 @@
--- TikTok Race FiveM Mod - Client Side
--- Port of the original GTA V Script Hook mod
+-- TikTok Race FiveM Mod - Client Side (FIXED)
+-- Port of the original GTA V Script Hook mod with proper UI positioning and name rendering
 
 local TikTokRace = {}
 
@@ -72,6 +72,81 @@ local soundPlayIdS = 1
 -- Version
 local version = "v0.6 FiveM"
 
+-- Screen resolution helpers
+local screenW, screenH = GetActiveScreenResolution()
+
+-- UI Helper Functions
+function GetUIPosition(x, y, anchorX, anchorY)
+    -- Convert relative positions to screen coordinates
+    -- anchorX: 0 = left, 0.5 = center, 1 = right
+    -- anchorY: 0 = top, 0.5 = center, 1 = bottom
+    anchorX = anchorX or 0
+    anchorY = anchorY or 0
+    
+    local finalX = anchorX + (x / screenW)
+    local finalY = anchorY + (y / screenH)
+    
+    return finalX, finalY
+end
+
+function DrawText2D(text, x, y, scale, color, font, centered, shadow, outline)
+    font = font or 4
+    centered = centered or false
+    shadow = shadow or false
+    outline = outline or false
+    
+    SetTextFont(font)
+    SetTextProportional(false)
+    SetTextScale(scale, scale)
+    SetTextColour(color[1], color[2], color[3], color[4] or 255)
+    
+    if centered then
+        SetTextCentre(true)
+    end
+    
+    if shadow then
+        SetTextDropShadow(0, 0, 0, 0, 255)
+    end
+    
+    if outline then
+        SetTextOutline()
+    end
+    
+    SetTextEntry("STRING")
+    AddTextComponentString(text)
+    DrawText(x, y)
+    
+    -- Reset text properties
+    SetTextCentre(false)
+end
+
+function DrawRaceMenuItem(text, x, y, color, scale, shadow, qlist, alignCenter, cent)
+    local finalX, finalY
+    scale = scale or 0.4
+    shadow = shadow or false
+    
+    if cent then
+        -- Centered positioning
+        finalX = x
+        finalY = y
+    elseif qlist then
+        -- Queue list positioning (left side)
+        finalX = 0.05 + (x * 0.001)
+        finalY = 0.25 + (y * 0.025)
+    else
+        -- Right side menu positioning
+        finalX = 0.75
+        finalY = 0.25 + (y * 0.025)
+    end
+    
+    DrawText2D(text, finalX, finalY, scale, color, 4, alignCenter, shadow, false)
+end
+
+function DrawBackground(x, y, width, height, color)
+    color = color or {0, 0, 0, 150}
+    DrawRect(x, y, width, height, color[1], color[2], color[3], color[4])
+end
+
 -- Key mappings
 RegisterKeyMapping('tiktok_toggle_menu', 'Toggle TikTok Race Menu', 'keyboard', 'U')
 RegisterKeyMapping('tiktok_action', 'TikTok Race Action', 'keyboard', 'H')
@@ -103,7 +178,7 @@ function onTick()
     end
     
     -- Draw main title
-    DrawText2D("Muzzy Tiktok Race " .. version, 0.0, 0.1, 0.3, {255, 0, 0, 255})
+    DrawText2D("Muzzy Tiktok Race " .. version, 0.01, 0.01, 0.4, {0, 162, 255, 255}, 4, false, true, true)
     
     -- Main game loop functions
     deletePopulation()
@@ -197,99 +272,58 @@ RegisterCommand('tiktok_search_player', function()
     end
 end)
 
-function DrawText2D(text, x, y, scale, color)
-    SetTextFont(4)
-    SetTextProportional(0)
-    SetTextScale(scale, scale)
-    SetTextColour(color[1], color[2], color[3], color[4])
-    SetTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawText(x, y)
-end
-
-function DrawRaceMenuItem(text, x, y, color, scale, shadow, qlist, alignCenter, cent)
-    local finalX, finalY
-    
-    if cent then
-        finalX = x
-        finalY = y
-    elseif qlist then
-        finalX = x
-        finalY = 0.3 + y + 0.05 -- Adjust positioning for queue list
-    else
-        finalX = 0.8 -- Right side of screen
-        finalY = 0.3 + y + 0.05
-    end
-    
-    SetTextFont(4)
-    SetTextProportional(0)
-    SetTextScale(scale, scale)
-    SetTextColour(color[1], color[2], color[3], color[4])
-    if shadow then
-        SetTextDropShadow()
-    end
-    if alignCenter then
-        SetTextCentre(true)
-    end
-    SetTextEntry("STRING")
-    AddTextComponentString(text)
-    DrawText(finalX, finalY)
-end
-
 function drawRaceMenu()
-    local menuIndex = 0
-    
     if raceMenu then
-        -- Draw background
-        DrawRect(0.85, 0.4, 0.25, 0.3, 0, 0, 0, 150)
+        -- Main menu background (right side)
+        DrawBackground(0.75, 0.35, 0.23, 0.3, {0, 0, 0, 180})
         
         if gameState == GAME_STATES.IDLE then
-            DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
-            DrawRaceMenuItem("[H] - Setup race!", 0.85, 0.05, {255, 255, 255, 255}, 0.4, false, false, true, false)
+            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
+            DrawRaceMenuItem("[H] - Setup race!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
             
         elseif gameState == GAME_STATES.SETUP_DONE then
-            DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
+            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
             if racePoint.x == 0.0 and racePoint.y == 0.0 then
-                DrawRaceMenuItem("PLEASE SET WAYPOINT!", 0.85, 0.05, {64, 224, 208, 255}, 0.5, false, false, true, false)
+                DrawRaceMenuItem("PLEASE SET WAYPOINT!", 0, 2, {64, 224, 208, 255}, 0.6, true, false, false, false)
             end
-            DrawRaceMenuItem("[H] - Open Queue!", 0.85, 0.1, {255, 255, 255, 255}, 0.4, false, false, true, false)
+            DrawRaceMenuItem("[H] - Open Queue!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
             
         elseif gameState == GAME_STATES.QUEUE then
             if queueList then
                 drawQueueList()
             else
-                DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
-                DrawRaceMenuItem("[H] - End Queue!", 0.85, 0.05, {255, 255, 255, 255}, 0.4, false, false, true, false)
-                DrawRaceMenuItem("[J] - Open Queue List!", 0.85, 0.15, {255, 255, 255, 255}, 0.4, false, false, true, false)
+                DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
+                DrawRaceMenuItem("[H] - End Queue!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
+                DrawRaceMenuItem("[J] - Open Queue List!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
             end
             
         elseif gameState == GAME_STATES.READY then
-            DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
-            DrawRaceMenuItem("[H] - Start countdown!", 0.85, 0.05, {255, 255, 255, 255}, 0.4, false, false, true, false)
+            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
+            DrawRaceMenuItem("[H] - Start countdown!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
             
         elseif gameState == GAME_STATES.RACE then
-            DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
-            DrawRaceMenuItem("Change camera (" .. (currentCamera + 1) .. "):", 0.85, 0.05, {255, 255, 255, 255}, 0.4, false, false, true, false)
-            DrawRaceMenuItem("[<] - Previous player!", 0.85, 0.1, {255, 255, 255, 255}, 0.4, false, false, true, false)
-            DrawRaceMenuItem("[>] - Next player!", 0.85, 0.15, {255, 255, 255, 255}, 0.4, false, false, true, false)
-            DrawRaceMenuItem("[L] - Search player!", 0.85, 0.2, {255, 255, 255, 255}, 0.4, false, false, true, false)
+            DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
+            DrawRaceMenuItem("Change camera (" .. (currentCamera + 1) .. "):", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
+            DrawRaceMenuItem("[<] - Previous player!", 0, 3, {255, 255, 255, 255}, 0.4, false, false, false, false)
+            DrawRaceMenuItem("[>] - Next player!", 0, 4, {255, 255, 255, 255}, 0.4, false, false, false, false)
+            DrawRaceMenuItem("[L] - Search player!", 0, 5, {255, 255, 255, 255}, 0.4, false, false, false, false)
             
-            -- Draw leaderboard
+            -- Draw leaderboard on the left
             drawLeaderboard()
             
         elseif gameState == GAME_STATES.WINNERS then
             if winnersList then
                 drawWinnersList()
             else
-                DrawRaceMenuItem("TikTok Race Menu", 0.85, 0.0, {255, 165, 0, 255}, 0.7, false, false, true, false)
-                DrawRaceMenuItem("[H] - Setup Race!", 0.85, 0.05, {255, 255, 255, 255}, 0.4, false, false, true, false)
-                DrawRaceMenuItem("[J] - Open Winners List!", 0.85, 0.15, {255, 255, 255, 255}, 0.4, false, false, true, false)
+                DrawRaceMenuItem("TikTok Race Menu", 0, 0, {255, 165, 0, 255}, 0.7, true, false, false, false)
+                DrawRaceMenuItem("[H] - Setup Race!", 0, 2, {255, 255, 255, 255}, 0.5, false, false, false, false)
+                DrawRaceMenuItem("[J] - Open Winners List!", 0, 4, {255, 255, 255, 255}, 0.5, false, false, false, false)
             end
         end
     else
-        -- Show minimized menu
-        DrawRect(0.85, 0.35, 0.25, 0.08, 0, 0, 0, 150)
-        DrawRaceMenuItem("[U] - Show Race Menu!", 0.85, 0.0, {255, 255, 255, 255}, 0.4, true, false, true, false)
+        -- Minimized menu (top right corner)
+        DrawBackground(0.75, 0.02, 0.23, 0.05, {0, 0, 0, 180})
+        DrawText2D("[U] - Show Race Menu!", 0.765, 0.03, 0.4, {255, 255, 255, 255}, 4, false, true, false)
         
         if gameState == GAME_STATES.RACE then
             drawLeaderboard()
@@ -298,78 +332,147 @@ function drawRaceMenu()
 end
 
 function drawQueueList()
-    -- Draw large background for queue list
-    DrawRect(0.5, 0.5, 0.9, 0.6, 0, 0, 0, 150)
+    -- Large background for queue list (center screen)
+    DrawBackground(0.5, 0.5, 0.85, 0.7, {0, 0, 0, 200})
     
-    DrawRaceMenuItem("[J] - Close Queue List!", 0.5, -0.2, {255, 255, 255, 255}, 0.4, true, false, true, true)
-    DrawRaceMenuItem("Joined: " .. playerNumber .. "/" .. maxPlayers .. " | Write !join in chat to enter the race", 0.5, -0.1, {255, 255, 255, 255}, 0.8, true, true, true, true)
-    DrawRaceMenuItem("___________________________", 0.5, -0.05, {255, 255, 255, 255}, 0.8, true, true, true, true)
-    DrawRaceMenuItem("Players List", 0.5, 0.0, {0, 0, 255, 255}, 0.7, true, true, true, true)
+    -- Close button (top)
+    DrawText2D("[J] - Close Queue List!", 0.5, 0.15, 0.5, {255, 255, 255, 255}, 4, true, true, true)
     
-    -- Draw player list in columns
-    local column = 0
-    local row = 0
+    -- Header
+    local headerText = "Joined: " .. playerNumber .. "/" .. maxPlayers .. " | Write !join in chat to enter the race"
+    DrawText2D(headerText, 0.5, 0.22, 0.6, {255, 255, 255, 255}, 4, true, true, true)
+    DrawText2D("_________________________________________", 0.5, 0.25, 0.6, {255, 255, 255, 255}, 4, true, false, false)
+    DrawText2D("Players List", 0.5, 0.3, 0.7, {0, 162, 255, 255}, 4, true, true, false)
+    
+    -- Draw player list in columns (3 columns, 20 rows each)
+    local startX = 0.2
+    local startY = 0.38
+    local columnWidth = 0.25
+    local rowHeight = 0.02
+    local maxRowsPerColumn = 20
+    
     for i = 1, playerNumber do
         if playerNames[i] and playerNames[i] ~= "" then
             local name = playerNames[i]
-            if string.len(name) > 13 then
-                name = string.sub(name, 1, 13)
+            if string.len(name) > 18 then
+                name = string.sub(name, 1, 18) .. "..."
             end
             
-            local x = 0.3 + (column * 0.2)
-            local y = 0.1 + (row * 0.025)
+            local column = math.floor((i - 1) / maxRowsPerColumn)
+            local row = (i - 1) % maxRowsPerColumn
             
-            DrawRaceMenuItem(i .. ". " .. name, x, y, {255, 255, 255, 255}, 0.4, true, true, false, true)
+            local x = startX + (column * columnWidth)
+            local y = startY + (row * rowHeight)
             
-            row = row + 1
-            if row >= 19 then
-                row = 0
-                column = column + 1
+            if column < 3 then -- Only show first 3 columns (60 players max visible)
+                DrawText2D(i .. ". " .. name, x, y, 0.4, {255, 255, 255, 255}, 4, false, false, false)
             end
         end
+    end
+    
+    -- Show overflow message if more than 60 players
+    if playerNumber > 60 then
+        DrawText2D("... and " .. (playerNumber - 60) .. " more players", 0.5, 0.82, 0.4, {255, 255, 0, 255}, 4, true, false, false)
     end
 end
 
 function drawLeaderboard()
-    -- Draw leaderboard background
-    DrawRect(0.15, 0.4, 0.25, 0.3, 0, 0, 0, 150)
-    DrawRaceMenuItem("Leaderboard", 0.15, -0.1, {0, 255, 255, 255}, 0.7, false, false, true, true)
+    -- Leaderboard background (left side)
+    DrawBackground(0.02, 0.35, 0.25, 0.35, {0, 0, 0, 180})
     
-    -- Sort players by distance to finish
+    -- Header
+    DrawText2D("Leaderboard", 0.03, 0.18, 0.6, {0, 255, 255, 255}, 4, false, true, true)
+    DrawText2D("_____________", 0.03, 0.21, 0.5, {255, 255, 255, 255}, 4, false, false, false)
+    
+    -- Sort players by distance to finish (like the C# code)
     local sortedPlayers = {}
     for i = 1, playerNumber do
-        if playerPositions[i] then
-            table.insert(sortedPlayers, playerPositions[i])
+        if playerPositions[i] and DoesEntityExist(players[i]) and not IsEntityDead(players[i]) then
+            local parts = {}
+            for part in string.gmatch(playerPositions[i], "[^|]+") do
+                table.insert(parts, part)
+            end
+            if #parts >= 2 then
+                local distance = tonumber(parts[1]) or 9999
+                table.insert(sortedPlayers, {
+                    distance = distance,
+                    name = parts[2],
+                    index = i
+                })
+            end
         end
     end
-    table.sort(sortedPlayers)
     
-    -- Draw top 10
-    for i = 1, math.min(10, #sortedPlayers) do
-        local parts = {}
-        for part in string.gmatch(sortedPlayers[i], "[^|]+") do
-            table.insert(parts, part)
+    -- Sort by distance (closest to finish first)
+    table.sort(sortedPlayers, function(a, b) return a.distance < b.distance end)
+    
+    -- Draw top 10 (like the C# code limit)
+    local maxDisplay = math.min(10, #sortedPlayers)
+    for i = 1, maxDisplay do
+        local player = sortedPlayers[i]
+        local name = player.name
+        
+        -- Extract name like C# code does
+        if string.find(name, "%(") then
+            name = string.match(name, "(.-)%s*%(") or name
         end
-        if #parts >= 2 then
-            local y = -0.05 + (i * 0.025)
-            DrawRaceMenuItem(i .. ". " .. parts[2], 0.05, y, {255, 255, 255, 255}, 0.5, false, false, false, true)
+        
+        -- Limit name length
+        if string.len(name) > 15 then
+            name = string.sub(name, 1, 15) .. "..."
         end
+        
+        local y = 0.25 + (i * 0.025)
+        local displayText = i .. ". " .. name .. " (" .. math.floor(player.distance) .. "m)"
+        
+        -- Different colors for top 3
+        local color = {255, 255, 255, 255} -- White for others
+        if i == 1 then
+            color = {255, 215, 0, 255} -- Gold for 1st
+        elseif i == 2 then
+            color = {192, 192, 192, 255} -- Silver for 2nd
+        elseif i == 3 then
+            color = {205, 127, 50, 255} -- Bronze for 3rd
+        end
+        
+        DrawText2D(displayText, 0.03, y, 0.4, color, 4, false, false, false)
     end
 end
 
 function drawWinnersList()
-    -- Draw winners list background
-    DrawRect(0.5, 0.5, 0.4, 0.45, 0, 0, 0, 150)
+    -- Winners list background (center screen)
+    DrawBackground(0.5, 0.5, 0.5, 0.6, {0, 0, 0, 200})
     
-    DrawRaceMenuItem("[J] - Close Winners List!", 0.5, -0.15, {255, 255, 255, 255}, 0.4, true, false, true, true)
-    DrawRaceMenuItem("Leaderboard", 0.5, -0.1, {255, 255, 255, 255}, 0.8, true, true, true, true)
-    DrawRaceMenuItem("____________", 0.5, -0.05, {255, 255, 255, 255}, 0.8, true, true, true, true)
+    -- Close button
+    DrawText2D("[J] - Close Winners List!", 0.5, 0.22, 0.5, {255, 255, 255, 255}, 4, true, true, true)
     
-    DrawRaceMenuItem("1st " .. place1, 0.5, 0.0, {255, 255, 255, 255}, 0.9, true, true, true, true)
-    DrawRaceMenuItem("2nd " .. place2, 0.5, 0.06, {255, 255, 255, 255}, 0.6, true, true, true, true)
-    if playerNumber >= 3 then
-        DrawRaceMenuItem("3rd " .. place3, 0.5, 0.12, {255, 255, 255, 255}, 0.4, true, true, true, true)
+    -- Header
+    DrawText2D("Race Results", 0.5, 0.3, 0.8, {255, 255, 255, 255}, 4, true, true, true)
+    DrawText2D("__________________", 0.5, 0.35, 0.6, {255, 255, 255, 255}, 4, true, false, false)
+    
+    -- Extract names like C# code
+    local function extractName(fullName)
+        if string.find(fullName, "%(") then
+            return string.match(fullName, "(.-)%s*%(") or fullName
+        end
+        return fullName
     end
+    
+    -- Winners
+    if place1 ~= "" then
+        DrawText2D("🥇 1st: " .. extractName(place1), 0.5, 0.45, 0.7, {255, 215, 0, 255}, 4, true, true, true)
+    end
+    
+    if place2 ~= "" then
+        DrawText2D("🥈 2nd: " .. extractName(place2), 0.5, 0.52, 0.6, {192, 192, 192, 255}, 4, true, true, true)
+    end
+    
+    if place3 ~= "" and playerNumber >= 3 then
+        DrawText2D("🥉 3rd: " .. extractName(place3), 0.5, 0.59, 0.5, {205, 127, 50, 255}, 4, true, true, true)
+    end
+    
+    -- Next race info
+    DrawText2D("Next race starting soon...", 0.5, 0.7, 0.4, {0, 255, 255, 255}, 4, true, false, false)
 end
 
 function handleCountdown()
@@ -394,32 +497,31 @@ function handleCountdown()
             FreezeEntityPosition(PlayerPedId(), false)
             
             -- Start the cars driving (but don't use AI mode)
-            startDriving()
+            startDrivingWithoutAI()
             
         elseif seconds < 1 then
             if soundPlayId ~= soundPlayIdS then
                 PlaySoundFrontend(-1, "Beep_Green", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
                 soundPlayId = soundPlayIdS
             end
-            DrawRaceMenuItem("GO!!!", 0.5, 0.5, {0, 255, 0, 255}, 1.5, true, false, true, true)
+            DrawText2D("GO!!!", 0.5, 0.5, 2.0, {0, 255, 0, 255}, 4, true, true, true)
         elseif seconds <= 3 then
             if soundPlayId ~= soundPlayIdS then
                 PlaySoundFrontend(-1, "3_2_1", "HUD_MINI_GAME_SOUNDSET", true)
                 soundPlayId = soundPlayIdS
             end
-            DrawRaceMenuItem(tostring(seconds), 0.5, 0.5, {255, 0, 0, 255}, 1.5, true, false, true, true)
+            DrawText2D(tostring(seconds), 0.5, 0.5, 2.0, {255, 0, 0, 255}, 4, true, true, true)
         else
             if soundPlayId ~= soundPlayIdS then
                 PlaySoundFrontend(-1, "3_2_1", "HUD_MINI_GAME_SOUNDSET", true)
                 soundPlayId = soundPlayIdS
             end
-            DrawRaceMenuItem(tostring(seconds), 0.5, 0.5, {255, 255, 255, 255}, 1.5, true, false, true, true)
+            DrawText2D(tostring(seconds), 0.5, 0.5, 2.0, {255, 255, 255, 255}, 4, true, true, true)
         end
         
         soundPlayIdS = seconds
     end
 end
-
 
 function deletePopulation()
     if pedsEnabled then
@@ -430,31 +532,36 @@ function deletePopulation()
 end
 
 function debugInfo()
-    local line = 10
-    
     if not websocketConnected then
-        DrawText2D("Not connected...", 0.0, 0.0, 0.3, {255, 0, 0, 255})
+        DrawText2D("🔴 Not connected to TikTok events", 0.5, 0.95, 0.4, {255, 100, 100, 255}, 4, true, true, true)
+    else
+        DrawText2D("🟢 Connected to TikTok events", 0.5, 0.95, 0.4, {100, 255, 100, 255}, 4, true, true, true)
     end
     
     if isDebug then
-        DrawText2D("Debug info: ", 0.0, line * 0.02, 0.3, {255, 165, 0, 255})
+        local line = 0
+        local startY = 0.7
+        
+        DrawText2D("=== DEBUG INFO ===", 0.02, startY + (line * 0.025), 0.4, {255, 165, 0, 255}, 4, false, true, false)
         line = line + 1
         
-        if websocketConnected then
-            DrawText2D("Connected", 0.0, line * 0.02, 0.3, {0, 255, 0, 255})
-        else
-            DrawText2D("Not connected", 0.0, line * 0.02, 0.3, {255, 0, 0, 255})
-        end
+        DrawText2D("Game State: " .. gameState, 0.02, startY + (line * 0.025), 0.35, {255, 255, 255, 255}, 4, false, false, false)
         line = line + 1
         
-        DrawText2D("Disable peds: " .. tostring(pedsEnabled), 0.0, line * 0.02, 0.3, pedsEnabled and {0, 255, 0, 255} or {255, 0, 0, 255})
+        DrawText2D("Players: " .. playerNumber .. "/" .. maxPlayers, 0.02, startY + (line * 0.025), 0.35, {255, 255, 255, 255}, 4, false, false, false)
         line = line + 1
         
-        DrawText2D("Enable AI: " .. tostring(aiMode), 0.0, line * 0.02, 0.3, aiMode and {255, 0, 0, 255} or {0, 255, 0, 255})
+        local connectText = websocketConnected and "Connected" or "Disconnected"
+        local connectColor = websocketConnected and {0, 255, 0, 255} or {255, 0, 0, 255}
+        DrawText2D("WebSocket: " .. connectText, 0.02, startY + (line * 0.025), 0.35, connectColor, 4, false, false, false)
+        line = line + 1
+        
+        DrawText2D("Peds Enabled: " .. tostring(pedsEnabled), 0.02, startY + (line * 0.025), 0.35, {255, 255, 255, 255}, 4, false, false, false)
+        line = line + 1
+        
+        DrawText2D("AI Mode: " .. tostring(aiMode), 0.02, startY + (line * 0.025), 0.35, {255, 255, 255, 255}, 4, false, false, false)
     end
 end
-
-local isSpawning = false
 
 function buttonControlH()
     if gameState == GAME_STATES.IDLE then
@@ -477,31 +584,48 @@ function buttonControlH()
         SetCamActive(raceCamera, true)
         RenderScriptCams(true, false, 0, true, true)
         
-        -- Reset variables
+        -- Reset ALL variables completely
         playerNumber = 0
         place = 0
+        place1 = ""
+        place2 = ""
+        place3 = ""
         playerNames = {}
+        players = {}
+        vehicles = {}
+        playerSpeeds = {}
+        playerPositions = {}
+        
+        -- CRITICAL: Reset spawn positioning to match C# initial values
+        playersX = 0.0
+        playersY = 0.0
+        playersRowNumber = 1
+        playersRowCount = 0
         
         gameState = GAME_STATES.SETUP_DONE
         TriggerServerEvent('tiktok_race:setGameState', gameState)
         
     elseif gameState == GAME_STATES.SETUP_DONE then
         if racePoint.x == 0.0 and racePoint.y == 0.0 then
+            print("^1[TikTok Race]^7 Please set a waypoint first!")
             return
         end
         
-        -- Reset spawn positioning
+        -- Reset spawn positioning again when opening queue (like C# ButtonControlH case 2)
         playersRowCount = 0
         playersRowNumber = 1
         playersX = 0.0
         playersY = 0.0
         queueList = true
         
+        print("^2[TikTok Race]^7 ✅ Queue opened! Spawn vars reset - X: " .. playersX .. ", Y: " .. playersY .. ", Row: " .. playersRowNumber)
+        
         gameState = GAME_STATES.QUEUE
         TriggerServerEvent('tiktok_race:setGameState', gameState)
         
     elseif gameState == GAME_STATES.QUEUE then
         if playerNumber < 2 then
+            print("^1[TikTok Race]^7 Need at least 2 players to start!")
             return
         end
         
@@ -516,7 +640,7 @@ function buttonControlH()
         TriggerServerEvent('tiktok_race:setGameState', gameState)
         
     elseif gameState == GAME_STATES.WINNERS then
-        -- Reset for new race
+        -- Reset for new race - FULL RESET like case 0
         SetEntityInvincible(PlayerPedId(), true)
         FreezeEntityPosition(PlayerPedId(), true)
         DisplayRadar(false)
@@ -527,69 +651,184 @@ function buttonControlH()
             RenderScriptCams(true, false, 0, true, true)
         end
         
+        -- Kill all existing racers first
+        killAllRacers()
+        
+        -- Reset ALL variables completely (like C# case 8)
         playerNumber = 0
         place = 0
+        place1 = ""
+        place2 = ""
+        place3 = ""
         playerNames = {}
+        players = {}
+        vehicles = {}
+        playerSpeeds = {}
+        playerPositions = {}
+        
+        -- Reset spawn positioning
+        playersX = 0.0
+        playersY = 0.0
+        playersRowNumber = 1
+        playersRowCount = 0
+        
+        -- Reset UI states
+        winnersList = false
+        queueList = false
+        raceMenu = true
         
         gameState = GAME_STATES.SETUP_DONE
         TriggerServerEvent('tiktok_race:setGameState', gameState)
-    elseif gameState == GAME_STATES.SETUP_DONE then
-            if racePoint.x == 0.0 and racePoint.y == 0.0 then
-                return
-            end
-            
-            -- FIXED: Reset spawn positioning exactly like C# does
-            -- C# code:
-            -- this.Players_r_nr = 0;
-            -- this.Players_r_n = 1;
-            -- this.Players_X = 0f;
-            -- this.Players_Y = 0f;
-            playersRowCount = 0      -- Players_r_nr
-            playersRowNumber = 1     -- Players_r_n  
-            playersX = 0.0          -- Players_X
-            playersY = 0.0          -- Players_Y
-            
-            queueList = true
-            
-            gameState = GAME_STATES.QUEUE
-            TriggerServerEvent('tiktok_race:setGameState', gameState)
     end
 end
 
 function createPlayer(name, carModel)
-    -- Prevent multiple simultaneous spawns
-    if isSpawning then
-        print("^3[TikTok Race]^7 Spawn in progress, queuing: " .. name)
-        -- Wait a bit and try again
-        SetTimeout(200, function()
-            createPlayer(name, carModel)
-        end)
-        return
-    end
-    
     if playerNumber >= maxPlayers or gameState ~= GAME_STATES.QUEUE then
         print("^1[TikTok Race]^7 Cannot create player - wrong state or full")
-        return
+        return false
     end
-    
-    -- Lock spawning
-    isSpawning = true
     
     carModel = carModel or GetHashKey("hermes") -- Default car
     if type(carModel) == "string" then
         carModel = GetHashKey(carModel)
     end
     
-    print("^3[TikTok Race]^7 Creating player " .. (playerNumber + 1) .. ": " .. name)
+    -- Increment playerNumber FIRST (before any calculations)
+    playerNumber = playerNumber + 1
+    local currentPlayerIndex = playerNumber
     
-    -- CALCULATE spawn position BEFORE any async operations
-    local currentSpawnX = playersX
-    local currentSpawnY = playersY
-    local spawnPos = vector3(1722.0 + currentSpawnX, 3239.0 + currentSpawnY, 40.7287)
+    print("^3[TikTok Race]^7 Creating player " .. currentPlayerIndex .. ": " .. name)
+    print("^3[TikTok Race]^7 Using spawn vars - X: " .. playersX .. ", Y: " .. playersY .. ", Row: " .. playersRowNumber)
     
-    print("^3[TikTok Race]^7 Spawn position: " .. spawnPos.x .. ", " .. spawnPos.y .. " (X=" .. currentSpawnX .. ", Y=" .. currentSpawnY .. ")")
+    -- Calculate spawn position using C# logic: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
+    local spawnPos = vector3(1722.0 + playersX, 3239.0 + playersY, 40.7287)
     
-    -- UPDATE spawn position variables IMMEDIATELY for next player
+    print("^3[TikTok Race]^7 Spawning at: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
+    
+    -- Clear area more aggressively to prevent overlapping
+    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, false, false, false, false, false)
+    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, 1)
+    ClearAreaOfObjects(spawnPos.x, spawnPos.y, spawnPos.z, 12.0, 0)
+    
+    -- Wait a moment for area to clear
+    Wait(100)
+    
+    -- Request and wait for vehicle model
+    RequestModel(carModel)
+    local timeout = 0
+    while not HasModelLoaded(carModel) and timeout < 5000 do
+        Wait(10)
+        timeout = timeout + 10
+    end
+    
+    if not HasModelLoaded(carModel) then
+        print("^1[TikTok Race]^7 Failed to load vehicle model for " .. name)
+        playerNumber = playerNumber - 1 -- Revert player count
+        return false
+    end
+    
+    -- Create vehicle with better parameters
+    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
+    
+    -- Wait for vehicle to fully spawn
+    timeout = 0
+    while not DoesEntityExist(vehicle) and timeout < 3000 do
+        Wait(10)
+        timeout = timeout + 10
+    end
+    
+    if not DoesEntityExist(vehicle) then
+        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
+        playerNumber = playerNumber - 1 -- Revert player count
+        SetModelAsNoLongerNeeded(carModel)
+        return false
+    end
+    
+    -- Ensure vehicle is properly placed
+    SetEntityCoords(vehicle, spawnPos.x, spawnPos.y, spawnPos.z, false, false, false, true)
+    SetEntityHeading(vehicle, 286.7277)
+    PlaceObjectOnGroundProperly(vehicle)
+    
+    -- Set vehicle properties immediately
+    SetEntityInvincible(vehicle, true)
+    SetVehicleEngineOn(vehicle, true, true, false)
+    SetVehicleDoorsLocked(vehicle, 2) -- Lock doors to prevent NPCs from entering
+    SetEntityAsMissionEntity(vehicle, true, true) -- Make it a mission entity
+    
+    -- Request and wait for ped model
+    local pedModel = GetHashKey("a_m_m_skater_01")
+    RequestModel(pedModel)
+    timeout = 0
+    while not HasModelLoaded(pedModel) and timeout < 5000 do
+        Wait(10)
+        timeout = timeout + 10
+    end
+    
+    if not HasModelLoaded(pedModel) then
+        print("^1[TikTok Race]^7 Failed to load ped model for " .. name)
+        DeleteEntity(vehicle)
+        playerNumber = playerNumber - 1 -- Revert player count
+        SetModelAsNoLongerNeeded(carModel)
+        return false
+    end
+    
+    -- Create ped near the vehicle (not inside it yet)
+    local pedSpawnPos = vector3(spawnPos.x + 2.0, spawnPos.y, spawnPos.z)
+    local ped = CreatePed(4, pedModel, pedSpawnPos.x, pedSpawnPos.y, pedSpawnPos.z, 0.0, true, false)
+    
+    -- Wait for ped to fully spawn
+    timeout = 0
+    while not DoesEntityExist(ped) and timeout < 3000 do
+        Wait(10)
+        timeout = timeout + 10
+    end
+    
+    if not DoesEntityExist(ped) then
+        print("^1[TikTok Race]^7 Failed to create ped for " .. name)
+        DeleteEntity(vehicle)
+        playerNumber = playerNumber - 1 -- Revert player count
+        SetModelAsNoLongerNeeded(carModel)
+        SetModelAsNoLongerNeeded(pedModel)
+        return false
+    end
+    
+    -- Set ped properties
+    SetEntityInvincible(ped, true)
+    SetPedCanBeDraggedOut(ped, false)
+    SetPedCanBeKnockedOffVehicle(ped, 1)
+    SetEntityAsMissionEntity(ped, true, true)
+    SetBlockingOfNonTemporaryEvents(ped, true)
+    
+    -- Store references using the current player index
+    players[currentPlayerIndex] = ped
+    vehicles[currentPlayerIndex] = vehicle
+    playerNames[currentPlayerIndex] = name
+    playerSpeeds[currentPlayerIndex] = 0
+    
+    -- Wait a moment before putting ped in vehicle
+    Wait(200)
+    
+    -- Put ped into vehicle (driver seat) with task warp for reliability
+    TaskWarpPedIntoVehicle(ped, vehicle, -1)
+    
+    -- Wait to ensure ped is in vehicle
+    timeout = 0
+    while not IsPedInVehicle(ped, vehicle, false) and timeout < 3000 do
+        Wait(10)
+        timeout = timeout + 10
+        -- Retry if needed
+        if timeout % 500 == 0 then
+            TaskWarpPedIntoVehicle(ped, vehicle, -1)
+        end
+    end
+    
+    -- Add blip to vehicle
+    local blip = AddBlipForEntity(vehicle)
+    SetBlipSprite(blip, 56)
+    SetBlipColour(blip, 3)
+    SetBlipScale(blip, 0.8)
+    
+    -- Update spawn position for NEXT player (using C# logic - AFTER storing current player)
     if playersRowNumber >= 7 then
         playersRowCount = playersRowCount + 1
         playersY = -4.4 * playersRowCount
@@ -601,82 +840,17 @@ function createPlayer(name, carModel)
     end
     playersRowNumber = playersRowNumber + 1
     
-    print("^3[TikTok Race]^7 Next spawn prepared: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
+    print("^2[TikTok Race]^7 ✅ Successfully created player " .. currentPlayerIndex .. ": " .. name)
+    print("^2[TikTok Race]^7 Vehicle: " .. (DoesEntityExist(vehicle) and "EXISTS" or "MISSING"))
+    print("^2[TikTok Race]^7 Ped: " .. (DoesEntityExist(ped) and "EXISTS" or "MISSING"))
+    print("^2[TikTok Race]^7 Ped in vehicle: " .. (IsPedInVehicle(ped, vehicle, false) and "YES" or "NO"))
+    print("^3[TikTok Race]^7 Next spawn will be at X: " .. playersX .. ", Y: " .. playersY)
     
-    -- Clear area to prevent overlapping
-    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, false, false, false, false, false)
-    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, 1)
-    
-    -- Create vehicle
-    RequestModel(carModel)
-    while not HasModelLoaded(carModel) do
-        Wait(1)
-    end
-    
-    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
-    
-    if not DoesEntityExist(vehicle) then
-        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
-        isSpawning = false -- Unlock spawning
-        return
-    end
-    
-    -- Create ped
-    local pedModel = GetHashKey("a_m_m_skater_01")
-    RequestModel(pedModel)
-    while not HasModelLoaded(pedModel) do
-        Wait(1)
-    end
-    
-    local ped = CreatePed(4, pedModel, 1732.0, 3204.0, 43.0, 0.0, true, false)
-    
-    if not DoesEntityExist(ped) then
-        print("^1[TikTok Race]^7 Failed to create ped for " .. name)
-        DeleteEntity(vehicle)
-        isSpawning = false -- Unlock spawning
-        return
-    end
-    
-    -- Add blip to vehicle
-    local blip = AddBlipForEntity(vehicle)
-    SetBlipSprite(blip, 56)
-    SetBlipColour(blip, 3)
-    
-    -- Set vehicle properties
-    SetVehicleAsNoLongerNeeded(vehicle)
-    SetEntityInvincible(vehicle, true)
-    SetVehicleEngineOn(vehicle, true, true, false)
-    
-    -- Set ped properties
-    SetEntityInvincible(ped, true)
-    SetPedCanBeDraggedOut(ped, false)
-    SetPedCanBeKnockedOffVehicle(ped, 1)
-    SetPedCanBeShotInVehicle(ped, false)
-    SetPedStayInVehicleWhenJacked(ped, true)
-    ClearPedTasks(ped)
-    TaskStandStill(ped, -1)
-    SetPedKeepTask(ped, true)
-    
-    -- Store in arrays - INCREMENT playerNumber FIRST
-    playerNumber = playerNumber + 1
-    players[playerNumber] = ped
-    vehicles[playerNumber] = vehicle
-    playerNames[playerNumber] = name
-    playerSpeeds[playerNumber] = 0
-    
-    -- Put ped into vehicle
-    SetPedIntoVehicle(ped, vehicle, -1)
-    
-    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name .. " at position " .. spawnPos.x .. ", " .. spawnPos.y)
-    
+    -- Clean up models
     SetModelAsNoLongerNeeded(carModel)
     SetModelAsNoLongerNeeded(pedModel)
     
-    -- Small delay before unlocking to ensure everything is settled
-    SetTimeout(150, function()
-        isSpawning = false -- Unlock spawning
-        print("^3[TikTok Race]^7 Spawn completed for " .. name .. ", ready for next player")
-    end)
+    return true
 end
 
 function killAllRacers()
@@ -696,45 +870,38 @@ function killAllRacers()
     playerPositions = {}
 end
 
-
--- REPLACE the original startDriving function
-function startDriving()
-    print("^2[TikTok Race]^7 Starting race with " .. playerNumber .. " players")
+function startDrivingWithoutAI()
+    print("^2[TikTok Race]^7 Cars ready - waiting for viewer boosts to move!")
     
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
             local ped = players[i]
             local vehicle = vehicles[i]
             
-            print("^3[TikTok Race]^7 Setting up AI for player " .. i .. ": " .. (playerNames[i] or "Unknown"))
+            print("^3[TikTok Race]^7 Preparing racer " .. i .. ": " .. (playerNames[i] or "Unknown"))
             
-            -- FOR TESTING: Give cars a default speed so they move immediately
-            playerSpeeds[i] = 15  -- Default testing speed (change to 0 for production)
+            -- Set very slow initial speed - cars won't move much without boosts
+            playerSpeeds[i] = 5.0 -- Very slow start
             
-            -- Configure AI driving abilities
-            SetDriverAbility(ped, 1.0)  -- Max driving skill
-            SetDriverAggressiveness(ped, 0.4)  -- Moderate aggression
-            
-            -- Make sure vehicle is ready
+            -- Make sure vehicle is ready but won't auto-drive
             SetVehicleEngineOn(vehicle, true, true, false)
-            SetVehicleOnGroundProperly(vehicle)
+            SetEntityInvincible(vehicle, false)
             
-            -- Start AI driving at testing speed
-            TaskVehicleDriveToCoord(ped, vehicle, 
-                racePoint.x, racePoint.y, racePoint.z,  -- Destination
-                playerSpeeds[i],  -- Testing speed (15)
-                0,    -- No special flags
-                GetEntityModel(vehicle),
-                262144 + 4 + 8,  -- NORMAL + AVOID_TRAFFIC + AVOID_VEHICLES
-                15.0,  -- Target radius
-                -1.0   -- Straight line distance
-            )
+            -- Give a tiny initial push so they don't just sit there
+            TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
+                playerSpeeds[i], 0, GetEntityModel(vehicle), 786603, 5.0, -1.0)
             
-            print("^2[TikTok Race]^7 Player " .. i .. " starting with testing speed: " .. playerSpeeds[i])
+            print("^2[TikTok Race]^7 Racer " .. i .. " ready at slow speed " .. playerSpeeds[i])
         end
     end
     
-    print("^2[TikTok Race]^7 🏁 All cars driving at testing speed! Boosts will make them faster!")
+    print("^2[TikTok Race]^7 🎮 Cars need viewer interactions to speed up!")
+end
+
+-- REPLACE the original startDriving function
+function startDriving()
+    -- This is called by the old AI system - redirect to our new function
+    startDrivingWithoutAI()
 end
 
 function renderNames()
@@ -742,6 +909,7 @@ function renderNames()
         for i = 1, playerNumber do
             if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
                 local ped = players[i]
+                local vehicle = vehicles[i]
                 local pedPos = GetEntityCoords(ped)
                 local distance = #(pedPos - racePoint)
                 
@@ -772,20 +940,41 @@ function renderNames()
                     place = place + 1
                 end
                 
-                -- Draw name above player if nearby
+                -- FIXED: Proper name rendering like C# code
                 local playerPos = GetEntityCoords(PlayerPedId())
-                if #(pedPos - playerPos) < 50.0 and IsEntityOnScreen(ped) then
-                    local screenX, screenY = GetScreenCoordFromWorldCoord(pedPos.x, pedPos.y, pedPos.z + 1.0)
-                    if screenX and screenY then
-                        SetTextFont(4)
-                        SetTextProportional(0)
-                        SetTextScale(0.5, 0.5)
-                        SetTextColour(255, 255, 255, 255)
-                        SetTextDropShadow()
-                        SetTextCentre(true)
-                        SetTextEntry("STRING")
-                        AddTextComponentString(playerNames[i])
-                        DrawText(screenX, screenY)
+                local distanceToPlayer = #(pedPos - playerPos)
+                
+                -- Only render names for nearby cars and if they're on screen
+                if distanceToPlayer < 100.0 and IsEntityOnScreen(ped) then
+                    -- Get world position above the vehicle
+                    local namePos = vector3(pedPos.x, pedPos.y, pedPos.z + 2.0)
+                    
+                    -- Convert world coordinates to screen coordinates
+                    local onScreen, screenX, screenY = GetScreenCoordFromWorldCoord(namePos.x, namePos.y, namePos.z)
+                    
+                    if onScreen then
+                        -- Extract the display name like the C# code does
+                        local displayName = playerNames[i]
+                        
+                        -- Extract name outside parentheses like C# ExtractOutsideName function
+                        if string.find(displayName, "%(") then
+                            displayName = string.match(displayName, "(.-)%s*%(") or displayName
+                            displayName = string.gsub(displayName, "%s+$", "") -- trim trailing spaces
+                        end
+                        
+                        -- Limit name length for better visibility
+                        if string.len(displayName) > 12 then
+                            displayName = string.sub(displayName, 1, 12) .. "..."
+                        end
+                        
+                        -- Draw the name with proper styling like C# code
+                        DrawText2D(displayName, screenX, screenY, 0.5, {255, 255, 255, 255}, 4, true, true, true)
+                        
+                        -- Optional: Draw distance for debugging
+                        if isDebug then
+                            local distanceText = math.floor(distance) .. "m"
+                            DrawText2D(distanceText, screenX, screenY + 0.03, 0.3, {255, 255, 0, 200}, 4, true, false, false)
+                        end
                     end
                 end
             end
@@ -825,7 +1014,7 @@ function checkRaceFinish()
     end
 end
 
-function boostPlayer(playerId, speed, nitro)
+function boostPlayer(playerId, speed)
     if not players[playerId] or not DoesEntityExist(players[playerId]) then
         print("^1[TikTok Race]^7 Cannot boost - Player " .. playerId .. " doesn't exist")
         return
@@ -839,70 +1028,34 @@ function boostPlayer(playerId, speed, nitro)
         return
     end
     
-    -- PERMANENT SPEED INCREASE - speed never decreases!
-    local oldSpeed = playerSpeeds[playerId] or 0
-    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80) -- Add to permanent speed, cap at 80
+    -- Update speed - significant boost
+    local oldSpeed = playerSpeeds[playerId] or 5
+    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80) -- Cap at 80
     local newSpeed = playerSpeeds[playerId]
     
-    print("^2[TikTok Race]^7 🚀 PERMANENT SPEED BOOST player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed .. " (PERMANENT)")
+    print("^2[TikTok Race]^7 🚀 BOOSTING player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed)
     
-    -- Update AI driving with new PERMANENT speed
-    -- This becomes the car's new cruising speed until the race ends
-    TaskVehicleDriveToCoord(ped, vehicle,
-        racePoint.x, racePoint.y, racePoint.z,
-        newSpeed,  -- New permanent driving speed
-        0,         -- No special flags
-        GetEntityModel(vehicle),
-        262144 + 4 + 8,  -- NORMAL + AVOID_TRAFFIC + AVOID_VEHICLES
-        15.0,      -- Target radius
-        -1.0       -- Straight line distance
-    )
+    -- Clear current task and start new one with higher speed
+    ClearPedTasks(ped)
+    Wait(50)
     
-    -- Update AI behavior based on permanent speed
-    if newSpeed > 40 then
-        SetDriverAggressiveness(ped, 0.9)  -- Very aggressive for fast cars
-        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives aggressively (high speed)")
-    elseif newSpeed > 20 then
-        SetDriverAggressiveness(ped, 0.6)  -- Medium aggression
-        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives moderately (medium speed)")
-    elseif newSpeed > 5 then
-        SetDriverAggressiveness(ped, 0.3)  -- Careful driving for slow cars
-        print("^3[TikTok Race]^7 Player " .. playerId .. " now drives carefully (low speed)")
-    else
-        SetDriverAggressiveness(ped, 0.1)  -- Very careful for very slow cars
-        print("^3[TikTok Race]^7 Player " .. playerId .. " crawling forward (very low speed)")
+    -- Start driving with new speed
+    TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
+        newSpeed, 0, GetEntityModel(vehicle), 786603, 15.0, -1.0)
+        
+    -- Visual feedback - give immediate speed boost
+    SetVehicleForwardSpeed(vehicle, newSpeed * 0.3)
+    
+    -- Show boost notification on screen
+    local playerName = playerNames[playerId] or "Unknown"
+    if string.find(playerName, "%(") then
+        playerName = string.match(playerName, "(.-)%s*%(") or playerName
     end
     
-    -- ONLY apply nitro force for actual nitro gifts
-    if nitro then
-        print("^2[TikTok Race]^7 💨 NITRO EXPLOSION for player " .. playerId .. "!")
-        
-        -- Apply explosive nitro force (temporary visual effect)
-        local forwardVector = GetEntityForwardVector(vehicle)
-        local nitroForce = speed * 4.0  -- Strong explosive push
-        
-        ApplyForceToEntity(vehicle, 1, 
-            forwardVector.x * nitroForce, 
-            forwardVector.y * nitroForce, 
-            0.0,  -- No vertical force
-            0.0, 0.0, 0.0,  -- No rotation
-            0,    -- Bone index
-            false, true, true, false, true
-        )
-        
-        -- Temporary speed burst for visual effect
-        SetVehicleForwardSpeed(vehicle, newSpeed * 1.2)
-    else
-        -- Normal boost - just permanent speed increase, no forces
-        print("^2[TikTok Race]^7 ⚡ Normal speed increase (permanent)")
-    end
-    
-    -- Show current status
-    if newSpeed == 0 then
-        print("^1[TikTok Race]^7 Player " .. playerId .. " is still stationary")
-    else
-        print("^2[TikTok Race]^7 Player " .. playerId .. " now permanently drives at speed " .. newSpeed)
-    end
+    -- Display boost message
+    BeginTextCommandDisplayHelp("STRING")
+    AddTextComponentSubstringPlayerName("🚀 " .. playerName .. " got +" .. speed .. " speed boost!")
+    EndTextCommandDisplayHelp(0, false, true, 3000)
 end
 
 function getNameId(searchName)
@@ -918,21 +1071,147 @@ end
 -- Server events for TikTok integration
 RegisterNetEvent('tiktok_race:playerJoin')
 AddEventHandler('tiktok_race:playerJoin', function(playerName, carModel)
+    print("^3[TikTok Race]^7 Server requesting player join: " .. playerName .. " with car: " .. (carModel or "default"))
+    
     if gameState == GAME_STATES.QUEUE then
-        createPlayer(playerName, carModel)
+        -- Add a small delay to prevent race conditions
+        CreateThread(function()
+            Wait(100) -- Small delay for stability
+            local success = createPlayer(playerName, carModel)
+            if success then
+                print("^2[TikTok Race]^7 ✅ Player join successful: " .. playerName)
+            else
+                print("^1[TikTok Race]^7 ❌ Player join failed: " .. playerName)
+            end
+        end)
+    else
+        print("^1[TikTok Race]^7 Cannot join - not in queue state (current: " .. gameState .. ")")
     end
 end)
 
 RegisterNetEvent('tiktok_race:boostPlayer')
 AddEventHandler('tiktok_race:boostPlayer', function(playerId, boostAmount)
     if gameState == GAME_STATES.RACE and not aiMode then
+        print("^3[TikTok Race]^7 Server requesting boost for player " .. playerId .. " amount: " .. boostAmount)
         boostPlayer(playerId, boostAmount)
+    else
+        print("^1[TikTok Race]^7 Cannot boost - wrong state or AI mode enabled")
     end
 end)
 
 RegisterNetEvent('tiktok_race:websocketStatus')
 AddEventHandler('tiktok_race:websocketStatus', function(connected)
     websocketConnected = connected
+    local statusText = connected and "connected" or "disconnected"
+    print("^3[TikTok Race]^7 WebSocket status: " .. statusText)
+end)
+
+RegisterNetEvent('tiktok_race:updatePlayerCount')
+AddEventHandler('tiktok_race:updatePlayerCount', function(count, names)
+    -- Update local player tracking from server
+    print("^3[TikTok Race]^7 Server sync - Player count: " .. count)
+    if names then
+        for i, name in ipairs(names) do
+            if name and name ~= "" then
+                playerNames[i] = name
+                print("^3[TikTok Race]^7 Synced player " .. i .. ": " .. name)
+            end
+        end
+    end
+end)
+
+RegisterNetEvent('tiktok_race:syncGameState')
+AddEventHandler('tiktok_race:syncGameState', function(newState)
+    print("^3[TikTok Race]^7 Game state synced from server: " .. newState)
+    gameState = newState
+end)
+
+RegisterNetEvent('tiktok_race:resetRace')
+AddEventHandler('tiktok_race:resetRace', function()
+    print("^2[TikTok Race]^7 Server reset command received")
+    
+    -- Kill all racers first
+    killAllRacers()
+    
+    -- Reset to initial state
+    gameState = GAME_STATES.IDLE
+    playerNumber = 0
+    place = 0
+    place1 = ""
+    place2 = ""
+    place3 = ""
+    
+    -- Reset spawn positioning
+    playersX = 0.0
+    playersY = 0.0
+    playersRowNumber = 1
+    playersRowCount = 0
+    
+    -- Reset UI states
+    raceMenu = false
+    queueList = false
+    winnersList = false
+    countdown = false
+    isRacing = false
+    racingCam = false
+    
+    -- Reset player state
+    SetEntityInvincible(PlayerPedId(), false)
+    FreezeEntityPosition(PlayerPedId(), false)
+    DisplayRadar(true)
+    
+    if raceCamera then
+        DestroyCam(raceCamera, false)
+        RenderScriptCams(false, false, 0, true, true)
+        raceCamera = nil
+    end
+    
+    print("^2[TikTok Race]^7 ✅ Full race reset complete!")
+end)
+
+RegisterNetEvent('tiktok_race:resetToQueue')
+AddEventHandler('tiktok_race:resetToQueue', function()
+    print("^2[TikTok Race]^7 Server queue reset command received")
+    
+    -- Kill existing racers
+    killAllRacers()
+    
+    -- Reset to queue state
+    gameState = GAME_STATES.QUEUE
+    playerNumber = 0
+    place = 0
+    place1 = ""
+    place2 = ""
+    place3 = ""
+    
+    -- Reset spawn positioning
+    playersX = 0.0
+    playersY = 0.0
+    playersRowNumber = 1
+    playersRowCount = 0
+    
+    queueList = true
+    winnersList = false
+    
+    print("^2[TikTok Race]^7 ✅ Reset to queue state complete!")
+end)
+
+RegisterNetEvent('tiktok_race:forceRaceState')
+AddEventHandler('tiktok_race:forceRaceState', function()
+    print("^2[TikTok Race]^7 Server force race command received")
+    
+    gameState = GAME_STATES.RACE
+    isRacing = true
+    racingCam = true
+    countdown = false
+    queueList = false
+    
+    -- Start driving if players exist
+    if playerNumber > 0 then
+        startDrivingWithoutAI()
+    end
+    
+    print("^2[TikTok Race]^7 ✅ Race state forced with " .. playerNumber .. " players!")
 end)
 
 -- Cleanup on resource stop
@@ -954,6 +1233,11 @@ end)
 
 -- Debug commands (only for development)
 if GetConvar('tiktok_race_debug', 'false') == 'true' then
+    RegisterCommand('ttr_debug', function()
+        isDebug = not isDebug
+        print("^3[TikTok Race]^7 Debug mode: " .. tostring(isDebug))
+    end)
+    
     RegisterCommand('ttr_start_driving', function()
         if gameState == GAME_STATES.RACE then
             startDriving()
@@ -972,5 +1256,15 @@ if GetConvar('tiktok_race_debug', 'false') == 'true' then
             print("^1[TikTok Race]^7 Not in race state (current: " .. gameState .. ")")
         end
     end)
+    
+    RegisterCommand('ttr_test_join_local', function(source, args)
+        local name = args[1] or "TestPlayer"
+        local car = args[2] or "hermes"
+        
+        if gameState == GAME_STATES.QUEUE then
+            createPlayer(name, car)
+        else
+            print("^1[TikTok Race]^7 Not in queue state (current: " .. gameState .. ")")
+        end
+    end)
 end
-
