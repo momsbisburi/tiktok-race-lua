@@ -1,1547 +1,7 @@
 {
-  "timestamp": 1752400775379,
+  "timestamp": 1752400896328,
   "count": 1000,
   "events": [
-    {
-      "id": "1752400011137_zmljsbm6j",
-      "timestamp": 1752400011137,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400011138_efcw4xjb5",
-      "timestamp": 1752400011138,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 3 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400011937_ekhogl0wy",
-      "timestamp": 1752400011937,
-      "event": "follow",
-      "user": {
-        "nickname": "jason",
-        "uniqueId": "the.rill.reyhan",
-        "userId": "7378824733385884677"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"jason\" \"the.rill.reyhan\" follow",
-      "summary": "👥 jason followed"
-    },
-    {
-      "id": "1752400012975_bld04tmae",
-      "timestamp": 1752400012975,
-      "event": "like",
-      "user": {
-        "nickname": "DITZZ",
-        "uniqueId": "radit9186",
-        "userId": "7283112963962110981"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"DITZZ\" \"radit9186\" 15",
-      "summary": "❤️ DITZZ liked (15)"
-    },
-    {
-      "id": "1752400013636_awb1qnh8f",
-      "timestamp": 1752400013636,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400014498_325u8hg1g",
-      "timestamp": 1752400014498,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Doughnut\" 30 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400014499_gwz8l5az3",
-      "timestamp": 1752400014499,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 3 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400014500_y7odwgstb",
-      "timestamp": 1752400014500,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400015237_7dvtedry6",
-      "timestamp": 1752400015237,
-      "event": "follow",
-      "user": {
-        "nickname": "aqil wono",
-        "uniqueId": "gabutbanget.gw",
-        "userId": "7407769463183066117"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"aqil wono\" \"gabutbanget.gw\" follow",
-      "summary": "👥 aqil wono followed"
-    },
-    {
-      "id": "1752400016038_ymvcmia9d",
-      "timestamp": 1752400016038,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400016038_96wnecxof",
-      "timestamp": 1752400016038,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Doughnut\" 30 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400016838_80mk05zni",
-      "timestamp": 1752400016838,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400016839_nn24kvllr",
-      "timestamp": 1752400016839,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 2,
-        "totalValue": 2
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 2 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x2 (2 diamonds)"
-    },
-    {
-      "id": "1752400017639_v5bgq0mh0",
-      "timestamp": 1752400017639,
-      "event": "gift",
-      "user": {
-        "nickname": "vedoputra",
-        "uniqueId": "vedoputra",
-        "userId": "7221564230762529794"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"vedoputra\" \"Doughnut\" 30 1 \"vedoputra\"",
-      "summary": "🎁 vedoputra sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400017640_do38pudpq",
-      "timestamp": 1752400017640,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 3 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400018436_ry1vvdaws",
-      "timestamp": 1752400018436,
-      "event": "like",
-      "user": {
-        "nickname": "OPM OPAL",
-        "uniqueId": "editorovo",
-        "userId": "7221774256770139163"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"OPM OPAL\" \"editorovo\" 15",
-      "summary": "❤️ OPM OPAL liked (15)"
-    },
-    {
-      "id": "1752400019240_p7s6y5hti",
-      "timestamp": 1752400019240,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 4,
-        "totalValue": 4
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 4 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x4 (4 diamonds)"
-    },
-    {
-      "id": "1752400019242_azc6bnupf",
-      "timestamp": 1752400019242,
-      "event": "chat",
-      "user": {
-        "nickname": "Sopir All IN",
-        "uniqueId": "hindar101",
-        "userId": "7246249589207286785"
-      },
-      "data": {
-        "comment": "pin artinya apa bang. sematakn / gemana"
-      },
-      "command": "",
-      "summary": "💬 Sopir All IN: pin artinya apa bang. sematakn / gemana"
-    },
-    {
-      "id": "1752400019243_7rts6tdr7",
-      "timestamp": 1752400019243,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400020837_y6k2uklo3",
-      "timestamp": 1752400020837,
-      "event": "gift",
-      "user": {
-        "nickname": "vedoputra",
-        "uniqueId": "vedoputra",
-        "userId": "7221564230762529794"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"vedoputra\" \"Doughnut\" 30 1 \"vedoputra\"",
-      "summary": "🎁 vedoputra sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400021637_anpq75o26",
-      "timestamp": 1752400021637,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400022443_ig0guq4j4",
-      "timestamp": 1752400022443,
-      "event": "like",
-      "user": {
-        "nickname": "DITZZ",
-        "uniqueId": "radit9186",
-        "userId": "7283112963962110981"
-      },
-      "data": {
-        "likeCount": 10
-      },
-      "command": "ttr_test_like \"DITZZ\" \"radit9186\" 10",
-      "summary": "❤️ DITZZ liked (10)"
-    },
-    {
-      "id": "1752400022443_bsj72nbsp",
-      "timestamp": 1752400022443,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 4,
-        "totalValue": 4
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 4 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x4 (4 diamonds)"
-    },
-    {
-      "id": "1752400024046_vcrsrp1tf",
-      "timestamp": 1752400024046,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400024048_x7cvd3q3j",
-      "timestamp": 1752400024048,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400024841_gu1xqndsa",
-      "timestamp": 1752400024841,
-      "event": "like",
-      "user": {
-        "nickname": "OPM OPAL",
-        "uniqueId": "editorovo",
-        "userId": "7221774256770139163"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"OPM OPAL\" \"editorovo\" 15",
-      "summary": "❤️ OPM OPAL liked (15)"
-    },
-    {
-      "id": "1752400024841_qtn5xqxxf",
-      "timestamp": 1752400024841,
-      "event": "follow",
-      "user": {
-        "nickname": "PunPun",
-        "uniqueId": "ipunbaik",
-        "userId": "6876453746516673537"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"PunPun\" \"ipunbaik\" follow",
-      "summary": "👥 PunPun followed"
-    },
-    {
-      "id": "1752400025639_ygt8dkphz",
-      "timestamp": 1752400025639,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400026445_ywprptx42",
-      "timestamp": 1752400026445,
-      "event": "like",
-      "user": {
-        "nickname": "Kenzzo",
-        "uniqueId": "kenzoooooo66",
-        "userId": "7066804883197871131"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Kenzzo\" \"kenzoooooo66\" 15",
-      "summary": "❤️ Kenzzo liked (15)"
-    },
-    {
-      "id": "1752400026447_c5to1uin0",
-      "timestamp": 1752400026447,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 2,
-        "totalValue": 2
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 2 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x2 (2 diamonds)"
-    },
-    {
-      "id": "1752400028041_e3togj5ql",
-      "timestamp": 1752400028041,
-      "event": "like",
-      "user": {
-        "nickname": "OPM OPAL",
-        "uniqueId": "editorovo",
-        "userId": "7221774256770139163"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"OPM OPAL\" \"editorovo\" 15",
-      "summary": "❤️ OPM OPAL liked (15)"
-    },
-    {
-      "id": "1752400028044_y4ywkjc6q",
-      "timestamp": 1752400028044,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400028044_4wqivr84t",
-      "timestamp": 1752400028044,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 3 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400028842_op2a2h9l6",
-      "timestamp": 1752400028842,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 4,
-        "totalValue": 4
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 4 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x4 (4 diamonds)"
-    },
-    {
-      "id": "1752400029642_z4lcdrrgl",
-      "timestamp": 1752400029642,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 5,
-        "totalValue": 5
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 5 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x5 (5 diamonds)"
-    },
-    {
-      "id": "1752400029642_ldv0aeyxk",
-      "timestamp": 1752400029642,
-      "event": "like",
-      "user": {
-        "nickname": "Kenzzo",
-        "uniqueId": "kenzoooooo66",
-        "userId": "7066804883197871131"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Kenzzo\" \"kenzoooooo66\" 15",
-      "summary": "❤️ Kenzzo liked (15)"
-    },
-    {
-      "id": "1752400030441_q6cb7x0bu",
-      "timestamp": 1752400030441,
-      "event": "like",
-      "user": {
-        "nickname": "OPM OPAL",
-        "uniqueId": "editorovo",
-        "userId": "7221774256770139163"
-      },
-      "data": {
-        "likeCount": 7
-      },
-      "command": "ttr_test_like \"OPM OPAL\" \"editorovo\" 7",
-      "summary": "❤️ OPM OPAL liked (7)"
-    },
-    {
-      "id": "1752400031299_50q86do3c",
-      "timestamp": 1752400031299,
-      "event": "like",
-      "user": {
-        "nickname": "HANZZ",
-        "uniqueId": "hannz_7.0",
-        "userId": "7016338095608120321"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"HANZZ\" \"hannz_7.0\" 1",
-      "summary": "❤️ HANZZ liked (1)"
-    },
-    {
-      "id": "1752400032095_cqd6k4twx",
-      "timestamp": 1752400032095,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Hat and Mustache",
-        "diamondCount": 99,
-        "repeatCount": 1,
-        "totalValue": 99
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Hat and Mustache\" 99 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Hat and Mustache x1 (99 diamonds)"
-    },
-    {
-      "id": "1752400032097_841ncbaas",
-      "timestamp": 1752400032097,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 6,
-        "totalValue": 6
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 6 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x6 (6 diamonds)"
-    },
-    {
-      "id": "1752400032098_dca8w6osw",
-      "timestamp": 1752400032098,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400032894_zqrd7ow01",
-      "timestamp": 1752400032894,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 7,
-        "totalValue": 7
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 7 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x7 (7 diamonds)"
-    },
-    {
-      "id": "1752400033692_nua2kushv",
-      "timestamp": 1752400033692,
-      "event": "like",
-      "user": {
-        "nickname": "Kenzzo",
-        "uniqueId": "kenzoooooo66",
-        "userId": "7066804883197871131"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"Kenzzo\" \"kenzoooooo66\" 1",
-      "summary": "❤️ Kenzzo liked (1)"
-    },
-    {
-      "id": "1752400034495_3oaundit2",
-      "timestamp": 1752400034495,
-      "event": "like",
-      "user": {
-        "nickname": "OPM OPAL",
-        "uniqueId": "editorovo",
-        "userId": "7221774256770139163"
-      },
-      "data": {
-        "likeCount": 5
-      },
-      "command": "ttr_test_like \"OPM OPAL\" \"editorovo\" 5",
-      "summary": "❤️ OPM OPAL liked (5)"
-    },
-    {
-      "id": "1752400034496_nee7ywu1n",
-      "timestamp": 1752400034496,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 8,
-        "totalValue": 8
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 8 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x8 (8 diamonds)"
-    },
-    {
-      "id": "1752400035295_hx3b3noxx",
-      "timestamp": 1752400035295,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400035296_l0lg73rvt",
-      "timestamp": 1752400035296,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 9,
-        "totalValue": 9
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 9 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x9 (9 diamonds)"
-    },
-    {
-      "id": "1752400036094_b9f7yojgf",
-      "timestamp": 1752400036094,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 11,
-        "totalValue": 11
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 11 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x11 (11 diamonds)"
-    },
-    {
-      "id": "1752400036095_hbqwapp0i",
-      "timestamp": 1752400036095,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400037694_rsuv61s91",
-      "timestamp": 1752400037694,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400037695_0pzc3euw9",
-      "timestamp": 1752400037695,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Doughnut\" 30 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400037696_vc2nh6pux",
-      "timestamp": 1752400037696,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 11,
-        "totalValue": 11
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 11 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x11 (11 diamonds)"
-    },
-    {
-      "id": "1752400038547_nz515xdhr",
-      "timestamp": 1752400038547,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400039293_h7m84gk54",
-      "timestamp": 1752400039293,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400040144_dd618xlxe",
-      "timestamp": 1752400040144,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "Coffee",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"Coffee\" 1 1 \"this.90s_\"",
-      "summary": "🎁 90s_ sent Coffee x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400040953_ptzr41b11",
-      "timestamp": 1752400040953,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "Coffee",
-        "diamondCount": 1,
-        "repeatCount": 2,
-        "totalValue": 2
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"Coffee\" 1 2 \"this.90s_\"",
-      "summary": "🎁 90s_ sent Coffee x2 (2 diamonds)"
-    },
-    {
-      "id": "1752400040954_wwq6juxeh",
-      "timestamp": 1752400040954,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400040955_8n8v16r4y",
-      "timestamp": 1752400040955,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Doughnut",
-        "diamondCount": 30,
-        "repeatCount": 1,
-        "totalValue": 30
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Doughnut\" 30 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Doughnut x1 (30 diamonds)"
-    },
-    {
-      "id": "1752400040956_bv9snp0u5",
-      "timestamp": 1752400040956,
-      "event": "like",
-      "user": {
-        "nickname": "Kenzzo",
-        "uniqueId": "kenzoooooo66",
-        "userId": "7066804883197871131"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"Kenzzo\" \"kenzoooooo66\" 1",
-      "summary": "❤️ Kenzzo liked (1)"
-    },
-    {
-      "id": "1752400041750_xiwshcbio",
-      "timestamp": 1752400041750,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "Coffee",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"Coffee\" 1 3 \"this.90s_\"",
-      "summary": "🎁 90s_ sent Coffee x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400042555_eepoe1mky",
-      "timestamp": 1752400042555,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400042555_kwnpszj0w",
-      "timestamp": 1752400042555,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400043403_nz9a489j8",
-      "timestamp": 1752400043403,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400044204_9ksqhvvo2",
-      "timestamp": 1752400044204,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "TikTok",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"TikTok\" 1 1 \"this.90s_\"",
-      "summary": "🎁 90s_ sent TikTok x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400044205_55jpkt5oy",
-      "timestamp": 1752400044205,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400045003_2beklpszp",
-      "timestamp": 1752400045003,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "Coffee",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"Coffee\" 1 3 \"this.90s_\"",
-      "summary": "🎁 90s_ sent Coffee x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400045803_gnzfv6k84",
-      "timestamp": 1752400045803,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400045804_8owmnldit",
-      "timestamp": 1752400045804,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400046606_mi0czy1fd",
-      "timestamp": 1752400046606,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400046607_ahji1517s",
-      "timestamp": 1752400046607,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400047402_xoxmzg0bl",
-      "timestamp": 1752400047402,
-      "event": "gift",
-      "user": {
-        "nickname": "90s_",
-        "uniqueId": "this.90s_",
-        "userId": "7249336772852974593"
-      },
-      "data": {
-        "giftName": "TikTok",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"90s_\" \"TikTok\" 1 1 \"this.90s_\"",
-      "summary": "🎁 90s_ sent TikTok x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400048203_vhrqrdzsl",
-      "timestamp": 1752400048203,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400048204_ht24bcwcj",
-      "timestamp": 1752400048204,
-      "event": "like",
-      "user": {
-        "nickname": "HANZZ",
-        "uniqueId": "hannz_7.0",
-        "userId": "7016338095608120321"
-      },
-      "data": {
-        "likeCount": 1
-      },
-      "command": "ttr_test_like \"HANZZ\" \"hannz_7.0\" 1",
-      "summary": "❤️ HANZZ liked (1)"
-    },
-    {
-      "id": "1752400049003_nzbqk2h7v",
-      "timestamp": 1752400049003,
-      "event": "chat",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "comment": "Bg"
-      },
-      "command": "",
-      "summary": "💬 arcelio_assegaf: Bg"
-    },
-    {
-      "id": "1752400049003_7do2wspwe",
-      "timestamp": 1752400049003,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400049859_e56tw4ygx",
-      "timestamp": 1752400049859,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400049861_c9hkcao22",
-      "timestamp": 1752400049861,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400051507_i8ot1g3i1",
-      "timestamp": 1752400051507,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400052309_8otxnpgyf",
-      "timestamp": 1752400052309,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400052310_h6gvzlj5u",
-      "timestamp": 1752400052310,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400053060_i6r5fepzw",
-      "timestamp": 1752400053060,
-      "event": "chat",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "comment": "PIN dong"
-      },
-      "command": "",
-      "summary": "💬 arcelio_assegaf: PIN dong"
-    },
-    {
-      "id": "1752400053061_t9fk2d0t9",
-      "timestamp": 1752400053061,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400054708_cvhfp2uw6",
-      "timestamp": 1752400054708,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400055557_u2988l71p",
-      "timestamp": 1752400055557,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400056361_nofz9riup",
-      "timestamp": 1752400056361,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400056364_up5i5x9p1",
-      "timestamp": 1752400056364,
-      "event": "chat",
-      "user": {
-        "nickname": "Bayu aji Pratama",
-        "uniqueId": "marianigunadi",
-        "userId": "7304281066976838661"
-      },
-      "data": {
-        "comment": "ampun DJ 😭"
-      },
-      "command": "",
-      "summary": "💬 Bayu aji Pratama: ampun DJ 😭"
-    },
-    {
-      "id": "1752400056366_dgz5xuitm",
-      "timestamp": 1752400056366,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 1,
-        "totalValue": 1
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 1 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x1 (1 diamonds)"
-    },
-    {
-      "id": "1752400056367_pnqz404h9",
-      "timestamp": 1752400056367,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400057164_2s9pyocyn",
-      "timestamp": 1752400057164,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 2,
-        "totalValue": 2
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 2 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x2 (2 diamonds)"
-    },
-    {
-      "id": "1752400057165_stlcyml91",
-      "timestamp": 1752400057165,
-      "event": "like",
-      "user": {
-        "nickname": "primogem dan mora",
-        "uniqueId": "fansbbglxy",
-        "userId": "6918271589684757505"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"primogem dan mora\" \"fansbbglxy\" 15",
-      "summary": "❤️ primogem dan mora liked (15)"
-    },
-    {
-      "id": "1752400057166_djqhhirab",
-      "timestamp": 1752400057166,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 3,
-        "totalValue": 3
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 3 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x3 (3 diamonds)"
-    },
-    {
-      "id": "1752400058812_ig2txtyiw",
-      "timestamp": 1752400058812,
-      "event": "like",
-      "user": {
-        "nickname": "HeiTansz",
-        "uniqueId": "ttaannsszz",
-        "userId": "6742751253984494593"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
-      "summary": "❤️ HeiTansz liked (15)"
-    },
-    {
-      "id": "1752400058813_2zyasfrfl",
-      "timestamp": 1752400058813,
-      "event": "gift",
-      "user": {
-        "nickname": "arcelio_assegaf",
-        "uniqueId": "arcelio_assegaf",
-        "userId": "6881618821695161346"
-      },
-      "data": {
-        "giftName": "Rose",
-        "diamondCount": 1,
-        "repeatCount": 4,
-        "totalValue": 4
-      },
-      "command": "ttr_test_gift_enhanced \"arcelio_assegaf\" \"Rose\" 1 4 \"arcelio_assegaf\"",
-      "summary": "🎁 arcelio_assegaf sent Rose x4 (4 diamonds)"
-    },
-    {
-      "id": "1752400058814_i354t7pkb",
-      "timestamp": 1752400058814,
-      "event": "like",
-      "user": {
-        "nickname": "Shevaja",
-        "uniqueId": "chuaks6662",
-        "userId": "6658473409947418626"
-      },
-      "data": {
-        "likeCount": 15
-      },
-      "command": "ttr_test_like \"Shevaja\" \"chuaks6662\" 15",
-      "summary": "❤️ Shevaja liked (15)"
-    },
-    {
-      "id": "1752400059611_qn9y8eft1",
-      "timestamp": 1752400059611,
-      "event": "follow",
-      "user": {
-        "nickname": "CUMA ANAK KAMPUNG",
-        "uniqueId": "satrianiboss2938",
-        "userId": "7339233315339977729"
-      },
-      "data": {},
-      "command": "ttr_test_boost \"CUMA ANAK KAMPUNG\" \"satrianiboss2938\" follow",
-      "summary": "👥 CUMA ANAK KAMPUNG followed"
-    },
     {
       "id": "1752400060412_act38gi26",
       "timestamp": 1752400060412,
@@ -15595,6 +14055,1449 @@
       },
       "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
       "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400816572_wr3wdhmim",
+      "timestamp": 1752400816572,
+      "event": "like",
+      "user": {
+        "nickname": "Muh Yusuf",
+        "uniqueId": "muhyusuf520",
+        "userId": "6554344356453941249"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Muh Yusuf\" \"muhyusuf520\" 15",
+      "summary": "❤️ Muh Yusuf liked (15)"
+    },
+    {
+      "id": "1752400817372_xdu8mnxa1",
+      "timestamp": 1752400817372,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400818171_wn5dc1npt",
+      "timestamp": 1752400818171,
+      "event": "like",
+      "user": {
+        "nickname": "FSHT",
+        "uniqueId": "fanny_slow_hand_tiktok",
+        "userId": "6956661884981478406"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"FSHT\" \"fanny_slow_hand_tiktok\" 15",
+      "summary": "❤️ FSHT liked (15)"
+    },
+    {
+      "id": "1752400818971_lwwp3d5c4",
+      "timestamp": 1752400818971,
+      "event": "gift",
+      "user": {
+        "nickname": "Abadi_Sakti",
+        "uniqueId": "windarsakti",
+        "userId": "6770628533015282690"
+      },
+      "data": {
+        "giftName": "Bouquet Flower",
+        "diamondCount": 30,
+        "repeatCount": 1,
+        "totalValue": 30
+      },
+      "command": "ttr_test_gift_enhanced \"Abadi_Sakti\" \"Bouquet Flower\" 30 1 \"windarsakti\"",
+      "summary": "🎁 Abadi_Sakti sent Bouquet Flower x1 (30 diamonds)"
+    },
+    {
+      "id": "1752400818974_sdi3pdxwj",
+      "timestamp": 1752400818974,
+      "event": "like",
+      "user": {
+        "nickname": "Zyinnn.ft",
+        "uniqueId": "zyinnn.ft",
+        "userId": "6943969766949340161"
+      },
+      "data": {
+        "likeCount": 4
+      },
+      "command": "ttr_test_like \"Zyinnn.ft\" \"zyinnn.ft\" 4",
+      "summary": "❤️ Zyinnn.ft liked (4)"
+    },
+    {
+      "id": "1752400819772_yonjis0u6",
+      "timestamp": 1752400819772,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400821371_2xbbkpled",
+      "timestamp": 1752400821371,
+      "event": "like",
+      "user": {
+        "nickname": "Nobody",
+        "uniqueId": "plagiat207",
+        "userId": "6962507568569402370"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Nobody\" \"plagiat207\" 15",
+      "summary": "❤️ Nobody liked (15)"
+    },
+    {
+      "id": "1752400822175_hmo91m5mg",
+      "timestamp": 1752400822175,
+      "event": "like",
+      "user": {
+        "nickname": "ingkikk",
+        "uniqueId": "rynzz4youu",
+        "userId": "7486084885633352724"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ingkikk\" \"rynzz4youu\" 15",
+      "summary": "❤️ ingkikk liked (15)"
+    },
+    {
+      "id": "1752400822977_wr3imdsek",
+      "timestamp": 1752400822977,
+      "event": "like",
+      "user": {
+        "nickname": "Muh Yusuf",
+        "uniqueId": "muhyusuf520",
+        "userId": "6554344356453941249"
+      },
+      "data": {
+        "likeCount": 6
+      },
+      "command": "ttr_test_like \"Muh Yusuf\" \"muhyusuf520\" 6",
+      "summary": "❤️ Muh Yusuf liked (6)"
+    },
+    {
+      "id": "1752400823776_f6cc045mb",
+      "timestamp": 1752400823776,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400825376_0g16c2uk0",
+      "timestamp": 1752400825376,
+      "event": "like",
+      "user": {
+        "nickname": "FSHT",
+        "uniqueId": "fanny_slow_hand_tiktok",
+        "userId": "6956661884981478406"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"FSHT\" \"fanny_slow_hand_tiktok\" 15",
+      "summary": "❤️ FSHT liked (15)"
+    },
+    {
+      "id": "1752400826227_t020gfrz3",
+      "timestamp": 1752400826227,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400827025_sl42w0c9s",
+      "timestamp": 1752400827025,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400828627_m4vlxrrlj",
+      "timestamp": 1752400828627,
+      "event": "like",
+      "user": {
+        "nickname": "FSHT",
+        "uniqueId": "fanny_slow_hand_tiktok",
+        "userId": "6956661884981478406"
+      },
+      "data": {
+        "likeCount": 14
+      },
+      "command": "ttr_test_like \"FSHT\" \"fanny_slow_hand_tiktok\" 14",
+      "summary": "❤️ FSHT liked (14)"
+    },
+    {
+      "id": "1752400828630_4e2fibiz8",
+      "timestamp": 1752400828630,
+      "event": "follow",
+      "user": {
+        "nickname": "pahmig",
+        "uniqueId": "whynot631",
+        "userId": "6961080029971317762"
+      },
+      "data": {},
+      "command": "ttr_test_boost \"pahmig\" \"whynot631\" follow",
+      "summary": "👥 pahmig followed"
+    },
+    {
+      "id": "1752400829428_2t9ty8rto",
+      "timestamp": 1752400829428,
+      "event": "like",
+      "user": {
+        "nickname": "ingkikk",
+        "uniqueId": "rynzz4youu",
+        "userId": "7486084885633352724"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ingkikk\" \"rynzz4youu\" 15",
+      "summary": "❤️ ingkikk liked (15)"
+    },
+    {
+      "id": "1752400830233_roeunaf8r",
+      "timestamp": 1752400830233,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
+      "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400831833_1oqncumte",
+      "timestamp": 1752400831833,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400832632_t6h9il67s",
+      "timestamp": 1752400832632,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400833445_rjpktfae7",
+      "timestamp": 1752400833445,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400834244_4dq5kgmff",
+      "timestamp": 1752400834244,
+      "event": "like",
+      "user": {
+        "nickname": "ibey shakuragie",
+        "uniqueId": "ibeyshakuragie",
+        "userId": "7210266139020411905"
+      },
+      "data": {
+        "likeCount": 5
+      },
+      "command": "ttr_test_like \"ibey shakuragie\" \"ibeyshakuragie\" 5",
+      "summary": "❤️ ibey shakuragie liked (5)"
+    },
+    {
+      "id": "1752400835036_nyadq2ctb",
+      "timestamp": 1752400835036,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400835838_1zsn3ba65",
+      "timestamp": 1752400835838,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400837436_s5dudldul",
+      "timestamp": 1752400837436,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400838236_nxfagbqab",
+      "timestamp": 1752400838236,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
+      "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400839038_edhzuigqi",
+      "timestamp": 1752400839038,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400839838_0u5y91lig",
+      "timestamp": 1752400839838,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400841498_qwzak3u5o",
+      "timestamp": 1752400841498,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 1 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x1 (1 diamonds)"
+    },
+    {
+      "id": "1752400841499_0fwhe1d3s",
+      "timestamp": 1752400841499,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400841501_21oifvqd3",
+      "timestamp": 1752400841501,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 2,
+        "totalValue": 2
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 2 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x2 (2 diamonds)"
+    },
+    {
+      "id": "1752400842293_pjbucppgv",
+      "timestamp": 1752400842293,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400842294_o0x1ot0so",
+      "timestamp": 1752400842294,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 3 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x3 (3 diamonds)"
+    },
+    {
+      "id": "1752400843095_6w2jujhre",
+      "timestamp": 1752400843095,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 4,
+        "totalValue": 4
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 4 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x4 (4 diamonds)"
+    },
+    {
+      "id": "1752400843096_w0ph1f6pz",
+      "timestamp": 1752400843096,
+      "event": "follow",
+      "user": {
+        "nickname": "177",
+        "uniqueId": "ddtni7",
+        "userId": "6950975237380047874"
+      },
+      "data": {},
+      "command": "ttr_test_boost \"177\" \"ddtni7\" follow",
+      "summary": "👥 177 followed"
+    },
+    {
+      "id": "1752400843096_h0ynpw0rr",
+      "timestamp": 1752400843096,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400844692_m1hqh49df",
+      "timestamp": 1752400844692,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400845510_7i9kf21v9",
+      "timestamp": 1752400845510,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400846300_r82k2ukup",
+      "timestamp": 1752400846300,
+      "event": "like",
+      "user": {
+        "nickname": "ingkikk",
+        "uniqueId": "rynzz4youu",
+        "userId": "7486084885633352724"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ingkikk\" \"rynzz4youu\" 15",
+      "summary": "❤️ ingkikk liked (15)"
+    },
+    {
+      "id": "1752400846300_1hoza8vd6",
+      "timestamp": 1752400846300,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 4,
+        "totalValue": 4
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 4 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x4 (4 diamonds)"
+    },
+    {
+      "id": "1752400847113_5huzei94f",
+      "timestamp": 1752400847113,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400847944_m98241aww",
+      "timestamp": 1752400847944,
+      "event": "like",
+      "user": {
+        "nickname": "akbar123",
+        "uniqueId": "luthfie.akbar5",
+        "userId": "7313383022827668486"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"akbar123\" \"luthfie.akbar5\" 15",
+      "summary": "❤️ akbar123 liked (15)"
+    },
+    {
+      "id": "1752400849543_mhsfx8mfk",
+      "timestamp": 1752400849543,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
+      "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400850346_iyfafbcuf",
+      "timestamp": 1752400850346,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400851144_zxtal1gim",
+      "timestamp": 1752400851144,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400852745_esfjolz26",
+      "timestamp": 1752400852745,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400853549_tp65owv8a",
+      "timestamp": 1752400853549,
+      "event": "like",
+      "user": {
+        "nickname": "ingkikk",
+        "uniqueId": "rynzz4youu",
+        "userId": "7486084885633352724"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ingkikk\" \"rynzz4youu\" 15",
+      "summary": "❤️ ingkikk liked (15)"
+    },
+    {
+      "id": "1752400854357_u33qagswl",
+      "timestamp": 1752400854357,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400855965_c2sjm3v1l",
+      "timestamp": 1752400855965,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400856748_cn8jlqcgc",
+      "timestamp": 1752400856748,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400857551_hahqeou6j",
+      "timestamp": 1752400857551,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
+      "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400858351_nl27su6jw",
+      "timestamp": 1752400858351,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400859147_yjsjiozz1",
+      "timestamp": 1752400859147,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 9
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 9",
+      "summary": "❤️ xyz liked (9)"
+    },
+    {
+      "id": "1752400859957_sm3u97sne",
+      "timestamp": 1752400859957,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400860802_4jophlh4w",
+      "timestamp": 1752400860802,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400862401_dtd8q20ub",
+      "timestamp": 1752400862401,
+      "event": "like",
+      "user": {
+        "nickname": "Yuda Siregar",
+        "uniqueId": "yuda.siregar86",
+        "userId": "7484562975568413704"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Yuda Siregar\" \"yuda.siregar86\" 15",
+      "summary": "❤️ Yuda Siregar liked (15)"
+    },
+    {
+      "id": "1752400863202_d8eu09d9z",
+      "timestamp": 1752400863202,
+      "event": "like",
+      "user": {
+        "nickname": "Nobody",
+        "uniqueId": "plagiat207",
+        "userId": "6962507568569402370"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Nobody\" \"plagiat207\" 15",
+      "summary": "❤️ Nobody liked (15)"
+    },
+    {
+      "id": "1752400863203_0cjtle8du",
+      "timestamp": 1752400863203,
+      "event": "chat",
+      "user": {
+        "nickname": "Abadi_Sakti",
+        "uniqueId": "windarsakti",
+        "userId": "6770628533015282690"
+      },
+      "data": {
+        "comment": "mantap rapih gt"
+      },
+      "command": "",
+      "summary": "💬 Abadi_Sakti: mantap rapih gt"
+    },
+    {
+      "id": "1752400864001_ubroku9hi",
+      "timestamp": 1752400864001,
+      "event": "like",
+      "user": {
+        "nickname": "Babulz Nih",
+        "uniqueId": "lhuk4youu",
+        "userId": "6990684582224774171"
+      },
+      "data": {
+        "likeCount": 2
+      },
+      "command": "ttr_test_like \"Babulz Nih\" \"lhuk4youu\" 2",
+      "summary": "❤️ Babulz Nih liked (2)"
+    },
+    {
+      "id": "1752400864802_kwdi7w1b4",
+      "timestamp": 1752400864802,
+      "event": "chat",
+      "user": {
+        "nickname": "Bayu aji Pratama",
+        "uniqueId": "marianigunadi",
+        "userId": "7304281066976838661"
+      },
+      "data": {
+        "comment": "ceri 2×bang"
+      },
+      "command": "",
+      "summary": "💬 Bayu aji Pratama: ceri 2×bang"
+    },
+    {
+      "id": "1752400865604_l19tht8it",
+      "timestamp": 1752400865604,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400866404_esggl7nnc",
+      "timestamp": 1752400866404,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400867208_j325zp02w",
+      "timestamp": 1752400867208,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 3
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 3",
+      "summary": "❤️ nuel laike liked (3)"
+    },
+    {
+      "id": "1752400868002_d6mbpesor",
+      "timestamp": 1752400868002,
+      "event": "like",
+      "user": {
+        "nickname": "ingkikk",
+        "uniqueId": "rynzz4youu",
+        "userId": "7486084885633352724"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ingkikk\" \"rynzz4youu\" 15",
+      "summary": "❤️ ingkikk liked (15)"
+    },
+    {
+      "id": "1752400868805_9npnsactu",
+      "timestamp": 1752400868805,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400870417_m79etf5id",
+      "timestamp": 1752400870417,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400871214_kyspnp679",
+      "timestamp": 1752400871214,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400872015_noayyorwf",
+      "timestamp": 1752400872015,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400873616_jp2f7a7kb",
+      "timestamp": 1752400873616,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400874415_e1luikjni",
+      "timestamp": 1752400874415,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400875268_omd4viha0",
+      "timestamp": 1752400875268,
+      "event": "like",
+      "user": {
+        "nickname": "xyz",
+        "uniqueId": "xyz42157",
+        "userId": "7400053675559306246"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"xyz\" \"xyz42157\" 15",
+      "summary": "❤️ xyz liked (15)"
+    },
+    {
+      "id": "1752400876118_8c7gm4uzn",
+      "timestamp": 1752400876118,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400877716_onj8zb4j8",
+      "timestamp": 1752400877716,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400878519_ux58z983t",
+      "timestamp": 1752400878519,
+      "event": "like",
+      "user": {
+        "nickname": "da",
+        "uniqueId": "dalan554",
+        "userId": "6790310388463617025"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"da\" \"dalan554\" 15",
+      "summary": "❤️ da liked (15)"
+    },
+    {
+      "id": "1752400879367_wpz2eejzm",
+      "timestamp": 1752400879367,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400880169_vt0p2juru",
+      "timestamp": 1752400880169,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400880969_32tfly8f0",
+      "timestamp": 1752400880969,
+      "event": "chat",
+      "user": {
+        "nickname": "Bayu aji Pratama",
+        "uniqueId": "marianigunadi",
+        "userId": "7304281066976838661"
+      },
+      "data": {
+        "comment": "ceri 2×bang"
+      },
+      "command": "",
+      "summary": "💬 Bayu aji Pratama: ceri 2×bang"
+    },
+    {
+      "id": "1752400880969_6ob115dw7",
+      "timestamp": 1752400880969,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400881774_0aq9q7n8t",
+      "timestamp": 1752400881774,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 1 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x1 (1 diamonds)"
+    },
+    {
+      "id": "1752400882569_vmutgipk9",
+      "timestamp": 1752400882569,
+      "event": "like",
+      "user": {
+        "nickname": "da",
+        "uniqueId": "dalan554",
+        "userId": "6790310388463617025"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"da\" \"dalan554\" 15",
+      "summary": "❤️ da liked (15)"
+    },
+    {
+      "id": "1752400883374_kts5gxukc",
+      "timestamp": 1752400883374,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400884168_btwj6irjc",
+      "timestamp": 1752400884168,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400884973_gurcnthhf",
+      "timestamp": 1752400884973,
+      "event": "gift",
+      "user": {
+        "nickname": "Ryan",
+        "uniqueId": "riyan.aksya5",
+        "userId": "7308297457779655681"
+      },
+      "data": {
+        "giftName": "TikTok",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Ryan\" \"TikTok\" 1 1 \"riyan.aksya5\"",
+      "summary": "🎁 Ryan sent TikTok x1 (1 diamonds)"
+    },
+    {
+      "id": "1752400885782_s7g73gawn",
+      "timestamp": 1752400885782,
+      "event": "like",
+      "user": {
+        "nickname": "-random-",
+        "uniqueId": "azildan5gankcowok",
+        "userId": "6861397533241426945"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"-random-\" \"azildan5gankcowok\" 15",
+      "summary": "❤️ -random- liked (15)"
+    },
+    {
+      "id": "1752400885784_e5sl5hh8d",
+      "timestamp": 1752400885784,
+      "event": "like",
+      "user": {
+        "nickname": "Nobody",
+        "uniqueId": "plagiat207",
+        "userId": "6962507568569402370"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Nobody\" \"plagiat207\" 15",
+      "summary": "❤️ Nobody liked (15)"
+    },
+    {
+      "id": "1752400887419_9xrycshn6",
+      "timestamp": 1752400887419,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 11
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 11",
+      "summary": "❤️ nuel laike liked (11)"
+    },
+    {
+      "id": "1752400888225_j9wmfp3m6",
+      "timestamp": 1752400888225,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 9
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 9",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (9)"
+    },
+    {
+      "id": "1752400889779_c7416jxqh",
+      "timestamp": 1752400889779,
+      "event": "like",
+      "user": {
+        "nickname": "da",
+        "uniqueId": "dalan554",
+        "userId": "6790310388463617025"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"da\" \"dalan554\" 15",
+      "summary": "❤️ da liked (15)"
+    },
+    {
+      "id": "1752400890583_9tlw76x5l",
+      "timestamp": 1752400890583,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400891380_kmwzfye9d",
+      "timestamp": 1752400891380,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400892181_hnzwdzmxe",
+      "timestamp": 1752400892181,
+      "event": "like",
+      "user": {
+        "nickname": "da",
+        "uniqueId": "dalan554",
+        "userId": "6790310388463617025"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"da\" \"dalan554\" 15",
+      "summary": "❤️ da liked (15)"
+    },
+    {
+      "id": "1752400893831_c5irvrpyf",
+      "timestamp": 1752400893831,
+      "event": "like",
+      "user": {
+        "nickname": "nuel laike",
+        "uniqueId": "nuel.laike",
+        "userId": "7266673805854491653"
+      },
+      "data": {
+        "likeCount": 1
+      },
+      "command": "ttr_test_like \"nuel laike\" \"nuel.laike\" 1",
+      "summary": "❤️ nuel laike liked (1)"
+    },
+    {
+      "id": "1752400893832_tfduxfsg3",
+      "timestamp": 1752400893832,
+      "event": "follow",
+      "user": {
+        "nickname": "rawr",
+        "uniqueId": "_rawrr0123_",
+        "userId": "7275733396524794885"
+      },
+      "data": {},
+      "command": "ttr_test_boost \"rawr\" \"_rawrr0123_\" follow",
+      "summary": "👥 rawr followed"
+    },
+    {
+      "id": "1752400894678_7g1i57njj",
+      "timestamp": 1752400894678,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
+    },
+    {
+      "id": "1752400895478_zhe0teiew",
+      "timestamp": 1752400895478,
+      "event": "like",
+      "user": {
+        "nickname": "HeiTansz",
+        "uniqueId": "ttaannsszz",
+        "userId": "6742751253984494593"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"HeiTansz\" \"ttaannsszz\" 15",
+      "summary": "❤️ HeiTansz liked (15)"
+    },
+    {
+      "id": "1752400896281_oaafup4f2",
+      "timestamp": 1752400896281,
+      "event": "like",
+      "user": {
+        "nickname": "ONLY MOBILE LEGEND",
+        "uniqueId": "only.mobile.legen8",
+        "userId": "7251206029199098886"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"ONLY MOBILE LEGEND\" \"only.mobile.legen8\" 15",
+      "summary": "❤️ ONLY MOBILE LEGEND liked (15)"
     }
   ]
 }

@@ -557,10 +557,23 @@ function buttonControlH()
 end
 
 function createPlayer(name, carModel)
+    -- Prevent multiple simultaneous spawns
+    if isSpawning then
+        print("^3[TikTok Race]^7 Spawn in progress, queuing: " .. name)
+        -- Wait a bit and try again
+        SetTimeout(200, function()
+            createPlayer(name, carModel)
+        end)
+        return
+    end
+    
     if playerNumber >= maxPlayers or gameState ~= GAME_STATES.QUEUE then
         print("^1[TikTok Race]^7 Cannot create player - wrong state or full")
         return
     end
+    
+    -- Lock spawning
+    isSpawning = true
     
     carModel = carModel or GetHashKey("hermes") -- Default car
     if type(carModel) == "string" then
@@ -569,44 +582,14 @@ function createPlayer(name, carModel)
     
     print("^3[TikTok Race]^7 Creating player " .. (playerNumber + 1) .. ": " .. name)
     
-    -- FIXED: Use exact C# spawn positioning logic
-    -- C#: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
-    local spawnPos = vector3(1722.0 + playersX, 3239.0 + playersY, 40.7287)
+    -- CALCULATE spawn position BEFORE any async operations
+    local currentSpawnX = playersX
+    local currentSpawnY = playersY
+    local spawnPos = vector3(1722.0 + currentSpawnX, 3239.0 + currentSpawnY, 40.7287)
     
-    print("^3[TikTok Race]^7 Spawn position: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
-    print("^3[TikTok Race]^7 Offset values: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
+    print("^3[TikTok Race]^7 Spawn position: " .. spawnPos.x .. ", " .. spawnPos.y .. " (X=" .. currentSpawnX .. ", Y=" .. currentSpawnY .. ")")
     
-    -- Clear area to prevent overlapping
-    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, false, false, false, false, false)
-    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, 1)
-    
-    -- Create vehicle
-    RequestModel(carModel)
-    while not HasModelLoaded(carModel) do
-        Wait(1)
-    end
-    
-    -- C# heading: 286.7277f
-    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
-    
-    if not DoesEntityExist(vehicle) then
-        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
-        return
-    end
-    
-    -- FIXED: Update spawn position for NEXT player using EXACT C# logic
-    -- C# code:
-    -- if (this.Players_r_n >= 7) {
-    --     this.Players_r_nr++;
-    --     this.Players_Y = -4.4f * (float)this.Players_r_nr;
-    --     this.Players_X -= 10f;
-    --     this.Players_r_n = 0;
-    -- } else {
-    --     this.Players_Y += 5f;
-    --     this.Players_X -= 1f;
-    -- }
-    -- this.Players_r_n++;
-    
+    -- UPDATE spawn position variables IMMEDIATELY for next player
     if playersRowNumber >= 7 then
         playersRowCount = playersRowCount + 1
         playersY = -4.4 * playersRowCount
@@ -618,7 +601,25 @@ function createPlayer(name, carModel)
     end
     playersRowNumber = playersRowNumber + 1
     
-    print("^3[TikTok Race]^7 Next spawn will be: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
+    print("^3[TikTok Race]^7 Next spawn prepared: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
+    
+    -- Clear area to prevent overlapping
+    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, false, false, false, false, false)
+    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 10.0, 1)
+    
+    -- Create vehicle
+    RequestModel(carModel)
+    while not HasModelLoaded(carModel) do
+        Wait(1)
+    end
+    
+    local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
+    
+    if not DoesEntityExist(vehicle) then
+        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
+        isSpawning = false -- Unlock spawning
+        return
+    end
     
     -- Create ped
     local pedModel = GetHashKey("a_m_m_skater_01")
@@ -627,12 +628,12 @@ function createPlayer(name, carModel)
         Wait(1)
     end
     
-    -- C# creates ped at: Vector3(1732f, 3204f, 43f) - separate location then moves to vehicle
     local ped = CreatePed(4, pedModel, 1732.0, 3204.0, 43.0, 0.0, true, false)
     
     if not DoesEntityExist(ped) then
         print("^1[TikTok Race]^7 Failed to create ped for " .. name)
         DeleteEntity(vehicle)
+        isSpawning = false -- Unlock spawning
         return
     end
     
@@ -641,12 +642,12 @@ function createPlayer(name, carModel)
     SetBlipSprite(blip, 56)
     SetBlipColour(blip, 3)
     
-    -- Set vehicle properties (matching C# exactly)
+    -- Set vehicle properties
     SetVehicleAsNoLongerNeeded(vehicle)
     SetEntityInvincible(vehicle, true)
     SetVehicleEngineOn(vehicle, true, true, false)
     
-    -- Set ped properties (matching C# exactly)
+    -- Set ped properties
     SetEntityInvincible(ped, true)
     SetPedCanBeDraggedOut(ped, false)
     SetPedCanBeKnockedOffVehicle(ped, 1)
@@ -656,25 +657,27 @@ function createPlayer(name, carModel)
     TaskStandStill(ped, -1)
     SetPedKeepTask(ped, true)
     
-    -- Store in arrays - INCREMENT playerNumber FIRST like C# does
+    -- Store in arrays - INCREMENT playerNumber FIRST
     playerNumber = playerNumber + 1
     players[playerNumber] = ped
     vehicles[playerNumber] = vehicle
     playerNames[playerNumber] = name
     playerSpeeds[playerNumber] = 0
     
-    -- Put ped into vehicle (C# does this last)
-    SetPedIntoVehicle(ped, vehicle, -1) -- Driver seat
+    -- Put ped into vehicle
+    SetPedIntoVehicle(ped, vehicle, -1)
     
-    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name)
+    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name .. " at position " .. spawnPos.x .. ", " .. spawnPos.y)
     
     SetModelAsNoLongerNeeded(carModel)
     SetModelAsNoLongerNeeded(pedModel)
     
-    -- Small delay between spawns to prevent issues
-    Wait(100)
+    -- Small delay before unlocking to ensure everything is settled
+    SetTimeout(150, function()
+        isSpawning = false -- Unlock spawning
+        print("^3[TikTok Race]^7 Spawn completed for " .. name .. ", ready for next player")
+    end)
 end
-
 
 function killAllRacers()
     for i = 1, playerNumber do
@@ -693,34 +696,51 @@ function killAllRacers()
     playerPositions = {}
 end
 
-function startDrivingWithoutAI()
-    print("^2[TikTok Race]^7 Cars ready - waiting for viewer boosts to move!")
+function startDriving()
+    print("^2[TikTok Race]^7 Starting race with " .. playerNumber .. " players - AI driving enabled")
     
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
             local ped = players[i]
             local vehicle = vehicles[i]
             
-            print("^3[TikTok Race]^7 Preparing racer " .. i .. ": " .. (playerNames[i] or "Unknown"))
+            print("^3[TikTok Race]^7 Setting up AI for player " .. i .. ": " .. (playerNames[i] or "Unknown"))
             
-            -- Set very slow initial speed - cars won't move much without boosts
-            playerSpeeds[i] = 5.0 -- Very slow start
+            -- Set initial speed to 0 (cars won't move until boosted)
+            playerSpeeds[i] = 0
             
-            -- Make sure vehicle is ready but won't auto-drive
-            SetVehicleEngineOn(vehicle, true, true, false)
-            SetEntityInvincible(vehicle, false)
+            -- Configure AI driving abilities
+            SetDriverAbility(ped, 1.0)  -- Maximum driving skill
+            SetDriverAggressiveness(ped, 0.3)  -- Low aggression for safer driving
             
-            -- Give a tiny initial push so they don't just sit there
-            TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
-                playerSpeeds[i], 0, GetEntityModel(vehicle), 786603, 5.0, -1.0)
+            -- Start with AI driving task but at 0 speed (stationary)
+            -- Using TASK_VEHICLE_DRIVE_TO_COORD with proper AI flags
+            TaskVehicleDriveToCoord(ped, vehicle, 
+                racePoint.x, racePoint.y, racePoint.z,  -- Destination
+                0.0,  -- Speed (0 = stationary until boosted)
+                1,    -- AI flags: 1 = normal driving
+                GetEntityModel(vehicle),  -- Vehicle model
+                786603,  -- Driving style: 786603 = avoid traffic, obey lights, avoid vehicles
+                2.0,  -- Target radius
+                -1.0  -- Straight line distance
+            )
             
-            print("^2[TikTok Race]^7 Racer " .. i .. " ready at slow speed " .. playerSpeeds[i])
+            print("^2[TikTok Race]^7 Player " .. i .. " ready with AI driving (speed: 0, waiting for boosts)")
         end
     end
     
-    print("^2[TikTok Race]^7 🎮 Cars need viewer interactions to speed up!")
+    -- Make sure all vehicles are ready
+    for i = 1, playerNumber do
+        if DoesEntityExist(vehicles[i]) then
+            SetVehicleEngineOn(vehicles[i], true, true, false)
+            -- Ensure vehicle can be controlled by AI
+            SetVehicleNeedsToBeHotwired(vehicles[i], false)
+            SetVehicleHasBeenOwnedByPlayer(vehicles[i], false)
+        end
+    end
+    
+    print("^2[TikTok Race]^7 🏁 All cars ready! Viewers need to send likes/gifts to make cars move!")
 end
-
 -- REPLACE the original startDriving function
 function startDriving()
     -- This is called by the old AI system - redirect to our new function
