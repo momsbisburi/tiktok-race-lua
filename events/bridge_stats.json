@@ -1,11 +1,11 @@
 {
-  "eventsReceived": 704,
-  "eventsWritten": 704,
+  "eventsReceived": 3074,
+  "eventsWritten": 3074,
   "eventsProcessed": 0,
-  "giftTotalValue": 209,
+  "giftTotalValue": 935,
   "startTime": 1752405357024,
-  "lastWrite": 1752405988250,
-  "uptime": 631226,
+  "lastWrite": 1752408647301,
+  "uptime": 3290831,
   "queueSize": 0,
   "isConnected": true,
   "config": {
