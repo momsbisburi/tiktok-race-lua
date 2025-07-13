@@ -1,0 +1,828 @@
+{
+  "timestamp": 1752355678481,
+  "count": 49,
+  "events": [
+    {
+      "id": "1752355296043_xr6wsgniu",
+      "timestamp": 1752355296043,
+      "event": "like",
+      "user": {
+        "nickname": "@ Joan",
+        "uniqueId": "joan_chepchumba",
+        "userId": "7237531610186335238"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"@ Joan\" \"joan_chepchumba\" 15",
+      "summary": "❤️ @ Joan liked (15)"
+    },
+    {
+      "id": "1752355296053_vdahbyh6n",
+      "timestamp": 1752355296053,
+      "event": "gift",
+      "user": {
+        "nickname": "Onoriode",
+        "uniqueId": "ofuaroonoriode",
+        "userId": "7111040333949977606"
+      },
+      "data": {
+        "giftName": "Rose",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Onoriode\" \"Rose\" 1 1 \"ofuaroonoriode\"",
+      "summary": "🎁 Onoriode sent Rose x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355296058_0fjd5a10v",
+      "timestamp": 1752355296058,
+      "event": "gift",
+      "user": {
+        "nickname": "Nay007",
+        "uniqueId": "usercmmn7hgq1007",
+        "userId": "7107639887860876294"
+      },
+      "data": {
+        "giftName": "Perfume",
+        "diamondCount": 20,
+        "repeatCount": 1,
+        "totalValue": 20
+      },
+      "command": "ttr_test_gift_enhanced \"Nay007\" \"Perfume\" 20 1 \"usercmmn7hgq1007\"",
+      "summary": "🎁 Nay007 sent Perfume x1 (20 diamonds)"
+    },
+    {
+      "id": "1752355296061_0j4cxacse",
+      "timestamp": 1752355296061,
+      "event": "gift",
+      "user": {
+        "nickname": "loku .kapo16",
+        "uniqueId": "iliikapo16",
+        "userId": "7120605802532570117"
+      },
+      "data": {
+        "giftName": "Club Cheers",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"loku .kapo16\" \"Club Cheers\" 1 1 \"iliikapo16\"",
+      "summary": "🎁 loku .kapo16 sent Club Cheers x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355296063_akf4bvrbb",
+      "timestamp": 1752355296063,
+      "event": "like",
+      "user": {
+        "nickname": "IKYFL",
+        "uniqueId": "fukkouttheereeee",
+        "userId": "7479034252391121966"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"IKYFL\" \"fukkouttheereeee\" 15",
+      "summary": "❤️ IKYFL liked (15)"
+    },
+    {
+      "id": "1752355296065_95a1iva9a",
+      "timestamp": 1752355296065,
+      "event": "chat",
+      "user": {
+        "nickname": "Stormy",
+        "uniqueId": "stormymeow3",
+        "userId": "7420935795795985454"
+      },
+      "data": {
+        "comment": "Halil’s Army ! Keep it up 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"
+      },
+      "command": "",
+      "summary": "💬 Stormy: Halil’s Army ! Keep it up 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"
+    },
+    {
+      "id": "1752355296065_q7f1yiuzn",
+      "timestamp": 1752355296065,
+      "event": "chat",
+      "user": {
+        "nickname": "P U R N A M As",
+        "uniqueId": "empty_empty07",
+        "userId": "7260575591647200262"
+      },
+      "data": {
+        "comment": "🔥🔥🔥🔥 TOGETHER 🔥🔥🔥🔥"
+      },
+      "command": "",
+      "summary": "💬 P U R N A M As: 🔥🔥🔥🔥 TOGETHER 🔥🔥🔥🔥"
+    },
+    {
+      "id": "1752355296070_8nvdfczok",
+      "timestamp": 1752355296070,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 5,
+        "totalValue": 150
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 5 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x5 (150 diamonds)"
+    },
+    {
+      "id": "1752355296072_ge5i1718y",
+      "timestamp": 1752355296072,
+      "event": "chat",
+      "user": {
+        "nickname": "FaheedaHalil Habibti",
+        "uniqueId": "faheeda1",
+        "userId": "6791849722913014790"
+      },
+      "data": {
+        "comment": " "
+      },
+      "command": "",
+      "summary": "💬 FaheedaHalil Habibti:  "
+    },
+    {
+      "id": "1752355296074_5fgasaozm",
+      "timestamp": 1752355296074,
+      "event": "chat",
+      "user": {
+        "nickname": "Darian",
+        "uniqueId": "darian_bebe",
+        "userId": "7195620133308859398"
+      },
+      "data": {
+        "comment": "🫴🏼❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥"
+      },
+      "command": "",
+      "summary": "💬 Darian: 🫴🏼❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥"
+    },
+    {
+      "id": "1752355296829_kiduvd37y",
+      "timestamp": 1752355296829,
+      "event": "like",
+      "user": {
+        "nickname": "Musa Tan",
+        "uniqueId": "musa.tan63",
+        "userId": "7508250785618166792"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Musa Tan\" \"musa.tan63\" 15",
+      "summary": "❤️ Musa Tan liked (15)"
+    },
+    {
+      "id": "1752355296832_neqqvhov7",
+      "timestamp": 1752355296832,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 7,
+        "totalValue": 210
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 7 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x7 (210 diamonds)"
+    },
+    {
+      "id": "1752355296833_148m98w24",
+      "timestamp": 1752355296833,
+      "event": "gift",
+      "user": {
+        "nickname": "L A XOXO",
+        "uniqueId": "lababydooxoxo",
+        "userId": "6922056085776696326"
+      },
+      "data": {
+        "giftName": "Heart Me",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"L A XOXO\" \"Heart Me\" 1 1 \"lababydooxoxo\"",
+      "summary": "🎁 L A XOXO sent Heart Me x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355296834_kqapxa37i",
+      "timestamp": 1752355296834,
+      "event": "chat",
+      "user": {
+        "nickname": "V",
+        "uniqueId": "v13rn01",
+        "userId": "7240900473913426949"
+      },
+      "data": {
+        "comment": "Go go go🔥🔥🔥🔥🔥"
+      },
+      "command": "",
+      "summary": "💬 V: Go go go🔥🔥🔥🔥🔥"
+    },
+    {
+      "id": "1752355296835_4bgxd2moc",
+      "timestamp": 1752355296835,
+      "event": "like",
+      "user": {
+        "nickname": "-",
+        "uniqueId": "lewinval_977",
+        "userId": "6817441409617036293"
+      },
+      "data": {
+        "likeCount": 11
+      },
+      "command": "ttr_test_like \"-\" \"lewinval_977\" 11",
+      "summary": "❤️ - liked (11)"
+    },
+    {
+      "id": "1752355296836_eoedk0ceu",
+      "timestamp": 1752355296836,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 8,
+        "totalValue": 240
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 8 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x8 (240 diamonds)"
+    },
+    {
+      "id": "1752355296837_fta8cdyah",
+      "timestamp": 1752355296837,
+      "event": "gift",
+      "user": {
+        "nickname": "Hamza 41116",
+        "uniqueId": "hamza41116",
+        "userId": "6935083467740136450"
+      },
+      "data": {
+        "giftName": "Ice Cream Cone",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Hamza 41116\" \"Ice Cream Cone\" 1 1 \"hamza41116\"",
+      "summary": "🎁 Hamza 41116 sent Ice Cream Cone x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355297626_bvsuzmnev",
+      "timestamp": 1752355297626,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 10,
+        "totalValue": 300
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 10 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x10 (300 diamonds)"
+    },
+    {
+      "id": "1752355297627_nc9jxuzu7",
+      "timestamp": 1752355297627,
+      "event": "gift",
+      "user": {
+        "nickname": "Hamza 41116",
+        "uniqueId": "hamza41116",
+        "userId": "6935083467740136450"
+      },
+      "data": {
+        "giftName": "Ice Cream Cone",
+        "diamondCount": 1,
+        "repeatCount": 2,
+        "totalValue": 2
+      },
+      "command": "ttr_test_gift_enhanced \"Hamza 41116\" \"Ice Cream Cone\" 1 2 \"hamza41116\"",
+      "summary": "🎁 Hamza 41116 sent Ice Cream Cone x2 (2 diamonds)"
+    },
+    {
+      "id": "1752355297630_j3gwzj5c9",
+      "timestamp": 1752355297630,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 11,
+        "totalValue": 330
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 11 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x11 (330 diamonds)"
+    },
+    {
+      "id": "1752355298429_0fdchrzl5",
+      "timestamp": 1752355298429,
+      "event": "gift",
+      "user": {
+        "nickname": "Hamza 41116",
+        "uniqueId": "hamza41116",
+        "userId": "6935083467740136450"
+      },
+      "data": {
+        "giftName": "Ice Cream Cone",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"Hamza 41116\" \"Ice Cream Cone\" 1 3 \"hamza41116\"",
+      "summary": "🎁 Hamza 41116 sent Ice Cream Cone x3 (3 diamonds)"
+    },
+    {
+      "id": "1752355298430_s67syw8jc",
+      "timestamp": 1752355298430,
+      "event": "chat",
+      "user": {
+        "nickname": "Fifi",
+        "uniqueId": "natasha.2732",
+        "userId": "7080478389244986373"
+      },
+      "data": {
+        "comment": "snipe"
+      },
+      "command": "",
+      "summary": "💬 Fifi: snipe"
+    },
+    {
+      "id": "1752355298430_u7kmyjx55",
+      "timestamp": 1752355298430,
+      "event": "gift",
+      "user": {
+        "nickname": "its.chiochio",
+        "uniqueId": "its.chiochio1",
+        "userId": "7506891632424387606"
+      },
+      "data": {
+        "giftName": "Rose",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"its.chiochio\" \"Rose\" 1 3 \"its.chiochio1\"",
+      "summary": "🎁 its.chiochio sent Rose x3 (3 diamonds)"
+    },
+    {
+      "id": "1752355298431_hbuirx3oz",
+      "timestamp": 1752355298431,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 12,
+        "totalValue": 360
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 12 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x12 (360 diamonds)"
+    },
+    {
+      "id": "1752355299234_e26m9iiva",
+      "timestamp": 1752355299234,
+      "event": "gift",
+      "user": {
+        "nickname": "",
+        "uniqueId": "lea_pania",
+        "userId": "7018545164612731910"
+      },
+      "data": {
+        "giftName": "Sage the Smart Bean",
+        "diamondCount": 399,
+        "repeatCount": 1,
+        "totalValue": 399
+      },
+      "command": "ttr_test_gift_enhanced \"\" \"Sage the Smart Bean\" 399 1 \"lea_pania\"",
+      "summary": "🎁  sent Sage the Smart Bean x1 (399 diamonds)"
+    },
+    {
+      "id": "1752355299236_6jdvwuxyb",
+      "timestamp": 1752355299236,
+      "event": "gift",
+      "user": {
+        "nickname": "Maria",
+        "uniqueId": "m_d_2221",
+        "userId": "7031617510776816646"
+      },
+      "data": {
+        "giftName": "Racing Debut",
+        "diamondCount": 1500,
+        "repeatCount": 1,
+        "totalValue": 1500
+      },
+      "command": "ttr_test_gift_enhanced \"Maria\" \"Racing Debut\" 1500 1 \"m_d_2221\"",
+      "summary": "🎁 Maria sent Racing Debut x1 (1500 diamonds)"
+    },
+    {
+      "id": "1752355299237_nzlhivulu",
+      "timestamp": 1752355299237,
+      "event": "chat",
+      "user": {
+        "nickname": "FaheedaHalil Habibti",
+        "uniqueId": "faheeda1",
+        "userId": "6791849722913014790"
+      },
+      "data": {
+        "comment": " "
+      },
+      "command": "",
+      "summary": "💬 FaheedaHalil Habibti:  "
+    },
+    {
+      "id": "1752355299237_f92hkkupp",
+      "timestamp": 1752355299237,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 14,
+        "totalValue": 420
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 14 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x14 (420 diamonds)"
+    },
+    {
+      "id": "1752355299239_z6wnbk749",
+      "timestamp": 1752355299239,
+      "event": "gift",
+      "user": {
+        "nickname": "Nay007",
+        "uniqueId": "usercmmn7hgq1007",
+        "userId": "7107639887860876294"
+      },
+      "data": {
+        "giftName": "Perfume",
+        "diamondCount": 20,
+        "repeatCount": 1,
+        "totalValue": 20
+      },
+      "command": "ttr_test_gift_enhanced \"Nay007\" \"Perfume\" 20 1 \"usercmmn7hgq1007\"",
+      "summary": "🎁 Nay007 sent Perfume x1 (20 diamonds)"
+    },
+    {
+      "id": "1752355299242_wlh2l85wz",
+      "timestamp": 1752355299242,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 15,
+        "totalValue": 450
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 15 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x15 (450 diamonds)"
+    },
+    {
+      "id": "1752355299243_7tlfg5g6y",
+      "timestamp": 1752355299243,
+      "event": "like",
+      "user": {
+        "nickname": "P U R N A M As",
+        "uniqueId": "empty_empty07",
+        "userId": "7260575591647200262"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"P U R N A M As\" \"empty_empty07\" 15",
+      "summary": "❤️ P U R N A M As liked (15)"
+    },
+    {
+      "id": "1752355300031_65d2634g0",
+      "timestamp": 1752355300031,
+      "event": "gift",
+      "user": {
+        "nickname": "Ani63amg",
+        "uniqueId": "noname___660",
+        "userId": "7327068315988886571"
+      },
+      "data": {
+        "giftName": "Private Jet",
+        "diamondCount": 4888,
+        "repeatCount": 1,
+        "totalValue": 4888
+      },
+      "command": "ttr_test_gift_enhanced \"Ani63amg\" \"Private Jet\" 4888 1 \"noname___660\"",
+      "summary": "🎁 Ani63amg sent Private Jet x1 (4888 diamonds)"
+    },
+    {
+      "id": "1752355300032_ousvaj0uw",
+      "timestamp": 1752355300032,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 16,
+        "totalValue": 480
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 16 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x16 (480 diamonds)"
+    },
+    {
+      "id": "1752355300034_1ffe349ad",
+      "timestamp": 1752355300034,
+      "event": "like",
+      "user": {
+        "nickname": "TALIA",
+        "uniqueId": "italiana.bg",
+        "userId": "6841975975284261893"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"TALIA\" \"italiana.bg\" 15",
+      "summary": "❤️ TALIA liked (15)"
+    },
+    {
+      "id": "1752355300828_nbpx2eoy7",
+      "timestamp": 1752355300828,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 18,
+        "totalValue": 540
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 18 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x18 (540 diamonds)"
+    },
+    {
+      "id": "1752355300829_jc5sfesy3",
+      "timestamp": 1752355300829,
+      "event": "gift",
+      "user": {
+        "nickname": "C.R",
+        "uniqueId": "cr_doo0",
+        "userId": "7347812105360311329"
+      },
+      "data": {
+        "giftName": "Fireworks",
+        "diamondCount": 1088,
+        "repeatCount": 1,
+        "totalValue": 1088
+      },
+      "command": "ttr_test_gift_enhanced \"C.R\" \"Fireworks\" 1088 1 \"cr_doo0\"",
+      "summary": "🎁 C.R sent Fireworks x1 (1088 diamonds)"
+    },
+    {
+      "id": "1752355301629_ai71hzjlt",
+      "timestamp": 1752355301629,
+      "event": "chat",
+      "user": {
+        "nickname": "Stormy",
+        "uniqueId": "stormymeow3",
+        "userId": "7420935795795985454"
+      },
+      "data": {
+        "comment": "Halil’s Army ! Keep it up 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"
+      },
+      "command": "",
+      "summary": "💬 Stormy: Halil’s Army ! Keep it up 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥"
+    },
+    {
+      "id": "1752355301629_q16bsi96p",
+      "timestamp": 1752355301629,
+      "event": "gift",
+      "user": {
+        "nickname": "SSS",
+        "uniqueId": "freightliner.7777",
+        "userId": "7470133503389418542"
+      },
+      "data": {
+        "giftName": "Doughnut",
+        "diamondCount": 30,
+        "repeatCount": 19,
+        "totalValue": 570
+      },
+      "command": "ttr_test_gift_enhanced \"SSS\" \"Doughnut\" 30 19 \"freightliner.7777\"",
+      "summary": "🎁 SSS sent Doughnut x19 (570 diamonds)"
+    },
+    {
+      "id": "1752355301630_v6wkm90up",
+      "timestamp": 1752355301630,
+      "event": "gift",
+      "user": {
+        "nickname": "Hamza 41116",
+        "uniqueId": "hamza41116",
+        "userId": "6935083467740136450"
+      },
+      "data": {
+        "giftName": "Ice Cream Cone",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"Hamza 41116\" \"Ice Cream Cone\" 1 3 \"hamza41116\"",
+      "summary": "🎁 Hamza 41116 sent Ice Cream Cone x3 (3 diamonds)"
+    },
+    {
+      "id": "1752355301631_sjjd484wg",
+      "timestamp": 1752355301631,
+      "event": "like",
+      "user": {
+        "nickname": "KASIM SYL",
+        "uniqueId": "kasm.seylgl",
+        "userId": "7221290161395500038"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"KASIM SYL\" \"kasm.seylgl\" 15",
+      "summary": "❤️ KASIM SYL liked (15)"
+    },
+    {
+      "id": "1752355301632_i61k5fkw1",
+      "timestamp": 1752355301632,
+      "event": "gift",
+      "user": {
+        "nickname": "its.chiochio",
+        "uniqueId": "its.chiochio1",
+        "userId": "7506891632424387606"
+      },
+      "data": {
+        "giftName": "Rose",
+        "diamondCount": 1,
+        "repeatCount": 3,
+        "totalValue": 3
+      },
+      "command": "ttr_test_gift_enhanced \"its.chiochio\" \"Rose\" 1 3 \"its.chiochio1\"",
+      "summary": "🎁 its.chiochio sent Rose x3 (3 diamonds)"
+    },
+    {
+      "id": "1752355301633_jm0vyt33q",
+      "timestamp": 1752355301633,
+      "event": "like",
+      "user": {
+        "nickname": "Bebey Gunja",
+        "uniqueId": "bebeygunja",
+        "userId": "6672086556646309893"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Bebey Gunja\" \"bebeygunja\" 15",
+      "summary": "❤️ Bebey Gunja liked (15)"
+    },
+    {
+      "id": "1752355302481_g4ldyr3n8",
+      "timestamp": 1752355302481,
+      "event": "gift",
+      "user": {
+        "nickname": "Blue Ice _ emay",
+        "uniqueId": "blueice_69",
+        "userId": "6559813191113637889"
+      },
+      "data": {
+        "giftName": "Go Popular",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"Blue Ice _ emay\" \"Go Popular\" 1 1 \"blueice_69\"",
+      "summary": "🎁 Blue Ice _ emay sent Go Popular x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355302482_bi8ifkglu",
+      "timestamp": 1752355302482,
+      "event": "chat",
+      "user": {
+        "nickname": "Elenagabriela666",
+        "uniqueId": "elenagabriela666",
+        "userId": "6777105526277112837"
+      },
+      "data": {
+        "comment": ""
+      },
+      "command": "",
+      "summary": "💬 Elenagabriela666: "
+    },
+    {
+      "id": "1752355302483_itfbjiznl",
+      "timestamp": 1752355302483,
+      "event": "gift",
+      "user": {
+        "nickname": "loku .kapo16",
+        "uniqueId": "iliikapo16",
+        "userId": "7120605802532570117"
+      },
+      "data": {
+        "giftName": "Club Cheers",
+        "diamondCount": 1,
+        "repeatCount": 1,
+        "totalValue": 1
+      },
+      "command": "ttr_test_gift_enhanced \"loku .kapo16\" \"Club Cheers\" 1 1 \"iliikapo16\"",
+      "summary": "🎁 loku .kapo16 sent Club Cheers x1 (1 diamonds)"
+    },
+    {
+      "id": "1752355302484_lr344d6c2",
+      "timestamp": 1752355302484,
+      "event": "chat",
+      "user": {
+        "nickname": "FaheedaHalil Habibti",
+        "uniqueId": "faheeda1",
+        "userId": "6791849722913014790"
+      },
+      "data": {
+        "comment": " "
+      },
+      "command": "",
+      "summary": "💬 FaheedaHalil Habibti:  "
+    },
+    {
+      "id": "1752355303280_qekisxty6",
+      "timestamp": 1752355303280,
+      "event": "like",
+      "user": {
+        "nickname": "Ivana Pajovic",
+        "uniqueId": "ivana.pajovic5",
+        "userId": "7353009637409178630"
+      },
+      "data": {
+        "likeCount": 15
+      },
+      "command": "ttr_test_like \"Ivana Pajovic\" \"ivana.pajovic5\" 15",
+      "summary": "❤️ Ivana Pajovic liked (15)"
+    },
+    {
+      "id": "1752355303282_xbtrdp1lc",
+      "timestamp": 1752355303282,
+      "event": "like",
+      "user": {
+        "nickname": "Angel..q7",
+        "uniqueId": "angel..q7",
+        "userId": "6824626142487954438"
+      },
+      "data": {
+        "likeCount": 2
+      },
+      "command": "ttr_test_like \"Angel..q7\" \"angel..q7\" 2",
+      "summary": "❤️ Angel..q7 liked (2)"
+    },
+    {
+      "id": "1752355304083_2acitpkh8",
+      "timestamp": 1752355304083,
+      "event": "gift",
+      "user": {
+        "nickname": "loku .kapo16",
+        "uniqueId": "iliikapo16",
+        "userId": "7120605802532570117"
+      },
+      "data": {
+        "giftName": "Club Cheers",
+        "diamondCount": 1,
+        "repeatCount": 2,
+        "totalValue": 2
+      },
+      "command": "ttr_test_gift_enhanced \"loku .kapo16\" \"Club Cheers\" 1 2 \"iliikapo16\"",
+      "summary": "🎁 loku .kapo16 sent Club Cheers x2 (2 diamonds)"
+    }
+  ]
+}

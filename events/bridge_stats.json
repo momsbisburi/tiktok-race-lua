@@ -1,0 +1,17 @@
+{
+  "eventsReceived": 925,
+  "eventsWritten": 925,
+  "eventsProcessed": 0,
+  "giftTotalValue": 5316,
+  "startTime": 1752355423981,
+  "lastWrite": 1752355678485,
+  "uptime": 42654363,
+  "queueSize": 0,
+  "isConnected": false,
+  "config": {
+    "eventFile": "C:\\Users\\Admin\\Downloads\\Compressed\\server\\resources\\tiktok-race\\events\\events_queue.json",
+    "processedFile": "C:\\Users\\Admin\\Downloads\\Compressed\\server\\resources\\tiktok-race\\events\\events_processed.json",
+    "writeDelay": 50,
+    "maxFileSize": 1000
+  }
+}

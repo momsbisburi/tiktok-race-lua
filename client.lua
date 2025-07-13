@@ -377,16 +377,33 @@ function handleCountdown()
         local timeLeft = (countdownStart + (countdownTime * 1000) - GetGameTimer()) / 1000
         local seconds = math.ceil(timeLeft)
         
-        if seconds < 1 then
+        if timeLeft <= 0 then
+            -- COUNTDOWN FINISHED - START RACE
+            print("^2[TikTok Race]^7 Countdown finished! Starting race...")
+            
+            DisplayRadar(true)
+            countdown = false
+            isRacing = true
+            racingCam = true
+            
+            -- CRITICAL: Set game state to RACE (6)
+            gameState = GAME_STATES.RACE
+            TriggerServerEvent('tiktok_race:setGameState', gameState)
+            
+            SetEntityInvincible(PlayerPedId(), false)
+            FreezeEntityPosition(PlayerPedId(), false)
+            
+            -- Start the cars driving (but don't use AI mode)
+            startDrivingWithoutAI()
+            
+        elseif seconds < 1 then
             if soundPlayId ~= soundPlayIdS then
-                -- Play GO sound
                 PlaySoundFrontend(-1, "Beep_Green", "DLC_HEIST_HACKING_SNAKE_SOUNDS", true)
                 soundPlayId = soundPlayIdS
             end
             DrawRaceMenuItem("GO!!!", 0.5, 0.5, {0, 255, 0, 255}, 1.5, true, false, true, true)
         elseif seconds <= 3 then
             if soundPlayId ~= soundPlayIdS then
-                -- Play countdown sound
                 PlaySoundFrontend(-1, "3_2_1", "HUD_MINI_GAME_SOUNDSET", true)
                 soundPlayId = soundPlayIdS
             end
@@ -400,20 +417,9 @@ function handleCountdown()
         end
         
         soundPlayIdS = seconds
-        
-        if timeLeft <= 0 then
-            -- Start race
-            DisplayRadar(true)
-            countdown = false
-            isRacing = true
-            racingCam = true
-            gameState = GAME_STATES.RACE
-            SetEntityInvincible(PlayerPedId(), false)
-            FreezeEntityPosition(PlayerPedId(), false)
-            startDriving()
-        end
     end
 end
+
 
 function deletePopulation()
     if pedsEnabled then
@@ -530,6 +536,7 @@ end
 
 function createPlayer(name, carModel)
     if playerNumber >= maxPlayers or gameState ~= GAME_STATES.QUEUE then
+        print("^1[TikTok Race]^7 Cannot create player - wrong state or full")
         return
     end
     
@@ -537,19 +544,33 @@ function createPlayer(name, carModel)
     if type(carModel) == "string" then
         carModel = GetHashKey(carModel)
     end
-    -- Calculate spawn position
+    
+    print("^3[TikTok Race]^7 Creating player " .. (playerNumber + 1) .. ": " .. name)
+    print("^3[TikTok Race]^7 Current spawn vars - X: " .. playersX .. ", Y: " .. playersY .. ", Row: " .. playersRowNumber)
+    
+    -- Calculate spawn position using C# logic: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
     local spawnPos = vector3(1722.0 + playersX, 3239.0 + playersY, 40.7287)
     
-    -- Create vehicle
+    -- Clear area to prevent overlapping
+    ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, false, false, false, false, false)
+    ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, 1)
+    
+    -- Create vehicle first (like C# code)
     RequestModel(carModel)
     while not HasModelLoaded(carModel) do
         Wait(3)
     end
     
     local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
+    
+    if not DoesEntityExist(vehicle) then
+        print("^1[TikTok Race]^7 Failed to create vehicle for " .. name)
+        return
+    end
+    
     SetVehicleAsNoLongerNeeded(vehicle)
     
-    -- Update spawn position for next player
+    -- Update spawn position for NEXT player (using C# logic)
     if playersRowNumber >= 7 then
         playersRowCount = playersRowCount + 1
         playersY = -4.4 * playersRowCount
@@ -561,14 +582,20 @@ function createPlayer(name, carModel)
     end
     playersRowNumber = playersRowNumber + 1
     
-    -- Create ped
+    -- Create ped at the vehicle position (back to original working method)
     local pedModel = GetHashKey("a_m_m_skater_01")
     RequestModel(pedModel)
     while not HasModelLoaded(pedModel) do
         Wait(1)
     end
     
-    local ped = CreatePed(4, pedModel, spawnPos.x, spawnPos.y, spawnPos.z + 5.0, 0.0, true, false)
+    local ped = CreatePed(4, pedModel, spawnPos.x, spawnPos.y, spawnPos.z + 1.0, 0.0, true, false)
+    
+    if not DoesEntityExist(ped) then
+        print("^1[TikTok Race]^7 Failed to create ped for " .. name)
+        DeleteEntity(vehicle)
+        return
+    end
     
     -- Add blip to vehicle
     local blip = AddBlipForEntity(vehicle)
@@ -583,19 +610,28 @@ function createPlayer(name, carModel)
     SetEntityInvincible(ped, true)
     SetPedCanBeDraggedOut(ped, false)
     SetPedCanBeKnockedOffVehicle(ped, 1)
-    SetPedIntoVehicle(ped, vehicle, -1) -- Driver seat
     
-    -- Store references
+    -- Increment playerNumber FIRST, then store
     playerNumber = playerNumber + 1
+    
+    -- Store references using the incremented playerNumber
     players[playerNumber] = ped
     vehicles[playerNumber] = vehicle
     playerNames[playerNumber] = name
     playerSpeeds[playerNumber] = 0
     
+    -- Put ped into vehicle (original working method)
+    SetPedIntoVehicle(ped, vehicle, -1) -- Driver seat
+    
+    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name .. " at " .. spawnPos.x .. ", " .. spawnPos.y)
+    print("^3[TikTok Race]^7 Next spawn will be at X: " .. playersX .. ", Y: " .. playersY)
+    
     SetModelAsNoLongerNeeded(carModel)
     SetModelAsNoLongerNeeded(pedModel)
+    
+    -- Small delay between spawns
+    Wait(150)
 end
-
 function killAllRacers()
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) then
@@ -613,21 +649,38 @@ function killAllRacers()
     playerPositions = {}
 end
 
-function startDriving()
-    if not aiMode then
-        -- Don't start driving automatically - wait for TikTok interactions
-        return
-    end
+function startDrivingWithoutAI()
+    print("^2[TikTok Race]^7 Cars ready - waiting for viewer boosts to move!")
     
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) and DoesEntityExist(vehicles[i]) then
             local ped = players[i]
             local vehicle = vehicles[i]
             
-            -- Start driving to waypoint
-            TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 30.0, 0, GetEntityModel(vehicle), 786603, 10.0, -1.0)
+            print("^3[TikTok Race]^7 Preparing racer " .. i .. ": " .. (playerNames[i] or "Unknown"))
+            
+            -- Set very slow initial speed - cars won't move much without boosts
+            playerSpeeds[i] = 5.0 -- Very slow start
+            
+            -- Make sure vehicle is ready but won't auto-drive
+            SetVehicleEngineOn(vehicle, true, true, false)
+            SetEntityInvincible(vehicle, false)
+            
+            -- Give a tiny initial push so they don't just sit there
+            TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
+                playerSpeeds[i], 0, GetEntityModel(vehicle), 786603, 5.0, -1.0)
+            
+            print("^2[TikTok Race]^7 Racer " .. i .. " ready at slow speed " .. playerSpeeds[i])
         end
     end
+    
+    print("^2[TikTok Race]^7 🎮 Cars need viewer interactions to speed up!")
+end
+
+-- REPLACE the original startDriving function
+function startDriving()
+    -- This is called by the old AI system - redirect to our new function
+    startDrivingWithoutAI()
 end
 
 function renderNames()
@@ -719,18 +772,36 @@ function checkRaceFinish()
 end
 
 function boostPlayer(playerId, speed)
-    if players[playerId] and DoesEntityExist(players[playerId]) then
-        local ped = players[playerId]
-        local vehicle = vehicles[playerId]
-        
-        if DoesEntityExist(vehicle) then
-            playerSpeeds[playerId] = math.max(playerSpeeds[playerId] + speed, 20) -- Ensure minimum speed
-            local newSpeed = playerSpeeds[playerId]
-            
-            -- Start/update driving task with new speed
-            TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, newSpeed, 0, GetEntityModel(vehicle), 8388662, 10.0, -1.0)
-        end
+    if not players[playerId] or not DoesEntityExist(players[playerId]) then
+        print("^1[TikTok Race]^7 Cannot boost - Player " .. playerId .. " doesn't exist")
+        return
     end
+    
+    local ped = players[playerId]
+    local vehicle = vehicles[playerId]
+    
+    if not DoesEntityExist(vehicle) then
+        print("^1[TikTok Race]^7 Cannot boost - Vehicle " .. playerId .. " doesn't exist")
+        return
+    end
+    
+    -- Update speed - significant boost
+    local oldSpeed = playerSpeeds[playerId] or 5
+    playerSpeeds[playerId] = math.min(oldSpeed + speed, 80) -- Cap at 80
+    local newSpeed = playerSpeeds[playerId]
+    
+    print("^2[TikTok Race]^7 🚀 BOOSTING player " .. playerId .. " (" .. (playerNames[playerId] or "Unknown") .. ") from " .. oldSpeed .. " to " .. newSpeed)
+    
+    -- Clear current task and start new one with higher speed
+    ClearPedTasks(ped)
+    Wait(50)
+    
+    -- Start driving with new speed
+    TaskVehicleDriveToCoord(ped, vehicle, racePoint.x, racePoint.y, racePoint.z, 
+        newSpeed, 0, GetEntityModel(vehicle), 786603, 15.0, -1.0)
+        
+    -- Visual feedback
+    SetVehicleForwardSpeed(vehicle, newSpeed * 0.3) -- Give immediate speed boost
 end
 
 function getNameId(searchName)
@@ -782,34 +853,23 @@ end)
 
 -- Debug commands (only for development)
 if GetConvar('tiktok_race_debug', 'false') == 'true' then
-    RegisterCommand('ttr_addplayer', function(source, args)
-        if #args >= 1 then
-            local name = args[1]
-            local car = args[2] and GetHashKey(args[2]) or GetHashKey("hermes")
-            createPlayer(name, car)
+    RegisterCommand('ttr_start_driving', function()
+        if gameState == GAME_STATES.RACE then
+            startDriving()
+        else
+            print("^1[TikTok Race]^7 Not in race state (current: " .. gameState .. ")")
         end
     end)
     
-    RegisterCommand('ttr_boost', function(source, args)
-        if #args >= 2 then
-            local playerId = tonumber(args[1])
-            local boost = tonumber(args[2])
-            if playerId and boost then
-                boostPlayer(playerId, boost)
-            end
+    RegisterCommand('ttr_test_boost_local', function(source, args)
+        local playerId = tonumber(args[1]) or 1
+        local boost = tonumber(args[2]) or 10
+        
+        if gameState == GAME_STATES.RACE then
+            boostPlayer(playerId, boost)
+        else
+            print("^1[TikTok Race]^7 Not in race state (current: " .. gameState .. ")")
         end
-    end)
-    
-    RegisterCommand('ttr_state', function(source, args)
-        if #args >= 1 then
-            local newState = tonumber(args[1])
-            if newState and newState >= 0 and newState <= 9 then
-                gameState = newState
-            end
-        end
-    end)
-    
-    RegisterCommand('ttr_debug', function()
-        isDebug = not isDebug
     end)
 end
+
