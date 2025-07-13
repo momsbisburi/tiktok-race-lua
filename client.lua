@@ -454,6 +454,8 @@ function debugInfo()
     end
 end
 
+local isSpawning = false
+
 function buttonControlH()
     if gameState == GAME_STATES.IDLE then
         -- Setup race
@@ -531,6 +533,26 @@ function buttonControlH()
         
         gameState = GAME_STATES.SETUP_DONE
         TriggerServerEvent('tiktok_race:setGameState', gameState)
+    elseif gameState == GAME_STATES.SETUP_DONE then
+            if racePoint.x == 0.0 and racePoint.y == 0.0 then
+                return
+            end
+            
+            -- FIXED: Reset spawn positioning exactly like C# does
+            -- C# code:
+            -- this.Players_r_nr = 0;
+            -- this.Players_r_n = 1;
+            -- this.Players_X = 0f;
+            -- this.Players_Y = 0f;
+            playersRowCount = 0      -- Players_r_nr
+            playersRowNumber = 1     -- Players_r_n  
+            playersX = 0.0          -- Players_X
+            playersY = 0.0          -- Players_Y
+            
+            queueList = true
+            
+            gameState = GAME_STATES.QUEUE
+            TriggerServerEvent('tiktok_race:setGameState', gameState)
     end
 end
 
@@ -546,21 +568,25 @@ function createPlayer(name, carModel)
     end
     
     print("^3[TikTok Race]^7 Creating player " .. (playerNumber + 1) .. ": " .. name)
-    print("^3[TikTok Race]^7 Current spawn vars - X: " .. playersX .. ", Y: " .. playersY .. ", Row: " .. playersRowNumber)
     
-    -- Calculate spawn position using C# logic: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
+    -- FIXED: Use exact C# spawn positioning logic
+    -- C#: Vector3(1722f, 3239f, 40.7287f) + Vector3(Players_X, Players_Y, 0f)
     local spawnPos = vector3(1722.0 + playersX, 3239.0 + playersY, 40.7287)
+    
+    print("^3[TikTok Race]^7 Spawn position: " .. spawnPos.x .. ", " .. spawnPos.y .. ", " .. spawnPos.z)
+    print("^3[TikTok Race]^7 Offset values: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
     
     -- Clear area to prevent overlapping
     ClearAreaOfVehicles(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, false, false, false, false, false)
     ClearAreaOfPeds(spawnPos.x, spawnPos.y, spawnPos.z, 8.0, 1)
     
-    -- Create vehicle first (like C# code)
+    -- Create vehicle
     RequestModel(carModel)
     while not HasModelLoaded(carModel) do
-        Wait(3)
+        Wait(1)
     end
     
+    -- C# heading: 286.7277f
     local vehicle = CreateVehicle(carModel, spawnPos.x, spawnPos.y, spawnPos.z, 286.7277, true, false)
     
     if not DoesEntityExist(vehicle) then
@@ -568,9 +594,19 @@ function createPlayer(name, carModel)
         return
     end
     
-    SetVehicleAsNoLongerNeeded(vehicle)
+    -- FIXED: Update spawn position for NEXT player using EXACT C# logic
+    -- C# code:
+    -- if (this.Players_r_n >= 7) {
+    --     this.Players_r_nr++;
+    --     this.Players_Y = -4.4f * (float)this.Players_r_nr;
+    --     this.Players_X -= 10f;
+    --     this.Players_r_n = 0;
+    -- } else {
+    --     this.Players_Y += 5f;
+    --     this.Players_X -= 1f;
+    -- }
+    -- this.Players_r_n++;
     
-    -- Update spawn position for NEXT player (using C# logic)
     if playersRowNumber >= 7 then
         playersRowCount = playersRowCount + 1
         playersY = -4.4 * playersRowCount
@@ -582,14 +618,17 @@ function createPlayer(name, carModel)
     end
     playersRowNumber = playersRowNumber + 1
     
-    -- Create ped at the vehicle position (back to original working method)
+    print("^3[TikTok Race]^7 Next spawn will be: X=" .. playersX .. ", Y=" .. playersY .. ", Row=" .. playersRowNumber)
+    
+    -- Create ped
     local pedModel = GetHashKey("a_m_m_skater_01")
     RequestModel(pedModel)
     while not HasModelLoaded(pedModel) do
         Wait(1)
     end
     
-    local ped = CreatePed(4, pedModel, spawnPos.x, spawnPos.y, spawnPos.z + 1.0, 0.0, true, false)
+    -- C# creates ped at: Vector3(1732f, 3204f, 43f) - separate location then moves to vehicle
+    local ped = CreatePed(4, pedModel, 1732.0, 3204.0, 43.0, 0.0, true, false)
     
     if not DoesEntityExist(ped) then
         print("^1[TikTok Race]^7 Failed to create ped for " .. name)
@@ -602,36 +641,41 @@ function createPlayer(name, carModel)
     SetBlipSprite(blip, 56)
     SetBlipColour(blip, 3)
     
-    -- Set vehicle properties
+    -- Set vehicle properties (matching C# exactly)
+    SetVehicleAsNoLongerNeeded(vehicle)
     SetEntityInvincible(vehicle, true)
     SetVehicleEngineOn(vehicle, true, true, false)
     
-    -- Set ped properties
+    -- Set ped properties (matching C# exactly)
     SetEntityInvincible(ped, true)
     SetPedCanBeDraggedOut(ped, false)
     SetPedCanBeKnockedOffVehicle(ped, 1)
+    SetPedCanBeShotInVehicle(ped, false)
+    SetPedStayInVehicleWhenJacked(ped, true)
+    ClearPedTasks(ped)
+    TaskStandStill(ped, -1)
+    SetPedKeepTask(ped, true)
     
-    -- Increment playerNumber FIRST, then store
+    -- Store in arrays - INCREMENT playerNumber FIRST like C# does
     playerNumber = playerNumber + 1
-    
-    -- Store references using the incremented playerNumber
     players[playerNumber] = ped
     vehicles[playerNumber] = vehicle
     playerNames[playerNumber] = name
     playerSpeeds[playerNumber] = 0
     
-    -- Put ped into vehicle (original working method)
+    -- Put ped into vehicle (C# does this last)
     SetPedIntoVehicle(ped, vehicle, -1) -- Driver seat
     
-    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name .. " at " .. spawnPos.x .. ", " .. spawnPos.y)
-    print("^3[TikTok Race]^7 Next spawn will be at X: " .. playersX .. ", Y: " .. playersY)
+    print("^2[TikTok Race]^7 ✅ Created player " .. playerNumber .. ": " .. name)
     
     SetModelAsNoLongerNeeded(carModel)
     SetModelAsNoLongerNeeded(pedModel)
     
-    -- Small delay between spawns
-    Wait(150)
+    -- Small delay between spawns to prevent issues
+    Wait(100)
 end
+
+
 function killAllRacers()
     for i = 1, playerNumber do
         if DoesEntityExist(players[i]) then
